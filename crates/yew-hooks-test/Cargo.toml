@@ -2,7 +2,17 @@
 name = "yew-hooks-test"
 version = "0.1.0"
 edition = "2018"
+authors = ["Jet Li <jing.i.qin@icloud.com>"]
+categories = ["gui", "wasm", "web-programming"]
+keywords = ["wasm", "yew", "hooks"]
+description = "Hooks test for the Yew web framework."
+license = "Apache-2.0/MIT"
+readme = "../../README.md"
+repository = "https://github.com/jetli/yew-hooks"
+homepage = "https://github.com/jetli/yew-hooks"
+documentation = "https://github.com/jetli/yew-hooks"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+yew = "0.19.3"
