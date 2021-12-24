@@ -1,0 +1,17 @@
+{
+  "author": "Jet Li <jing.i.qin@icloud.com>",
+  "name": "yew-app",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "cross-env WASM_PACK_PROFILE=release parcel build static/index.html --public-url ./",
+    "start": "cross-env WASM_PACK_PROFILE=dev parcel static/index.html -p 8000 --open",
+    "test": "wasm-pack test --headless --chrome"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-wasm.rs": "^1.3.0",
+    "sass": "^1.45.1",
+    "typescript": "^3.7.4"
+  }
+}

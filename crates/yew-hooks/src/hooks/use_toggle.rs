@@ -4,7 +4,7 @@ use std::rc::Rc;
 
 use yew::functional::{use_reducer, Reducible, UseReducerHandle};
 
-pub enum ToggleAction<T> {
+enum ToggleAction<T> {
     Toggle,
     Reset,
     Set(T),
