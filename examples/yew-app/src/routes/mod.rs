@@ -24,6 +24,6 @@ pub fn switch(routes: &AppRoute) -> Html {
     match routes.clone() {
         AppRoute::Home => html! { <Home /> },
         AppRoute::About => html! { <About /> },
-        AppRoute::PageNotFound => html! { "Page not found" },
+        AppRoute::PageNotFound => html! { <Home /> },
     }
 }
