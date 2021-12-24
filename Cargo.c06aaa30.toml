@@ -1,0 +1,36 @@
+[package]
+authors = ["You <you@example.com>"]
+categories = ["wasm"]
+description = "My awesome Yew app."
+edition = "2018"
+license = "Apache-2.0/MIT"
+name = "yew-app"
+readme = "./README.md"
+repository = "https://github.com/jetli/create-yew-app.git"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+log = "0.4"
+yew = "0.19.3"
+yew-router = "0.16.0"
+yew-hooks = { path = "../../crates/yew-hooks" }
+wasm-bindgen = "0.2"
+wasm-logger = "0.2.0"
+wee_alloc = "0.4.5"
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3.14"
+gloo-utils = "0.1.0"
+
+[dev-dependencies.web-sys]
+version = "0.3"
+features = [
+  "Document",
+  "Element",
+  "HtmlCollection",
+]
