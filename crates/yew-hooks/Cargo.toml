@@ -1,6 +1,6 @@
 [package]
 name = "yew-hooks"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2018"
 authors = ["Jet Li <jing.i.qin@icloud.com>"]
 categories = ["gui", "wasm", "web-programming"]
@@ -10,7 +10,7 @@ license = "Apache-2.0/MIT"
 readme = "../../README.md"
 repository = "https://github.com/jetli/yew-hooks"
 homepage = "https://github.com/jetli/yew-hooks"
-documentation = "https://github.com/jetli/yew-hooks"
+documentation = "https://docs.rs/yew-hooks/"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

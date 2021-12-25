@@ -68,19 +68,6 @@ where
     inner: UseReducerHandle<UseToggleReducer<T>>,
 }
 
-impl<T: fmt::Debug> fmt::Debug for UseToggleHandle<T>
-where
-    T: PartialEq,
-{
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        f.debug_struct("UseToggleHandle")
-            .field("value", &format!("{:?}", self.inner.value))
-            .field("left", &format!("{:?}", self.inner.left))
-            .field("right", &format!("{:?}", self.inner.right))
-            .finish()
-    }
-}
-
 impl<T> UseToggleHandle<T>
 where
     T: PartialEq,
@@ -134,6 +121,19 @@ where
 {
     fn eq(&self, other: &Self) -> bool {
         *self.inner == *other.inner
+    }
+}
+
+impl<T: fmt::Debug> fmt::Debug for UseToggleHandle<T>
+where
+    T: PartialEq,
+{
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        f.debug_struct("UseToggleHandle")
+            .field("value", &format!("{:?}", self.inner.value))
+            .field("left", &format!("{:?}", self.inner.left))
+            .field("right", &format!("{:?}", self.inner.right))
+            .finish()
     }
 }
 

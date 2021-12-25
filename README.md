@@ -5,6 +5,7 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 ## Hooks
 
 - use_toggle / use_bool_toggle.
+- use_counter.
 
 ## Demo
 
