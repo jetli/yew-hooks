@@ -1,6 +1,6 @@
 use yew::prelude::*;
 
-use yew_hooks::{use_bool_toggle, use_toggle};
+use yew_hooks::{use_bool_toggle, use_mount, use_toggle, use_unmount};
 
 /// Home page
 #[function_component(Home)]
@@ -30,6 +30,14 @@ pub fn home() -> Html {
         let toggle3 = toggle3.clone();
         Callback::from(move |_| toggle3.toggle())
     };
+
+    use_mount(|| {
+        log::debug!("Running effect once on mount");
+    });
+
+    use_unmount(|| {
+        log::debug!("Running clean-up of effect on unmount");
+    });
 
     html! {
         <div class="app">

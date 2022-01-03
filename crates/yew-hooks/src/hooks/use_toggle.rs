@@ -146,7 +146,7 @@ where
 /// #
 /// # use yew_hooks::use_bool_toggle;
 /// #
-/// #[function_component(UseToggle)]
+/// #[function_component(Toggle)]
 /// fn toggle() -> Html {
 ///     let toggle = use_bool_toggle(true);
 ///     let onclick = {

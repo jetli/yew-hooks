@@ -116,7 +116,7 @@ impl PartialEq for UseCounterHandle {
 /// #
 /// # use yew_hooks::use_counter;
 /// #
-/// #[function_component(UseCounter)]
+/// #[function_component(Counter)]
 /// fn counter() -> Html {
 ///     let counter = use_counter(0);
 ///     let onincrease = {

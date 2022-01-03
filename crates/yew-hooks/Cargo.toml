@@ -16,3 +16,6 @@ documentation = "https://docs.rs/yew-hooks/"
 
 [dependencies]
 yew = "0.19.3"
+
+[dev-dependencies]
+log = "0.4.8"
