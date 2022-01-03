@@ -1,6 +1,6 @@
 use yew::prelude::*;
 
-use yew_hooks::{use_bool_toggle, use_mount, use_toggle, use_unmount};
+use yew_hooks::{use_bool_toggle, use_is_first_mount, use_mount, use_toggle, use_unmount};
 
 /// Home page
 #[function_component(Home)]
@@ -39,6 +39,8 @@ pub fn home() -> Html {
         log::debug!("Running clean-up of effect on unmount");
     });
 
+    let is_first = use_is_first_mount();
+
     html! {
         <div class="app">
             <header class="app-header">
@@ -63,6 +65,12 @@ pub fn home() -> Html {
                     <p>
                         <b>{ "Current value: " }</b>
                         { *toggle3 }
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        <b>{ "Is first mount: " }</b>
+                        { is_first }
                     </p>
                 </div>
             </header>

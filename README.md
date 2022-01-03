@@ -9,6 +9,7 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 - `use_toggle` - tracks state of counterparts.
 - `use_bool_toggle` - tracks state of a boolean.
 - `use_counter` -  tracks state of a number.
+- `use_is_first_mount` - check if current render is first.
 
 ### Lifecycles
 
