@@ -1,6 +1,8 @@
 use yew::prelude::*;
 
-use yew_hooks::{use_bool_toggle, use_is_first_mount, use_mount, use_toggle, use_unmount};
+use yew_hooks::{
+    use_bool_toggle, use_is_first_mount, use_is_mounted, use_mount, use_toggle, use_unmount,
+};
 
 /// Home page
 #[function_component(Home)]
@@ -41,6 +43,8 @@ pub fn home() -> Html {
 
     let is_first = use_is_first_mount();
 
+    let is_mounted = use_is_mounted();
+
     html! {
         <div class="app">
             <header class="app-header">
@@ -71,6 +75,12 @@ pub fn home() -> Html {
                     <p>
                         <b>{ "Is first mount: " }</b>
                         { is_first }
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        <b>{ "Is mounted: " }</b>
+                        { is_mounted }
                     </p>
                 </div>
             </header>
