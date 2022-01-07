@@ -16,6 +16,7 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 log = "0.4"
+js-sys = "0.3"
 yew = "0.19.3"
 yew-router = "0.16.0"
 yew-hooks = { path = "../../crates/yew-hooks" }

@@ -22,6 +22,7 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 
 - `use_timeout` - schedules a timeout to invoke callback.
 - `use_interval` - schedules an interval to invoke callback.
+- `use_update` - returns a callback, which re-renders component when called.
 
 ## Demo
 
