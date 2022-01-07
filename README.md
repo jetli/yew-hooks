@@ -18,6 +18,11 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 - `use_is_first_mount` - checks if current render is first.
 - `use_is_mounted` - tracks if component is mounted.
 
+### Animations
+
+- `use_timeout` - schedules a timeout to invoke callback.
+- `use_interval` - schedules an interval to invoke callback.
+
 ## Demo
 
 - [Check out a live demo](https://jetli.github.io/yew-hooks/)

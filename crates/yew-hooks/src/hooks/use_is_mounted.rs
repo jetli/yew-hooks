@@ -1,3 +1,4 @@
+use std::rc::Rc;
 use yew::use_mut_ref;
 
 use super::use_effect_once;
@@ -16,13 +17,13 @@ use super::use_effect_once;
 ///     
 ///     html! {
 ///         <>
-///             { is_mounted }
+///             { is_mounted() }
 ///         </>
 ///     }
 ///
 /// }
 /// ```
-pub fn use_is_mounted() -> bool {
+pub fn use_is_mounted() -> Rc<impl Fn() -> bool> {
     let is_mounted = use_mut_ref(|| false);
 
     {
@@ -35,7 +36,11 @@ pub fn use_is_mounted() -> bool {
         });
     }
 
-    let is_mounted = *is_mounted.borrow();
-
-    is_mounted
+    {
+        let is_mounted = is_mounted.clone();
+        Rc::new(move || {
+            let is_mounted = *is_mounted.borrow();
+            is_mounted
+        })
+    }
 }

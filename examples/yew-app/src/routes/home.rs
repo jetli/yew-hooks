@@ -1,7 +1,8 @@
 use yew::prelude::*;
 
 use yew_hooks::{
-    use_bool_toggle, use_is_first_mount, use_is_mounted, use_mount, use_toggle, use_unmount,
+    use_bool_toggle, use_interval, use_is_first_mount, use_is_mounted, use_mount, use_timeout,
+    use_toggle, use_unmount,
 };
 
 /// Home page
@@ -44,6 +45,50 @@ pub fn home() -> Html {
     let is_first = use_is_first_mount();
 
     let is_mounted = use_is_mounted();
+    {
+        let is_mounted = is_mounted.clone();
+        use_timeout(move || {
+            log::debug!("Is mounted: {:?}", is_mounted());
+        }, 2000);
+    }
+
+    let timeout_millis = use_state(|| 0);
+    let timeout_state = use_state(|| 0);
+    let on_start_timeout = {
+        let timeout_millis = timeout_millis.clone();
+        Callback::from(move |_| timeout_millis.set(2000))
+    };
+    {
+        let timeout_state = timeout_state.clone();
+        use_timeout(
+            move || {
+                log::debug!("Timeout!");
+                timeout_state.set(1000);
+            },
+            *timeout_millis,
+        );
+    }
+
+    let interval_millis = use_state(|| 0);
+    let interval_state = use_state(|| 0);
+    let on_start_interval = {
+        let interval_millis = interval_millis.clone();
+        Callback::from(move |_| interval_millis.set(2000))
+    };
+    let onincrease = {
+        let interval_state = interval_state.clone();
+        Callback::from(move |_| interval_state.set(*interval_state + 1))
+    };
+    {
+        let interval_state = interval_state.clone();
+        use_interval(
+            move || {
+                interval_state.set(*interval_state + 1);
+                log::debug!("Interval! {:?}", *interval_state);
+            },
+            *interval_millis,
+        );
+    }
 
     html! {
         <div class="app">
@@ -80,7 +125,22 @@ pub fn home() -> Html {
                 <div>
                     <p>
                         <b>{ "Is mounted: " }</b>
-                        { is_mounted }
+                        { is_mounted() }
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        <button onclick={on_start_timeout}>{ "Start timeout" }</button>
+                        <b>{ "Timeout state: " }</b>
+                        { *timeout_state }
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        <button onclick={on_start_interval}>{ "Start interval" }</button>
+                        <button onclick={onincrease}>{ "Increase" }</button>
+                        <b>{ "Interval state: " }</b>
+                        { *interval_state }
                     </p>
                 </div>
             </header>
