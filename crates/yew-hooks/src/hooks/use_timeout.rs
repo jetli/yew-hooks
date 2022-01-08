@@ -5,6 +5,7 @@ use yew::{use_effect_with_deps, use_mut_ref};
 /// The timeout will be cancelled if `millis` is set to 0.
 ///
 /// # Example
+/// 
 /// ```rust
 /// # use yew::prelude::*;
 /// #
@@ -13,6 +14,7 @@ use yew::{use_effect_with_deps, use_mut_ref};
 /// #[function_component(Timeout)]
 /// fn timeout() -> Html {
 ///     let state = use_state(|| 0);
+/// 
 ///     {
 ///         let state = state.clone();
 ///         use_timeout(move || {
@@ -25,7 +27,6 @@ use yew::{use_effect_with_deps, use_mut_ref};
 ///             { *state }
 ///         </>
 ///     }
-///
 /// }
 /// ```
 pub fn use_timeout<Callback>(callback: Callback, millis: u32)

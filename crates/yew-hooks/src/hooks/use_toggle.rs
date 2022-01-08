@@ -140,15 +140,16 @@ where
 /// This hook is a simplified [`use_toggle`] to manage boolean toggle state in a function component.
 ///
 /// # Example
+/// 
 /// ```rust
 /// # use yew::prelude::*;
-/// # use std::rc::Rc;
 /// #
 /// # use yew_hooks::use_bool_toggle;
 /// #
 /// #[function_component(Toggle)]
 /// fn toggle() -> Html {
 ///     let toggle = use_bool_toggle(true);
+/// 
 ///     let onclick = {
 ///         let toggle = toggle.clone();
 ///         Callback::from(move |_| toggle.toggle())
@@ -163,7 +164,6 @@ where
 ///             </p>
 ///         </div>
 ///     }
-///
 /// }
 /// ```
 pub fn use_bool_toggle(default: bool) -> UseToggleHandle<bool> {
@@ -173,15 +173,16 @@ pub fn use_bool_toggle(default: bool) -> UseToggleHandle<bool> {
 /// This hook is used to manage toggle state in a function component.
 ///
 /// # Example
+/// 
 /// ```rust
 /// # use yew::prelude::*;
-/// # use std::rc::Rc;
 /// #
 /// # use yew_hooks::use_toggle;
 /// #
 /// #[function_component(UseToggle)]
 /// fn toggle() -> Html {
 ///     let toggle = use_toggle("Hello", "World");
+/// 
 ///     let onclick = {
 ///         let toggle = toggle.clone();
 ///         Callback::from(move |_| toggle.toggle())
@@ -196,7 +197,6 @@ pub fn use_bool_toggle(default: bool) -> UseToggleHandle<bool> {
 ///             </p>
 ///         </div>
 ///     }
-///
 /// }
 /// ```
 pub fn use_toggle<T>(default: T, other: T) -> UseToggleHandle<T>

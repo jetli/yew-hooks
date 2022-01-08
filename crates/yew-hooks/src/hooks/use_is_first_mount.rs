@@ -3,6 +3,7 @@ use yew::use_mut_ref;
 /// A hook returns true if component is just mounted (on first render) and false otherwise.
 ///
 /// # Example
+/// 
 /// ```rust
 /// # use yew::prelude::*;
 /// #
@@ -17,7 +18,6 @@ use yew::use_mut_ref;
 ///             { is_first }
 ///         </>
 ///     }
-///
 /// }
 /// ```
 pub fn use_is_first_mount() -> bool {

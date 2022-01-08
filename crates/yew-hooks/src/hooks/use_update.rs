@@ -4,6 +4,7 @@ use yew::use_state;
 /// A hook returns a function that forces component to re-render when called.
 ///
 /// # Example
+/// 
 /// ```rust
 /// # use yew::prelude::*;
 /// #
@@ -22,7 +23,6 @@ use yew::use_state;
 ///             <button {onclick}>{ "Update" }</button>
 ///         </>
 ///     }
-///
 /// }
 /// ```
 pub fn use_update() -> Rc<impl Fn()> {
