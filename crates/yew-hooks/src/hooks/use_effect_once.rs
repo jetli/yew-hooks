@@ -3,7 +3,7 @@ use yew::use_effect_with_deps;
 /// A lifecycle hook that runs an effect only once.
 ///
 /// # Example
-/// 
+///
 /// ```rust
 /// # use yew::prelude::*;
 /// # use log::debug;

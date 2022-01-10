@@ -110,7 +110,7 @@ impl PartialEq for UseCounterHandle {
 /// This hook is used to manage counter state in a function component.
 ///
 /// # Example
-/// 
+///
 /// ```rust
 /// # use yew::prelude::*;
 /// #
@@ -119,7 +119,7 @@ impl PartialEq for UseCounterHandle {
 /// #[function_component(Counter)]
 /// fn counter() -> Html {
 ///     let counter = use_counter(0);
-/// 
+///
 ///     let onincrease = {
 ///         let counter = counter.clone();
 ///         Callback::from(move |_| counter.increase())

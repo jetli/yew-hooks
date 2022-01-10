@@ -6,7 +6,7 @@ use super::use_effect_once;
 /// A hook returns true if component is mounted and false otherwise.
 ///
 /// # Example
-/// 
+///
 /// ```rust
 /// # use yew::prelude::*;
 /// #
@@ -36,11 +36,8 @@ pub fn use_is_mounted() -> Rc<impl Fn() -> bool> {
         });
     }
 
-    {
-        let is_mounted = is_mounted.clone();
-        Rc::new(move || {
-            let is_mounted = *is_mounted.borrow();
-            is_mounted
-        })
-    }
+    Rc::new(move || {
+        let is_mounted = *is_mounted.borrow();
+        is_mounted
+    })
 }

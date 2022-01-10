@@ -5,7 +5,7 @@ use super::use_effect_once;
 /// A lifecycle hook that calls a function when the component will unmount.
 ///
 /// # Example
-/// 
+///
 /// ```rust
 /// # use yew::prelude::*;
 /// # use log::debug;

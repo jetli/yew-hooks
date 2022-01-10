@@ -56,34 +56,40 @@ pub fn home() -> Html {
     }
 
     let timeout_millis = use_state(|| 0);
-    let timeout_state = use_state(get_current_time);
+    let timeout_state = use_state(|| 0);
     let on_start_timeout = {
         let timeout_millis = timeout_millis.clone();
         Callback::from(move |_| timeout_millis.set(2000))
+    };
+    let on_cancel_timeout = {
+        let timeout_millis = timeout_millis.clone();
+        Callback::from(move |_| timeout_millis.set(0))
     };
     {
         let timeout_state = timeout_state.clone();
         use_timeout(
             move || {
-                log::debug!("Timeout!");
-                timeout_state.set(get_current_time());
+                timeout_state.set(*timeout_state + 1);
             },
             *timeout_millis,
         );
     }
 
     let interval_millis = use_state(|| 0);
-    let interval_state = use_state(get_current_time);
+    let interval_state = use_state(|| 0);
     let on_start_interval = {
         let interval_millis = interval_millis.clone();
         Callback::from(move |_| interval_millis.set(2000))
+    };
+    let on_cancel_interval = {
+        let interval_millis = interval_millis.clone();
+        Callback::from(move |_| interval_millis.set(0))
     };
     {
         let interval_state = interval_state.clone();
         use_interval(
             move || {
-                interval_state.set(get_current_time());
-                log::debug!("Interval! {:?}", *interval_state);
+                interval_state.set(*interval_state + 1);
             },
             *interval_millis,
         );
@@ -135,15 +141,17 @@ pub fn home() -> Html {
                 <div>
                     <p>
                         <button onclick={on_start_timeout}>{ "Start timeout" }</button>
+                        <button onclick={on_cancel_timeout}>{ "Cancel timeout" }</button>
                         <b>{ "Timeout state: " }</b>
-                        { &*timeout_state }
+                        { *timeout_state }
                     </p>
                 </div>
                 <div>
                     <p>
                         <button onclick={on_start_interval}>{ "Start interval" }</button>
+                        <button onclick={on_cancel_interval}>{ "Cancel interval" }</button>
                         <b>{ "Interval state: " }</b>
-                        { &*interval_state }
+                        { *interval_state }
                     </p>
                 </div>
                 <div>

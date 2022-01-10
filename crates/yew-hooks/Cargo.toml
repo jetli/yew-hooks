@@ -1,11 +1,11 @@
 [package]
 name = "yew-hooks"
-version = "0.1.8"
+version = "0.1.9"
 edition = "2018"
 authors = ["Jet Li <jing.i.qin@icloud.com>"]
 categories = ["gui", "wasm", "web-programming"]
-keywords = ["wasm", "yew", "hooks"]
-description = "Hooks for the Yew web framework."
+keywords = ["wasm", "yew", "hooks", "react"]
+description = "Hooks for the Yew web framework, inspired by react hook libs `streamich/react-use` and `alibaba/hooks`."
 license = "Apache-2.0/MIT"
 readme = "../../README.md"
 repository = "https://github.com/jetli/yew-hooks"

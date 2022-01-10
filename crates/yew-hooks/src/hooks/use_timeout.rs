@@ -5,7 +5,7 @@ use yew::{use_effect_with_deps, use_mut_ref};
 /// The timeout will be cancelled if `millis` is set to 0.
 ///
 /// # Example
-/// 
+///
 /// ```rust
 /// # use yew::prelude::*;
 /// #
@@ -14,7 +14,7 @@ use yew::{use_effect_with_deps, use_mut_ref};
 /// #[function_component(Timeout)]
 /// fn timeout() -> Html {
 ///     let state = use_state(|| 0);
-/// 
+///
 ///     {
 ///         let state = state.clone();
 ///         use_timeout(move || {
@@ -34,6 +34,7 @@ where
     Callback: FnOnce() + 'static,
 {
     let callback_ref = use_mut_ref(|| None);
+    let callback_buffer_ref = use_mut_ref(|| None);
     let timeout_ref = use_mut_ref(|| None);
 
     // Update the ref each render so if it changes the newest callback will be invoked.
@@ -42,9 +43,15 @@ where
     use_effect_with_deps(
         move |millis| {
             if *millis > 0 {
-                if let Some(callback) = (*callback_ref.borrow_mut()).take() {
-                    *timeout_ref.borrow_mut() = Some(Timeout::new(*millis, callback));
-                }
+                *timeout_ref.borrow_mut() = Some(Timeout::new(*millis, move || {
+                    if let Some(callback) = (*callback_ref.borrow_mut()).take() {
+                        *callback_buffer_ref.borrow_mut() = Some(callback);
+                    }
+
+                    if let Some(callback) = (*callback_buffer_ref.borrow_mut()).take() {
+                        callback();
+                    }
+                }));
             } else {
                 *timeout_ref.borrow_mut() = None;
             }

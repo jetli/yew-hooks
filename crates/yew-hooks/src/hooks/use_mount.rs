@@ -3,7 +3,7 @@ use super::use_effect_once;
 /// A lifecycle hook that calls a function after the component is mounted.
 ///
 /// # Example
-/// 
+///
 /// ```rust
 /// # use yew::prelude::*;
 /// # use log::debug;

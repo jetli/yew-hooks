@@ -1,20 +1,20 @@
 //! # Yew Hooks
-//! 
-//! Hooks for [Yew](https://github.com/yewstack/yew), inspired by 
-//! [streamich/react-use](https://github.com/streamich/react-use) and 
+//!
+//! Hooks for [Yew](https://github.com/yewstack/yew), inspired by
+//! [streamich/react-use](https://github.com/streamich/react-use) and
 //! [alibaba/hooks](https://github.com/alibaba/hooks).
-//! 
+//!
 //! ## Examples
-//! 
+//!
 //! ```rust
 //! use yew::prelude::*;
-//! 
+//!
 //! use yew_hooks::use_counter;
-//! 
+//!
 //! #[function_component(Counter)]
 //! fn counter() -> Html {
 //!     let counter = use_counter(0);
-//! 
+//!
 //!     let onincrease = {
 //!         let counter = counter.clone();
 //!         Callback::from(move |_| counter.increase())
@@ -39,7 +39,7 @@
 //!         let counter = counter.clone();
 //!         Callback::from(move |_| counter.reset())
 //!     };
-//! 
+//!
 //!     html! {
 //!         <div>
 //!             <button onclick={onincrease}>{ "Increase" }</button>
@@ -56,9 +56,9 @@
 //!     }
 //! }
 //! ```
-//! 
+//!
 //! ## Demo
-//! 
+//!
 //! [Check out a live demo](https://jetli.github.io/yew-hooks/)
 
 mod hooks;
