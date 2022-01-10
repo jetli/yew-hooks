@@ -34,7 +34,6 @@ where
     Callback: FnMut() + 'static,
 {
     let callback_ref = use_mut_ref(|| None);
-    let callback_buffer_ref = use_mut_ref(|| None);
     let interval_ref = use_mut_ref(|| None);
 
     // Update the ref each render so if it changes the newest callback will be invoked.
@@ -44,12 +43,15 @@ where
         move |millis| {
             if *millis > 0 {
                 *interval_ref.borrow_mut() = Some(Interval::new(*millis, move || {
-                    if let Some(callback) = (*callback_ref.borrow_mut()).take() {
-                        *callback_buffer_ref.borrow_mut() = Some(callback);
-                    }
+                    let callback = (*callback_ref.borrow_mut()).take();
 
-                    if let Some(callback) = (*callback_buffer_ref.borrow_mut()).as_mut() {
+                    if let Some(mut callback) = callback {
                         callback();
+
+                        // Put back callback if needed.
+                        if (*callback_ref.borrow_mut()).is_none() {
+                            *callback_ref.borrow_mut() = Some(callback);
+                        }
                     }
                 }));
             } else {
