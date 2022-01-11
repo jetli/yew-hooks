@@ -18,7 +18,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseCounter} classes="app-link">{ "use_counter" }</Link<AppRoute>> { " - tracks state of a number." }</li>
                     </ul>
 
-                    <h2>{ "Lifecycles Hooks" }</h2>
+                    <h2>{ "Lifecycle Hooks" }</h2>
 
                     <ul>
                         <li><Link<AppRoute> to={AppRoute::UseEffectOnce} classes="app-link" >{ "use_effect_once" }</Link<AppRoute>> { " - a modified use_effect hook that only runs once." }</li>
@@ -28,7 +28,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseIsMounted} classes="app-link">{ "use_is_mounted" }</Link<AppRoute>> { " - tracks if component is mounted." }</li>
                     </ul>
 
-                    <h2>{ "Animations Hooks" }</h2>
+                    <h2>{ "Animation Hooks" }</h2>
 
                     <ul>
                         <li><Link<AppRoute> to={AppRoute::UseTimeout} classes="app-link" >{ "use_timeout" }</Link<AppRoute>> { " - schedules a timeout to invoke callback." }</li>
