@@ -9,6 +9,7 @@ pub fn home() -> Html {
     html! {
         <div class="app">
             <header class="app-header">
+                <h1>{ "Yew Hooks" }</h1>
                 <div class="hooks">
                     <h2>{ "State Hooks" }</h2>
 
