@@ -28,7 +28,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseIsMounted} classes="app-link">{ "use_is_mounted" }</Link<AppRoute>> { " - tracks if component is mounted." }</li>
                     </ul>
 
-                    <h2>{ "Animations" }</h2>
+                    <h2>{ "Animations Hooks" }</h2>
 
                     <ul>
                         <li><Link<AppRoute> to={AppRoute::UseTimeout} classes="app-link" >{ "use_timeout" }</Link<AppRoute>> { " - schedules a timeout to invoke callback." }</li>
