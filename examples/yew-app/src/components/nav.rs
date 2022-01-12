@@ -12,6 +12,7 @@ pub fn nav() -> Html {
                 <li><Link<AppRoute> to={AppRoute::Home} classes="app-link" >{ "Home" }</Link<AppRoute>></li>
                 <li><Link<AppRoute> to={AppRoute::About} classes="app-link">{ "About" }</Link<AppRoute>></li>
                 <li><a class="app-link" href="https://github.com/jetli/yew-hooks" target="_blank">{ "Github" }</a></li>
+                <li><a class="app-link" href="https://docs.rs/yew-hooks/" target="_blank">{ "Docs" }</a></li>
             </ul>
         </nav>
     }

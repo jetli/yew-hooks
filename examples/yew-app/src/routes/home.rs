@@ -10,6 +10,13 @@ pub fn home() -> Html {
         <div class="app">
             <header class="app-header">
                 <h1>{ "Yew Hooks" }</h1>
+                <a
+                    class="app-logo"
+                    href="https://yew.rs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                </a>
                 <div class="hooks">
                     <h2>{ "State" }</h2>
 
@@ -37,6 +44,9 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseUpdate} classes="app-link">{ "use_update" }</Link<AppRoute>> { " - returns a callback, which re-renders component when called." }</li>
                     </ul>
                 </div>
+                <p>
+                    { "More is coming.." }
+                </p>
             </header>
         </div>
     }
