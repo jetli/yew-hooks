@@ -23,7 +23,7 @@ jobs:
     - name: Build examples
       run: |
         cd examples/yew-app/
-        npm run install
+        npm install
         npm run build
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4.2.2
