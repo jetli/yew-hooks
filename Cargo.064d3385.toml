@@ -16,6 +16,7 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 log = "0.4"
+gloo = "0.4"
 js-sys = "0.3"
 yew = "0.19.3"
 yew-router = "0.16.0"
@@ -26,7 +27,6 @@ wee_alloc = "0.4.5"
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3.14"
-gloo-utils = "0.1.0"
 
 [dev-dependencies.web-sys]
 version = "0.3"
