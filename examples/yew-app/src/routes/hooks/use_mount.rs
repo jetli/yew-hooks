@@ -1,20 +1,43 @@
+use gloo::dialogs::alert;
+
 use yew::prelude::*;
 
-use yew_hooks::use_mount;
+use yew_hooks::{use_mount, use_toggle};
 
 /// `use_mount` demo
+#[function_component(MyComponent)]
+fn my_component() -> Html {
+    use_mount(|| {
+        alert("Mount!");
+    });
+
+    html! {
+        <>{ "My Component" }</>
+    }
+}
+
 #[function_component(UseMount)]
 pub fn mount() -> Html {
-    use_mount(|| {
-        log::debug!("Running effect once on mount");
-    });
+    let toggle = use_toggle("Mount", "Unmount");
+
+    let onclick = {
+        let toggle = toggle.clone();
+        Callback::from(move |_| toggle.toggle())
+    };
 
     html! {
         <div class="app">
             <header class="app-header">
                 <div>
+                    <button {onclick}>{ *toggle }</button>
                     <p>
-                        <b>{ "Please view console log" }</b>
+                        {
+                            if *toggle == "Unmount" {
+                                html! { <MyComponent /> }
+                            } else {
+                                html! {}
+                            }
+                        }
                     </p>
                 </div>
             </header>

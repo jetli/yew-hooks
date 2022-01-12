@@ -38,7 +38,7 @@ mod tests {
     fn about_page_has_an_app_link() {
         start_app::<About>();
 
-        let app_links = gloo_utils::document().get_elements_by_class_name("app-link");
+        let app_links = gloo::utils::document().get_elements_by_class_name("app-link");
 
         assert_eq!(app_links.length(), 1);
 

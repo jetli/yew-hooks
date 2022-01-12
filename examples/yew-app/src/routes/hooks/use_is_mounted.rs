@@ -1,3 +1,5 @@
+use gloo::dialogs::alert;
+
 use yew::prelude::*;
 
 use yew_hooks::{use_is_mounted, use_timeout};
@@ -11,7 +13,7 @@ pub fn is_mounted() -> Html {
         let is_mounted = is_mounted.clone();
         use_timeout(
             move || {
-                log::debug!("Is mounted: {:?}", is_mounted());
+                alert(format!("Is mounted: {:?}", is_mounted()).as_str());
             },
             2000,
         );

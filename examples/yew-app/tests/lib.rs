@@ -10,7 +10,7 @@ use yew_app::components::nav::Nav;
 fn app_has_a_home_page() {
     start_app::<YewApp>();
 
-    let learn_yew = gloo_utils::document()
+    let learn_yew = gloo::utils::document()
         .get_element_by_id("learn_yew")
         .expect("No learn yew anchor or no home page")
         .inner_html();
@@ -21,7 +21,7 @@ fn app_has_a_home_page() {
 fn nav_component_has_routes() {
     start_app::<Nav>();
 
-    let nav_routes = gloo_utils::document().get_elements_by_class_name("app-link");
+    let nav_routes = gloo::utils::document().get_elements_by_class_name("app-link");
 
     assert_eq!(nav_routes.length(), 2);
 
