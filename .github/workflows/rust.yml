@@ -29,6 +29,6 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4.2.2
       with:
         branch: gh-pages
-        folder: dist
+        folder: examples/yew-app/dist
         clean: true
         clean-exclude: "[\".gitignore\", \"README.md\"]"
