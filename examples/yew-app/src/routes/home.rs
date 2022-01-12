@@ -11,7 +11,7 @@ pub fn home() -> Html {
             <header class="app-header">
                 <h1>{ "Yew Hooks" }</h1>
                 <div class="hooks">
-                    <h2>{ "State Hooks" }</h2>
+                    <h2>{ "State" }</h2>
 
                     <ul>
                         <li><Link<AppRoute> to={AppRoute::UseToggle} classes="app-link" >{ "use_toggle" }</Link<AppRoute>> { " - tracks state of counterparts." }</li>
@@ -19,7 +19,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseCounter} classes="app-link">{ "use_counter" }</Link<AppRoute>> { " - tracks state of a number." }</li>
                     </ul>
 
-                    <h2>{ "Lifecycle Hooks" }</h2>
+                    <h2>{ "Lifecycles" }</h2>
 
                     <ul>
                         <li><Link<AppRoute> to={AppRoute::UseEffectOnce} classes="app-link" >{ "use_effect_once" }</Link<AppRoute>> { " - a modified use_effect hook that only runs once." }</li>
@@ -29,7 +29,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseIsMounted} classes="app-link">{ "use_is_mounted" }</Link<AppRoute>> { " - tracks if component is mounted." }</li>
                     </ul>
 
-                    <h2>{ "Animation Hooks" }</h2>
+                    <h2>{ "Animations" }</h2>
 
                     <ul>
                         <li><Link<AppRoute> to={AppRoute::UseTimeout} classes="app-link" >{ "use_timeout" }</Link<AppRoute>> { " - schedules a timeout to invoke callback." }</li>
