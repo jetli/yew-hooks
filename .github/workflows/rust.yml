@@ -20,6 +20,14 @@ jobs:
       with:
         # Optional version of wasm-pack to install(eg. '0.9.1', 'latest')
         version: 'latest'
+    - name: Cargo fmt & clippy
+      run: |
+        cargo fmt --all -- --check
+        cargo clippy -- --deny=warnings
+    - name: Tests
+      run: |
+        cd crates/yew-hooks
+        cargo test
     - name: Build examples
       run: |
         cd examples/yew-app/
@@ -32,7 +40,3 @@ jobs:
         folder: examples/yew-app/dist
         clean: true
         clean-exclude: "[\".gitignore\", \"README.md\"]"
-    - name: Cargo fmt & clippy
-      run: |
-        cargo fmt --all -- --check
-        cargo clippy -- --deny=warnings
