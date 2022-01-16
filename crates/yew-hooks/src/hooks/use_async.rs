@@ -106,7 +106,7 @@ where
 ///     
 ///     html! {
 ///         <div>
-///             <button {onclick}>{ "Start loading" }</button>
+///             <button {onclick} disabled={state.loading}>{ "Start loading" }</button>
 ///             {
 ///                 if state.loading {
 ///                     html! { "Loading" }

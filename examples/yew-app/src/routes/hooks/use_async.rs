@@ -22,7 +22,7 @@ pub fn async_demo() -> Html {
         <div class="app">
             <header class="app-header">
                 <div>
-                    <button {onclick}>{ "Start loading" }</button>
+                    <button {onclick} disabled={state.loading}>{ "Start loading" }</button>
                     <p>
                         {
                             if state.loading {
