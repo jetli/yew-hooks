@@ -39,4 +39,3 @@ jobs:
         branch: gh-pages
         folder: examples/yew-app/dist
         clean: true
-        clean-exclude: "[\".gitignore\", \"README.md\"]"
