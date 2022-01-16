@@ -1,6 +1,6 @@
 [package]
 name = "yew-hooks"
-version = "0.1.10"
+version = "0.1.11"
 edition = "2018"
 authors = ["Jet Li <jing.i.qin@icloud.com>"]
 categories = ["gui", "wasm", "web-programming"]
@@ -17,6 +17,7 @@ documentation = "https://docs.rs/yew-hooks/"
 [dependencies]
 yew = "0.19.3"
 gloo = "0.4"
+wasm-bindgen-futures = "0.4"
 
 [dev-dependencies]
 log = "0.4.8"

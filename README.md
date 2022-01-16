@@ -10,6 +10,10 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 - `use_bool_toggle` - tracks state of a boolean.
 - `use_counter` -  tracks state of a number.
 
+### Side-effects
+
+- `use_async` - resolves an async future.
+
 ### Lifecycles
 
 - `use_effect_once` - a modified use_effect hook that only runs once.

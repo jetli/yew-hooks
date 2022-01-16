@@ -10,13 +10,6 @@ pub fn home() -> Html {
         <div class="app">
             <header class="app-header">
                 <h1>{ "Yew Hooks" }</h1>
-                <a
-                    class="app-logo"
-                    href="https://yew.rs"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                </a>
                 <div class="hooks">
                     <h2>{ "State" }</h2>
 
@@ -24,6 +17,12 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseToggle} classes="app-link" >{ "use_toggle" }</Link<AppRoute>> { " - tracks state of counterparts." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseBoolToggle} classes="app-link">{ "use_bool_toggle" }</Link<AppRoute>> { " - tracks state of a boolean." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseCounter} classes="app-link">{ "use_counter" }</Link<AppRoute>> { " - tracks state of a number." }</li>
+                    </ul>
+
+                    <h2>{ "Side-effects" }</h2>
+
+                    <ul>
+                        <li><Link<AppRoute> to={AppRoute::UseAsync} classes="app-link" >{ "use_async" }</Link<AppRoute>> { " - resolves an async future." }</li>
                     </ul>
 
                     <h2>{ "Lifecycles" }</h2>
@@ -47,6 +46,13 @@ pub fn home() -> Html {
                 <p>
                     { "More is coming.." }
                 </p>
+                <a
+                    class="app-logo"
+                    href="https://yew.rs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                </a>
             </header>
         </div>
     }

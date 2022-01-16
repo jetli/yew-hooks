@@ -1,3 +1,4 @@
+mod use_async;
 mod use_counter;
 mod use_effect_once;
 mod use_interval;
@@ -9,6 +10,7 @@ mod use_toggle;
 mod use_unmount;
 mod use_update;
 
+pub use use_async::*;
 pub use use_counter::*;
 pub use use_effect_once::*;
 pub use use_interval::*;
