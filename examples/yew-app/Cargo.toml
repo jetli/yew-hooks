@@ -18,6 +18,7 @@ crate-type = ["cdylib", "rlib"]
 log = "0.4"
 gloo = "0.4"
 js-sys = "0.3"
+serde = "1"
 yew = "0.19.3"
 yew-router = "0.16.0"
 yew-hooks = { path = "../../crates/yew-hooks" }
