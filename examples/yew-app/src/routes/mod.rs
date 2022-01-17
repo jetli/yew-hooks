@@ -40,6 +40,8 @@ pub enum AppRoute {
     UseAsync,
     #[at("/use_title")]
     UseTitle,
+    #[at("/use_local_storage")]
+    UseLocalStorage,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -65,6 +67,7 @@ pub fn switch(routes: &AppRoute) -> Html {
         AppRoute::UseUpdate => html! { <UseUpdate /> },
         AppRoute::UseAsync => html! { <UseAsync /> },
         AppRoute::UseTitle => html! { <UseTitle /> },
+        AppRoute::UseLocalStorage => html! { <UseLocalStorage /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }

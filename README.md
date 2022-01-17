@@ -14,6 +14,7 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 
 - `use_async` - resolves an async future.
 - `use_title` - sets title of the page.
+- `use_local_storage` - manages a value in `localStorage`.
 
 ### Lifecycles
 
