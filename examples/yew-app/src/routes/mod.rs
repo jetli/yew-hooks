@@ -38,6 +38,8 @@ pub enum AppRoute {
     UseUpdate,
     #[at("/use_async")]
     UseAsync,
+    #[at("/use_title")]
+    UseTitle,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -62,6 +64,7 @@ pub fn switch(routes: &AppRoute) -> Html {
         AppRoute::UseUnmount => html! { <UseUnmount /> },
         AppRoute::UseUpdate => html! { <UseUpdate /> },
         AppRoute::UseAsync => html! { <UseAsync /> },
+        AppRoute::UseTitle => html! { <UseTitle /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }

@@ -23,6 +23,7 @@ pub fn home() -> Html {
 
                     <ul>
                         <li><Link<AppRoute> to={AppRoute::UseAsync} classes="app-link" >{ "use_async" }</Link<AppRoute>> { " - resolves an async future." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseTitle} classes="app-link" >{ "use_title" }</Link<AppRoute>> { " - sets title of the page." }</li>
                     </ul>
 
                     <h2>{ "Lifecycles" }</h2>

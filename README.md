@@ -13,6 +13,7 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 ### Side-effects
 
 - `use_async` - resolves an async future.
+- `use_title` - sets title of the page.
 
 ### Lifecycles
 
