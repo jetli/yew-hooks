@@ -137,9 +137,8 @@ where
 ///         let state = state.clone();
 ///         use_effect_with_deps(move |_| {
 ///             *interval.borrow_mut() = Some(Interval::new(1000, move || {
-///                 let latest_state = latest_state.current();
 ///                 // This will get the latest state and increase it by 1 each time.
-///                 state.set(**latest_state + 1);
+///                 state.set(**latest_state.current() + 1);
 ///             }));
 ///             move || *interval.borrow_mut() = None
 ///         }, ());
