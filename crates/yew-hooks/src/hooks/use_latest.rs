@@ -130,7 +130,6 @@ where
 ///     let state = use_state(|| 0);
 ///     let interval = use_mut_ref(|| None);
 ///
-///
 ///     let latest_state = use_latest(state.clone());
 ///
 ///     {

@@ -48,6 +48,8 @@ pub enum AppRoute {
     UseMutLatest,
     #[at("/use_latest")]
     UseLatest,
+    #[at("/use_previous")]
+    UsePrevious,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -77,6 +79,7 @@ pub fn switch(routes: &AppRoute) -> Html {
         AppRoute::UseSessionStorage => html! { <UseSessionStorage /> },
         AppRoute::UseMutLatest => html! { <UseMutLatest /> },
         AppRoute::UseLatest => html! { <UseLatest /> },
+        AppRoute::UsePrevious => html! { <UsePrevious /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }
