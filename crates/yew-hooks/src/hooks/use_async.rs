@@ -1,11 +1,11 @@
-use std::cell::RefCell;
 use std::future::Future;
 use std::ops::Deref;
-use std::rc::Rc;
 
 use wasm_bindgen_futures::spawn_local;
 
 use yew::prelude::*;
+
+use super::{use_mut_latest, UseMutLatestHandle};
 
 /// State for an async future.
 #[derive(PartialEq)]
@@ -18,7 +18,7 @@ pub struct UseAsyncState<T, E> {
 /// State handle for the [`use_async`] hook.
 pub struct UseAsyncHandle<F, T, E> {
     inner: UseStateHandle<UseAsyncState<T, E>>,
-    future_ref: Rc<RefCell<Option<F>>>,
+    future_ref: UseMutLatestHandle<Option<F>>,
 }
 
 impl<F, T, E> UseAsyncHandle<F, T, E>
@@ -27,22 +27,27 @@ where
     T: Clone + 'static,
     E: Clone + 'static,
 {
+    /// Start to resolve the async future to a final value.
     pub fn run(self) {
         spawn_local(async move {
-            let future = (*self.future_ref.borrow_mut()).take();
+            let future_ref = self.future_ref.current();
+            let future = (*future_ref.borrow_mut()).take();
 
             if let Some(future) = future {
+                // Only set loading to true and leave previous data/error alone.
                 self.inner.set(UseAsyncState {
                     loading: true,
                     data: (*self.inner).data.clone(),
                     error: (*self.inner).error.clone(),
                 });
                 match future.await {
+                    // Success with some data and clear previous error.
                     Ok(data) => self.inner.set(UseAsyncState {
                         loading: false,
                         data: Some(data),
                         error: None,
                     }),
+                    // Failed with some error and leave previous data alone.
                     Err(error) => self.inner.set(UseAsyncState {
                         loading: false,
                         data: (*self.inner).data.clone(),
@@ -148,10 +153,7 @@ where
         data: None,
         error: None,
     });
-    let future_ref = use_mut_ref(|| None);
-
-    // Update the ref each render so if it changes the newest future will be invoked.
-    *future_ref.borrow_mut() = Some(future);
+    let future_ref = use_mut_latest(Some(future));
 
     UseAsyncHandle { inner, future_ref }
 }

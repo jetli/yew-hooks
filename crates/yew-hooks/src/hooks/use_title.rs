@@ -1,6 +1,6 @@
 use yew::prelude::*;
 
-use crate::hooks::use_unmount;
+use super::use_unmount;
 
 /// A side-effect hook that sets title of the page and restore previous title when unmount.
 ///

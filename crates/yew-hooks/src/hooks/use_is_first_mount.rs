@@ -1,4 +1,4 @@
-use yew::use_mut_ref;
+use yew::prelude::*;
 
 /// A hook returns true if component is just mounted (on first render) and false otherwise.
 ///

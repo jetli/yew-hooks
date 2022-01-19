@@ -1,5 +1,6 @@
 use std::rc::Rc;
-use yew::use_mut_ref;
+
+use yew::prelude::*;
 
 use super::use_effect_once;
 

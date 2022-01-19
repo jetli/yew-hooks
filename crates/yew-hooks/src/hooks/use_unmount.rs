@@ -1,6 +1,4 @@
-use yew::use_mut_ref;
-
-use super::use_effect_once;
+use super::{use_effect_once, use_mut_latest};
 
 /// A lifecycle hook that calls a function when the component will unmount.
 ///
@@ -28,14 +26,13 @@ pub fn use_unmount<Callback>(callback: Callback)
 where
     Callback: FnOnce() + 'static,
 {
-    let callback_ref = use_mut_ref(|| None);
-
-    // Update the ref each render so if it changes the newest callback will be invoked.
-    *callback_ref.borrow_mut() = Some(callback);
+    let callback_ref = use_mut_latest(Some(callback));
 
     use_effect_once(move || {
         move || {
-            if let Some(callback) = (*callback_ref.borrow_mut()).take() {
+            let callback_ref = callback_ref.current();
+            let callback = (*callback_ref.borrow_mut()).take();
+            if let Some(callback) = callback {
                 callback();
             }
         }

@@ -1,5 +1,6 @@
 use std::rc::Rc;
-use yew::use_state;
+
+use yew::prelude::*;
 
 /// A hook returns a function that forces component to re-render when called.
 ///

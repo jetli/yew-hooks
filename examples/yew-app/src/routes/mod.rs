@@ -44,6 +44,10 @@ pub enum AppRoute {
     UseLocalStorage,
     #[at("/use_session_storage")]
     UseSessionStorage,
+    #[at("/use_mut_latest")]
+    UseMutLatest,
+    #[at("/use_latest")]
+    UseLatest,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -71,6 +75,8 @@ pub fn switch(routes: &AppRoute) -> Html {
         AppRoute::UseTitle => html! { <UseTitle /> },
         AppRoute::UseLocalStorage => html! { <UseLocalStorage /> },
         AppRoute::UseSessionStorage => html! { <UseSessionStorage /> },
+        AppRoute::UseMutLatest => html! { <UseMutLatest /> },
+        AppRoute::UseLatest => html! { <UseLatest /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }

@@ -13,6 +13,7 @@ pub struct UseLocalStorageHandle<T> {
 }
 
 impl<T> UseLocalStorageHandle<T> {
+    /// Set a `value` for the specified key.
     pub fn set(&self, value: T)
     where
         T: Serialize + Clone,
@@ -22,6 +23,7 @@ impl<T> UseLocalStorageHandle<T> {
         }
     }
 
+    /// Delete a key and it's stored value.
     pub fn delete(&self) {
         LocalStorage::delete(&*self.key);
         self.inner.set(None);

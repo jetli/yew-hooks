@@ -9,6 +9,8 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 - `use_toggle` - tracks state of counterparts.
 - `use_bool_toggle` - tracks state of a boolean.
 - `use_counter` -  tracks state of a number.
+- `use_latest` - returns the latest immutable ref to state or props.
+- `use_mut_latest` - returns the latest mutable ref to state or props.
 
 ### Side-effects
 

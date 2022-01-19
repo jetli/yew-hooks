@@ -1,4 +1,4 @@
-use yew::use_effect_with_deps;
+use yew::prelude::*;
 
 /// A lifecycle hook that runs an effect only once.
 ///

@@ -2,7 +2,7 @@ use std::fmt;
 use std::ops::Deref;
 use std::rc::Rc;
 
-use yew::functional::{use_reducer, Reducible, UseReducerHandle};
+use yew::prelude::*;
 
 enum ToggleAction<T> {
     Toggle,
@@ -72,22 +72,27 @@ impl<T> UseToggleHandle<T>
 where
     T: PartialEq,
 {
+    /// Toggle the value.
     pub fn toggle(&self) {
         self.inner.dispatch(ToggleAction::Toggle)
     }
 
+    /// Set to a value.
     pub fn set(&self, value: T) {
         self.inner.dispatch(ToggleAction::Set(value))
     }
 
+    /// Set to the left default value.
     pub fn set_left(&self) {
         self.inner.dispatch(ToggleAction::SetLeft)
     }
 
+    /// Set to the right other value.
     pub fn set_right(&self) {
         self.inner.dispatch(ToggleAction::SetRight)
     }
 
+    /// Reset to the default value.
     pub fn reset(&self) {
         self.inner.dispatch(ToggleAction::Reset)
     }
