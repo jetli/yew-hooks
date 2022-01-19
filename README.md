@@ -11,6 +11,7 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 - `use_counter` -  tracks state of a number.
 - `use_latest` - returns the latest immutable ref to state or props.
 - `use_mut_latest` - returns the latest mutable ref to state or props.
+- `use_previous` - returns the previous immutable ref to state or props.
 
 ### Side-effects
 
