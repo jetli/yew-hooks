@@ -20,6 +20,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseLatest} classes="app-link">{ "use_latest" }</Link<AppRoute>> { " - returns the latest immutable ref to state or props." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseMutLatest} classes="app-link">{ "use_mut_latest" }</Link<AppRoute>> { " - returns the latest mutable ref to state or props." }</li>
                         <li><Link<AppRoute> to={AppRoute::UsePrevious} classes="app-link">{ "use_previous" }</Link<AppRoute>> { " - returns the previous immutable ref to state or props." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseList} classes="app-link">{ "use_list" }</Link<AppRoute>> { " - tracks state of a list." }</li>
                     </ul>
 
                     <h2>{ "Side-effects" }</h2>

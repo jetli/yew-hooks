@@ -12,6 +12,7 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 - `use_latest` - returns the latest immutable ref to state or props.
 - `use_mut_latest` - returns the latest mutable ref to state or props.
 - `use_previous` - returns the previous immutable ref to state or props.
+- `use_list` - tracks state of a list.
 
 ### Side-effects
 
