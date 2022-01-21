@@ -120,8 +120,8 @@ impl PartialEq for UseCounterHandle {
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// # use yew_hooks::use_counter;
-/// #
+/// use yew_hooks::use_counter;
+///
 /// #[function_component(Counter)]
 /// fn counter() -> Html {
 ///     let counter = use_counter(0);

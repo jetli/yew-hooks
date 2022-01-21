@@ -22,6 +22,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UsePrevious} classes="app-link">{ "use_previous" }</Link<AppRoute>> { " - returns the previous immutable ref to state or props." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseList} classes="app-link">{ "use_list" }</Link<AppRoute>> { " - tracks state of a list." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseMap} classes="app-link">{ "use_map" }</Link<AppRoute>> { " - tracks state of a hash map." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseSet} classes="app-link">{ "use_set" }</Link<AppRoute>> { " - tracks state of a hash set." }</li>
                     </ul>
 
                     <h2>{ "Side-effects" }</h2>

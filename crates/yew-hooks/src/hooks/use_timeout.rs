@@ -12,8 +12,8 @@ use super::use_mut_latest;
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// # use yew_hooks::use_timeout;
-/// #
+/// use yew_hooks::use_timeout;
+///
 /// #[function_component(Timeout)]
 /// fn timeout() -> Html {
 ///     let state = use_state(|| 0);

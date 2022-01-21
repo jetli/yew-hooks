@@ -12,8 +12,8 @@ use super::use_mut_latest;
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// # use yew_hooks::use_interval;
-/// #
+/// use yew_hooks::use_interval;
+///
 /// #[function_component(Interval)]
 /// fn interval() -> Html {
 ///     let state = use_state(|| 0);

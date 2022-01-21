@@ -11,8 +11,8 @@ use super::use_effect_once;
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// # use yew_hooks::use_is_mounted;
-/// #
+/// use yew_hooks::use_is_mounted;
+///
 /// #[function_component(IsMounted)]
 /// fn is_mounted() -> Html {
 ///     let is_mounted = use_is_mounted();

@@ -9,8 +9,8 @@ use yew::prelude::*;
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// # use yew_hooks::use_update;
-/// #
+/// use yew_hooks::use_update;
+///
 /// #[function_component(Update)]
 /// fn update() -> Html {
 ///     let update = use_update();

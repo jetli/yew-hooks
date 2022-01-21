@@ -63,8 +63,8 @@ where
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// # use yew_hooks::use_local_storage;
-/// #
+/// use yew_hooks::use_local_storage;
+///
 /// #[function_component(LocalStorage)]
 /// fn local_storage() -> Html {
 ///     let storage = use_local_storage::<String>("foo".to_string());

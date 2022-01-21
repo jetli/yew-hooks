@@ -69,8 +69,8 @@ where
 /// # use gloo::timers::callback::Interval;
 /// # use yew::prelude::*;
 /// #
-/// # use yew_hooks::use_mut_latest;
-/// #
+/// use yew_hooks::use_mut_latest;
+///
 /// #[function_component(UseMutLatest)]
 /// fn mut_latest() -> Html {
 ///     let state = use_state(|| 0);
@@ -123,8 +123,8 @@ where
 /// # use gloo::timers::callback::Interval;
 /// # use yew::prelude::*;
 /// #
-/// # use yew_hooks::use_latest;
-/// #
+/// use yew_hooks::use_latest;
+///
 /// #[function_component(UseLatest)]
 /// fn latest() -> Html {
 ///     let state = use_state(|| 0);

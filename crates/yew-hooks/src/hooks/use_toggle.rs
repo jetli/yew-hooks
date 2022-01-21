@@ -149,8 +149,8 @@ where
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// # use yew_hooks::use_bool_toggle;
-/// #
+/// use yew_hooks::use_bool_toggle;
+///
 /// #[function_component(Toggle)]
 /// fn toggle() -> Html {
 ///     let toggle = use_bool_toggle(true);

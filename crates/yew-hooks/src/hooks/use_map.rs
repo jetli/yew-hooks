@@ -23,7 +23,7 @@ impl<K, V> UseMapHandle<K, V> {
         self.inner.borrow()
     }
 
-    /// Set the map
+    /// Set the hash map.
     pub fn set(&self, map: HashMap<K, V>) {
         *self.inner.borrow_mut() = map;
         (self.update)();
@@ -39,7 +39,7 @@ impl<K, V> UseMapHandle<K, V> {
         v
     }
 
-    /// Update key-value pair
+    /// Update key-value pair.
     pub fn update(&self, k: &K, v: V)
     where
         K: Eq + Hash,
@@ -104,8 +104,8 @@ where
 /// # use std::collections::HashMap;
 /// # use yew::prelude::*;
 /// #
-/// # use yew_hooks::use_map;
-/// #
+/// use yew_hooks::use_map;
+///
 /// #[function_component(UseMap)]
 /// fn map() -> Html {
 ///     let map = use_map(HashMap::from([

@@ -93,8 +93,8 @@ where
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// # use yew_hooks::use_async;
-/// #
+/// use yew_hooks::use_async;
+///
 /// #[function_component(Async)]
 /// fn async_test() -> Html {
 ///     let state = use_async(async move {

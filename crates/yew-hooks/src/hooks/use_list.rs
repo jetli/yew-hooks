@@ -148,8 +148,8 @@ where
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// # use yew_hooks::use_list;
-/// #
+/// use yew_hooks::use_list;
+///
 /// #[function_component(UseList)]
 /// fn list() -> Html {
 ///     let list = use_list(vec![1, 2, 3, 4, 5]);

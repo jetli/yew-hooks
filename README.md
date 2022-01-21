@@ -14,6 +14,7 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 - `use_previous` - returns the previous immutable ref to state or props.
 - `use_list` - tracks state of a list.
 - `use_map` - tracks state of a hash map.
+- `use_set` - tracks state of a hash set.
 
 ### Side-effects
 
