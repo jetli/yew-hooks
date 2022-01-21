@@ -18,7 +18,7 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 
 ### Side-effects
 
-- `use_async` - resolves an async future.
+- `use_async` - resolves an async future, like fetch REST api.
 - `use_title` - sets title of the page.
 - `use_local_storage` - manages a value in `localStorage`.
 - `use_session_storage` - manages a value in `sessionStorage`.
