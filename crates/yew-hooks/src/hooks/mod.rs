@@ -15,6 +15,7 @@ mod use_title;
 mod use_toggle;
 mod use_unmount;
 mod use_update;
+mod use_map;
 
 pub use use_async::*;
 pub use use_counter::*;
@@ -33,3 +34,4 @@ pub use use_title::*;
 pub use use_toggle::*;
 pub use use_unmount::*;
 pub use use_update::*;
+pub use use_map::*;

@@ -1,6 +1,5 @@
-#![recursion_limit = "1024"]
-#![allow(clippy::large_enum_variant)]
-#![allow(clippy::eval_order_dependence)]
+// Fix for now: https://github.com/rustwasm/wasm-bindgen/issues/2774
+#![allow(clippy::unused_unit)]
 
 pub mod app;
 pub mod components;
