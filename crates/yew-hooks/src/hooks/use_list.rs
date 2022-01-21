@@ -42,8 +42,8 @@ impl<T> UseListHandle<T> {
     pub fn update(&self, index: usize, element: T) {
         if let Some(elem) = self.inner.borrow_mut().get_mut(index) {
             *elem = element;
-            (self.update)();
         }
+        (self.update)();
     }
 
     /// Removes and returns the element at position index within the list,

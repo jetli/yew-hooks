@@ -46,8 +46,8 @@ impl<K, V> UseMapHandle<K, V> {
     {
         if let Some(value) = self.inner.borrow_mut().get_mut(k) {
             *value = v;
-            (self.update)();
         }
+        (self.update)();
     }
 
     /// Removes a key from the map, returning the value at the key if the key was previously in the map.
