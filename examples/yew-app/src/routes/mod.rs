@@ -52,6 +52,8 @@ pub enum AppRoute {
     UsePrevious,
     #[at("/use_list")]
     UseList,
+    #[at("/use_map")]
+    UseMap,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -83,6 +85,7 @@ pub fn switch(routes: &AppRoute) -> Html {
         AppRoute::UseLatest => html! { <UseLatest /> },
         AppRoute::UsePrevious => html! { <UsePrevious /> },
         AppRoute::UseList => html! { <UseList /> },
+        AppRoute::UseMap => html! { <UseMap /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }
