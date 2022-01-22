@@ -1,4 +1,4 @@
-use serde::{Deserialize, Serialize};
+use serde::{de::DeserializeOwned, Deserialize, Serialize};
 
 use yew::prelude::*;
 
@@ -13,6 +13,7 @@ pub fn async_demo() -> Html {
         let state = state.clone();
         Callback::from(move |_| {
             let state = state.clone();
+            // You can trigger to run in callback or use_effect_with_deps.
             state.run();
         })
     };
@@ -21,7 +22,7 @@ pub fn async_demo() -> Html {
         <div class="app">
             <header class="app-header">
                 <div>
-                    <button {onclick} disabled={state.loading}>{ "Start loading repo: jetli/yew-hooks" }</button>
+                    <button {onclick} disabled={state.loading}>{ "Start to load repo: jetli/yew-hooks" }</button>
                     <p>
                         {
                             if state.loading {
@@ -65,11 +66,18 @@ pub fn async_demo() -> Html {
     }
 }
 
-/// You can use reqwest or other crates to fetch your api
 async fn fetch_repo(repo: String) -> Result<Repo, Error> {
-    let response = reqwest::get(format!("https://api.github.com/repos/{}", repo)).await;
+    fetch::<Repo>(format!("https://api.github.com/repos/{}", repo)).await
+}
+
+/// You can use reqwest or other crates to fetch your api.
+async fn fetch<T>(url: String) -> Result<T, Error>
+where
+    T: DeserializeOwned,
+{
+    let response = reqwest::get(url).await;
     if let Ok(data) = response {
-        if let Ok(repo) = data.json::<Repo>().await {
+        if let Ok(repo) = data.json::<T>().await {
             Ok(repo)
         } else {
             Err(Error::DeserializeError)
@@ -85,6 +93,7 @@ struct User {
     login: String,
     avatar_url: String,
 }
+
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
 struct Repo {
     id: i32,
