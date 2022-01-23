@@ -57,6 +57,15 @@ where
             }
         });
     }
+
+    /// Update `data` directly.
+    pub fn update(&self, data: T) {
+        self.inner.set(UseAsyncState {
+            loading: false,
+            data: Some(data),
+            error: None,
+        });
+    }
 }
 
 impl<F, T, E> Deref for UseAsyncHandle<F, T, E> {
