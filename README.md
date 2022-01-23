@@ -15,6 +15,7 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 - `use_list` - tracks state of a list.
 - `use_map` - tracks state of a hash map.
 - `use_set` - tracks state of a hash set.
+- `use_queue` - tracks state of a queue.
 
 ### Side-effects
 
