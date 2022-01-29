@@ -31,6 +31,7 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 - `use_unmount` - calls unmount callbacks.
 - `use_is_first_mount` - checks if current render is first.
 - `use_is_mounted` - tracks if component is mounted.
+- `use_event` - subscribes to events.
 
 ### Animations
 

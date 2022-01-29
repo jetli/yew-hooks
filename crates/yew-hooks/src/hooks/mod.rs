@@ -1,6 +1,7 @@
 mod use_async;
 mod use_counter;
 mod use_effect_once;
+mod use_event;
 mod use_interval;
 mod use_is_first_mount;
 mod use_is_mounted;
@@ -22,6 +23,7 @@ mod use_update;
 pub use use_async::*;
 pub use use_counter::*;
 pub use use_effect_once::*;
+pub use use_event::*;
 pub use use_interval::*;
 pub use use_is_first_mount::*;
 pub use use_is_mounted::*;

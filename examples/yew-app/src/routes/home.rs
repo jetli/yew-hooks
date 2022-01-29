@@ -43,6 +43,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseUnmount} classes="app-link">{ "use_unmount" }</Link<AppRoute>> { " - calls unmount callbacks." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseIsFirstMount} classes="app-link">{ "use_is_first_mount" }</Link<AppRoute>> { " - checks if current render is first." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseIsMounted} classes="app-link">{ "use_is_mounted" }</Link<AppRoute>> { " - tracks if component is mounted." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseEvent} classes="app-link">{ "use_event" }</Link<AppRoute>> { " - subscribe to events." }</li>
                     </ul>
 
                     <h2>{ "Animations" }</h2>
