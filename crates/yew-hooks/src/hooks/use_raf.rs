@@ -8,7 +8,7 @@ use yew::prelude::*;
 /// An animation hook that forces component to re-render on each `requestAnimationFrame`,
 /// returns percentage of time elapsed. `millis` - milliseconds for how long to keep re-rendering component.
 /// `delay` — delay in milliseconds after which to start re-rendering component.
-/// 
+///
 /// # Example
 ///
 /// ```rust
@@ -52,9 +52,10 @@ pub fn use_raf(millis: u32, delay: u32) -> f64 {
                         if *start.borrow() <= 0f64 {
                             *start.borrow_mut() = time;
                         }
-                        let time = min_by(1f64, (time - *start.borrow()) / (millis as f64), |x, y| {
-                            x.partial_cmp(y).unwrap()
-                        });
+                        let time =
+                            min_by(1f64, (time - *start.borrow()) / (millis as f64), |x, y| {
+                                x.partial_cmp(y).unwrap()
+                            });
                         elapsed.set(time);
 
                         // Schedule ourself for another requestAnimationFrame callback.
@@ -80,13 +81,13 @@ pub fn use_raf(millis: u32, delay: u32) -> f64 {
                             }));
                         }
 
-                        *raf.borrow_mut() =
-                            Some(request_animation_frame(move |time| {
-                                let on_frame_clone = on_frame_clone.borrow();
-                                #[allow(clippy::borrowed_box)]
-                                let on_frame_clone: &Box<dyn Fn(f64)> = on_frame_clone.as_ref().unwrap();
-                                on_frame_clone(time);
-                            }));
+                        *raf.borrow_mut() = Some(request_animation_frame(move |time| {
+                            let on_frame_clone = on_frame_clone.borrow();
+                            #[allow(clippy::borrowed_box)]
+                            let on_frame_clone: &Box<dyn Fn(f64)> =
+                                on_frame_clone.as_ref().unwrap();
+                            on_frame_clone(time);
+                        }));
                     }));
                 }
 
