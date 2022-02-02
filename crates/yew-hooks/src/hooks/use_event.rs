@@ -5,8 +5,9 @@ use gloo::events::{EventListener, EventListenerOptions};
 use gloo::utils::window;
 use wasm_bindgen::JsValue;
 
-use super::use_latest;
 use yew::prelude::*;
+
+use super::use_latest;
 
 /// A hook that subscribes a callback to events.
 ///

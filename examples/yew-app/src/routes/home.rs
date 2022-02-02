@@ -52,6 +52,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseTimeout} classes="app-link" >{ "use_timeout" }</Link<AppRoute>> { " - schedules a timeout to invoke callback." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseInterval} classes="app-link">{ "use_interval" }</Link<AppRoute>> { " - schedules an interval to invoke callback." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseUpdate} classes="app-link">{ "use_update" }</Link<AppRoute>> { " - returns a callback, which re-renders component when called." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseRaf} classes="app-link">{ "use_raf" }</Link<AppRoute>> { " - re-renders component on each requestAnimationFrame." }</li>
                     </ul>
                 </div>
                 <p>
