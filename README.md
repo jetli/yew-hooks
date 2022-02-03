@@ -16,6 +16,7 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 - `use_map` - tracks state of a hash map.
 - `use_set` - tracks state of a hash set.
 - `use_queue` - tracks state of a queue.
+- `use_raf_state` - creates `set` method which only updates after `requestAnimationFrame`.
 
 ### Side-effects
 

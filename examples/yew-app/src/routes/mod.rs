@@ -62,6 +62,8 @@ pub enum AppRoute {
     UseEvent,
     #[at("/use_raf")]
     UseRaf,
+    #[at("/use_raf_state")]
+    UseRafState,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -98,6 +100,7 @@ pub fn switch(routes: &AppRoute) -> Html {
         AppRoute::UseQueue => html! { <UseQueue /> },
         AppRoute::UseEvent => html! { <UseEvent /> },
         AppRoute::UseRaf => html! { <UseRaf /> },
+        AppRoute::UseRafState => html! { <UseRafState /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }

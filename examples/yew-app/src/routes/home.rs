@@ -24,6 +24,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseMap} classes="app-link">{ "use_map" }</Link<AppRoute>> { " - tracks state of a hash map." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseSet} classes="app-link">{ "use_set" }</Link<AppRoute>> { " - tracks state of a hash set." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseQueue} classes="app-link">{ "use_queue" }</Link<AppRoute>> { " - tracks state of a queue." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseRafState} classes="app-link">{ "use_raf_state" }</Link<AppRoute>> { " - creates set method which only updates after requestAnimationFrame." }</li>
                     </ul>
 
                     <h2>{ "Side-effects" }</h2>

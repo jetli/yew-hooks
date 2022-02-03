@@ -1,6 +1,6 @@
 [package]
 name = "yew-hooks"
-version = "0.1.22"
+version = "0.1.23"
 edition = "2018"
 authors = ["Jet Li <jing.i.qin@icloud.com>"]
 categories = ["gui", "wasm", "web-programming"]
@@ -23,3 +23,7 @@ serde = "1"
 
 [dev-dependencies]
 log = "0.4.8"
+
+[dev-dependencies.web-sys]
+version = "0.3"
+features = ["Window"]
