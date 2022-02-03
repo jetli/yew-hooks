@@ -27,6 +27,10 @@ wasm-bindgen = "0.2"
 wasm-logger = "0.2.0"
 wee_alloc = "0.4.5"
 
+[dependencies.web-sys]
+version = "0.3"
+features = ["Window"]
+
 [dev-dependencies]
 wasm-bindgen-test = "0.3.14"
 
