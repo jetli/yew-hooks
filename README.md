@@ -42,6 +42,10 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 - `use_update` - returns a callback, which re-renders component when called.
 - `use_raf` - re-renders component on each `requestAnimationFrame`.
 
+### Sensors
+
+- `use_window_size` - tracks Window dimensions.
+
 ## Examples
 
 ### `use_counter` Demo

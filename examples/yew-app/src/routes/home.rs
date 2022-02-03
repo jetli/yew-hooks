@@ -56,6 +56,12 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseUpdate} classes="app-link">{ "use_update" }</Link<AppRoute>> { " - returns a callback, which re-renders component when called." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseRaf} classes="app-link">{ "use_raf" }</Link<AppRoute>> { " - re-renders component on each requestAnimationFrame." }</li>
                     </ul>
+
+                    <h2>{ "Sensors" }</h2>
+
+                    <ul>
+                        <li><Link<AppRoute> to={AppRoute::UseWindowSize} classes="app-link" >{ "use_window_size" }</Link<AppRoute>> { " - tracks Window dimensions." }</li>
+                    </ul>
                 </div>
                 <p>
                     { "More is coming.." }
