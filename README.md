@@ -24,6 +24,7 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 - `use_title` - sets title of the page.
 - `use_local_storage` - manages a value in `localStorage`.
 - `use_session_storage` - manages a value in `sessionStorage`.
+- `use_before_unload` - shows browser alert when user try to reload or close the page.
 
 ### Lifecycles
 

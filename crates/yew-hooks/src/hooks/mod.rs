@@ -1,4 +1,5 @@
 mod use_async;
+mod use_before_unload;
 mod use_counter;
 mod use_effect_once;
 mod use_event;
@@ -23,6 +24,7 @@ mod use_unmount;
 mod use_update;
 
 pub use use_async::*;
+pub use use_before_unload::*;
 pub use use_counter::*;
 pub use use_effect_once::*;
 pub use use_event::*;

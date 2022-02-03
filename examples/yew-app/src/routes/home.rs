@@ -34,6 +34,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseTitle} classes="app-link" >{ "use_title" }</Link<AppRoute>> { " - sets title of the page." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseLocalStorage} classes="app-link" >{ "use_local_storage" }</Link<AppRoute>> { " - manages a value in localStorage." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseSessionStorage} classes="app-link" >{ "use_session_storage" }</Link<AppRoute>> { " - manages a value in sessionStorage." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseBeforeUnload} classes="app-link" >{ "use_before_unload" }</Link<AppRoute>> { " - shows browser alert when user try to reload or close the page." }</li>
                     </ul>
 
                     <h2>{ "Lifecycles" }</h2>
