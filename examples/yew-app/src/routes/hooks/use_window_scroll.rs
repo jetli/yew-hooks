@@ -2,7 +2,7 @@ use yew::prelude::*;
 
 use yew_hooks::use_window_scroll;
 
-/// `use_window_size` demo
+/// `use_window_scroll` demo
 #[function_component(UseWindowScroll)]
 pub fn window_scroll() -> Html {
     let state = use_window_scroll();

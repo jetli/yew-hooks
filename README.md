@@ -46,6 +46,7 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 
 - `use_window_size` - tracks Window dimensions.
 - `use_window_scroll` - tracks Window scroll position.
+- `use_scroll` - tracks an HTML element's scroll position.
 
 ## Examples
 

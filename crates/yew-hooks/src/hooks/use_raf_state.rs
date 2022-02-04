@@ -69,10 +69,10 @@ where
 ///     {
 ///         let state = state.clone();
 ///         use_event_with_window("resize", move |e: Event| {
-///             let element: Window = e.target_unchecked_into();
+///             let window: Window = e.target_unchecked_into();
 ///             state.set((
-///                 element.inner_width().unwrap().as_f64().unwrap(),
-///                 element.inner_height().unwrap().as_f64().unwrap(),
+///                 window.inner_width().unwrap().as_f64().unwrap(),
+///                 window.inner_height().unwrap().as_f64().unwrap(),
 ///             ));
 ///         });
 ///     }
