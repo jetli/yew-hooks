@@ -72,6 +72,8 @@ pub enum AppRoute {
     UseWindowScroll,
     #[at("/use_scroll")]
     UseScroll,
+    #[at("/use_scrolling")]
+    UseScrolling,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -113,6 +115,7 @@ pub fn switch(routes: &AppRoute) -> Html {
         AppRoute::UseWindowSize => html! { <UseWindowSize /> },
         AppRoute::UseWindowScroll => html! { <UseWindowScroll /> },
         AppRoute::UseScroll => html! { <UseScroll /> },
+        AppRoute::UseScrolling => html! { <UseScrolling /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }

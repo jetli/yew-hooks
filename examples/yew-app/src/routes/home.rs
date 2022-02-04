@@ -63,6 +63,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseWindowSize} classes="app-link" >{ "use_window_size" }</Link<AppRoute>> { " - tracks Window dimensions." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseWindowScroll} classes="app-link" >{ "use_window_scroll" }</Link<AppRoute>> { " - tracks Window scroll position." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseScroll} classes="app-link" >{ "use_scroll" }</Link<AppRoute>> { " - tracks an HTML element's scroll position." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseScrolling} classes="app-link" >{ "use_scrolling" }</Link<AppRoute>> { " - tracks whether HTML element is scrolling." }</li>
                     </ul>
                 </div>
                 <p>

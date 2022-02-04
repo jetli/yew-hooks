@@ -1,6 +1,6 @@
 [package]
 name = "yew-hooks"
-version = "0.1.27"
+version = "0.1.28"
 edition = "2018"
 authors = ["Jet Li <jing.i.qin@icloud.com>"]
 categories = ["gui", "wasm", "web-programming"]
