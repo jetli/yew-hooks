@@ -48,6 +48,7 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 - `use_window_scroll` - tracks Window scroll position.
 - `use_scroll` - tracks an HTML element's scroll position.
 - `use_scrolling` - tracks whether HTML element is scrolling.
+- `use_hash` - tracks location hash value.
 
 ## Examples
 
