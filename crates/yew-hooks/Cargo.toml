@@ -1,6 +1,6 @@
 [package]
 name = "yew-hooks"
-version = "0.1.25"
+version = "0.1.26"
 edition = "2018"
 authors = ["Jet Li <jing.i.qin@icloud.com>"]
 categories = ["gui", "wasm", "web-programming"]
@@ -15,6 +15,7 @@ documentation = "https://docs.rs/yew-hooks/"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+log = "0.4"
 yew = "0.19.3"
 gloo = "0.4"
 wasm-bindgen = "0.2"
@@ -23,7 +24,7 @@ serde = "1"
 
 [dependencies.web-sys]
 version = "0.3"
-features = ["Window", "BeforeUnloadEvent"]
+features = ["BeforeUnloadEvent"]
 
 [dev-dependencies]
 log = "0.4.8"

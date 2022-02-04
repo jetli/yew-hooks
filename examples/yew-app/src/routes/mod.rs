@@ -68,6 +68,8 @@ pub enum AppRoute {
     UseBeforeUnload,
     #[at("/use_window_size")]
     UseWindowSize,
+    #[at("/use_window_scroll")]
+    UseWindowScroll,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -107,6 +109,7 @@ pub fn switch(routes: &AppRoute) -> Html {
         AppRoute::UseRafState => html! { <UseRafState /> },
         AppRoute::UseBeforeUnload => html! { <UseBeforeUnload /> },
         AppRoute::UseWindowSize => html! { <UseWindowSize /> },
+        AppRoute::UseWindowScroll => html! { <UseWindowScroll /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }

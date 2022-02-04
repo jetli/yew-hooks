@@ -52,7 +52,10 @@ where
 
             // We should only set passive event listeners for `touchstart` and `touchmove`.
             // See here: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Improving_scrolling_performance_with_passive_listeners
-            *listener.borrow_mut() = if event_type == "touchstart" || event_type == "touchmove" {
+            *listener.borrow_mut() = if event_type == "touchstart"
+                || event_type == "touchmove"
+                || event_type == "scroll"
+            {
                 Some(EventListener::new(
                     target,
                     event_type.clone(),

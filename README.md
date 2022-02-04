@@ -45,6 +45,7 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 ### Sensors
 
 - `use_window_size` - tracks Window dimensions.
+- `use_window_scroll` - tracks Window scroll position.
 
 ## Examples
 

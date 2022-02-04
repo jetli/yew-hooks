@@ -24,6 +24,7 @@ mod use_title;
 mod use_toggle;
 mod use_unmount;
 mod use_update;
+mod use_window_scroll;
 mod use_window_size;
 
 pub use use_async::*;
@@ -52,4 +53,5 @@ pub use use_title::*;
 pub use use_toggle::*;
 pub use use_unmount::*;
 pub use use_update::*;
+pub use use_window_scroll::*;
 pub use use_window_size::*;
