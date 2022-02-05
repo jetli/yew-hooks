@@ -65,6 +65,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseScroll} classes="app-link" >{ "use_scroll" }</Link<AppRoute>> { " - tracks an HTML element's scroll position." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseScrolling} classes="app-link" >{ "use_scrolling" }</Link<AppRoute>> { " - tracks whether HTML element is scrolling." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseHash} classes="app-link" >{ "use_hash" }</Link<AppRoute>> { " - tracks location hash value." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseSearchParam} classes="app-link" >{ "use_search_param" }</Link<AppRoute>> { " - tracks location search param value." }</li>
                     </ul>
                 </div>
                 <p>

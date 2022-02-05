@@ -76,6 +76,8 @@ pub enum AppRoute {
     UseScrolling,
     #[at("/use_hash")]
     UseHash,
+    #[at("/use_search_param")]
+    UseSearchParam,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -119,6 +121,7 @@ pub fn switch(routes: &AppRoute) -> Html {
         AppRoute::UseScroll => html! { <UseScroll /> },
         AppRoute::UseScrolling => html! { <UseScrolling /> },
         AppRoute::UseHash => html! { <UseHash /> },
+        AppRoute::UseSearchParam => html! { <UseSearchParam /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }
