@@ -41,7 +41,7 @@ impl PartialEq for UseHashHandle {
     }
 }
 
-/// A sensor hook that tracks location hash value.
+/// A sensor hook that tracks brower's location hash value.
 ///
 /// # Example
 ///

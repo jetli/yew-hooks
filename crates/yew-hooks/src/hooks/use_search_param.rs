@@ -5,7 +5,7 @@ use yew::prelude::*;
 
 use super::use_event_with_window;
 
-/// A sensor hook that tracks location search param value.
+/// A sensor hook that tracks brower's location search param value.
 ///
 /// # Example
 ///
