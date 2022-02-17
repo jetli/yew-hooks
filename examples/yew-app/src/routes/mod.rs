@@ -80,6 +80,10 @@ pub enum AppRoute {
     UseSearchParam,
     #[at("/use_location")]
     UseLocation,
+    #[at("/use_web_socket")]
+    UseWebSocket,
+    #[at("/use_state_ptr_eq")]
+    UseStatePtrEq,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -125,6 +129,8 @@ pub fn switch(routes: &AppRoute) -> Html {
         AppRoute::UseHash => html! { <UseHash /> },
         AppRoute::UseSearchParam => html! { <UseSearchParam /> },
         AppRoute::UseLocation => html! { <UseLocation /> },
+        AppRoute::UseWebSocket => html! { <UseWebSocket /> },
+        AppRoute::UseStatePtrEq => html! { <UseStatePtrEq /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }

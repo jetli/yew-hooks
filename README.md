@@ -17,10 +17,12 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 - `use_set` - tracks state of a hash set.
 - `use_queue` - tracks state of a queue.
 - `use_raf_state` - creates `set` method which only updates after `requestAnimationFrame`.
+- `use_state_ptr_eq` - similar to `use_state_eq`, but checks if the two `Rc`s of values point to the same allocation.
 
 ### Side-effects
 
-- `use_async` - resolves an async future, like fetch REST api.
+- `use_async` - resolves an `async` future, e.g. fetching REST api.
+- `use_web_socket` - communicates with `WebSocket`.
 - `use_title` - sets title of the page.
 - `use_local_storage` - manages a value in `localStorage`.
 - `use_session_storage` - manages a value in `sessionStorage`.

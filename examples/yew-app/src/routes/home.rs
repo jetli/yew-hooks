@@ -25,12 +25,14 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseSet} classes="app-link">{ "use_set" }</Link<AppRoute>> { " - tracks state of a hash set." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseQueue} classes="app-link">{ "use_queue" }</Link<AppRoute>> { " - tracks state of a queue." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseRafState} classes="app-link">{ "use_raf_state" }</Link<AppRoute>> { " - creates set method which only updates after requestAnimationFrame." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseStatePtrEq} classes="app-link">{ "use_state_ptr_eq" }</Link<AppRoute>> { " - similar to use_state_eq, but checks if the two Rcs of values point to the same allocation." }</li>
                     </ul>
 
                     <h2>{ "Side-effects" }</h2>
 
                     <ul>
-                        <li><Link<AppRoute> to={AppRoute::UseAsync} classes="app-link" >{ "use_async" }</Link<AppRoute>> { " - resolves an async future, like fetch REST api." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseAsync} classes="app-link" >{ "use_async" }</Link<AppRoute>> { " - resolves an async future, e.g. fetching REST api." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseWebSocket} classes="app-link" >{ "use_web_socket" }</Link<AppRoute>> { " - communicates with WebSocket." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseTitle} classes="app-link" >{ "use_title" }</Link<AppRoute>> { " - sets title of the page." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseLocalStorage} classes="app-link" >{ "use_local_storage" }</Link<AppRoute>> { " - manages a value in localStorage." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseSessionStorage} classes="app-link" >{ "use_session_storage" }</Link<AppRoute>> { " - manages a value in sessionStorage." }</li>
