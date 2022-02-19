@@ -53,6 +53,7 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 - `use_location` - tracks brower's location value.
 - `use_hash` - tracks brower's location hash value.
 - `use_search_param` - tracks brower's location search param value.
+- `use_size` - tracks an HTML element's dimensions.
 
 ## Examples
 
