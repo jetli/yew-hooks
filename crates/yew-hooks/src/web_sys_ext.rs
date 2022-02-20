@@ -3,7 +3,7 @@
 #![allow(unused_imports)]
 #![allow(clippy::unused_unit)]
 use wasm_bindgen::{self, prelude::*};
-use web_sys::Element;
+use web_sys::{DomRectReadOnly, Element};
 
 #[wasm_bindgen]
 extern "C" {
@@ -29,4 +29,7 @@ extern "C" {
 
     # [wasm_bindgen (structural , method , getter , js_class = "ResizeObserverEntry" , js_name = target)]
     pub fn target(this: &ResizeObserverEntry) -> Element;
+
+    # [wasm_bindgen (structural , method , getter , js_class = "ResizeObserverEntry" , js_name = contentRect)]
+    pub fn content_rect(this: &ResizeObserverEntry) -> DomRectReadOnly;
 }

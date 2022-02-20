@@ -86,6 +86,8 @@ pub enum AppRoute {
     UseStatePtrEq,
     #[at("/use_size")]
     UseSize,
+    #[at("/use_measure")]
+    UseMeasure,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -134,6 +136,7 @@ pub fn switch(routes: &AppRoute) -> Html {
         AppRoute::UseWebSocket => html! { <UseWebSocket /> },
         AppRoute::UseStatePtrEq => html! { <UseStatePtrEq /> },
         AppRoute::UseSize => html! { <UseSize /> },
+        AppRoute::UseMeasure => html! { <UseMeasure /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }

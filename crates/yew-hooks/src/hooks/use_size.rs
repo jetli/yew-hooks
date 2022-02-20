@@ -6,7 +6,7 @@ use yew::prelude::*;
 use super::use_raf_state;
 use crate::web_sys_ext::{ResizeObserver, ResizeObserverEntry};
 
-/// A sensor hook that tracks an HTML element's dimensions.
+/// A sensor hook that tracks an HTML element's dimensions using the `ResizeObserver` API.
 ///
 /// # Example
 ///
