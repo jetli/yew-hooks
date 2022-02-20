@@ -73,6 +73,12 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseMeasure} classes="app-link" >{ "use_measure" }</Link<AppRoute>> { " - tracks an HTML element's dimensions using the ResizeObserver API." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseGeolocation} classes="app-link" >{ "use_geolocation" }</Link<AppRoute>> { " - tracks user's geographic location." }</li>
                     </ul>
+
+                    <h2>{ "UI" }</h2>
+
+                    <ul>
+                        <li><Link<AppRoute> to={AppRoute::UseClickAway} classes="app-link" >{ "use_click_away" }</Link<AppRoute>> { " - triggers a callback when user clicks outside the target element." }</li>
+                    </ul>
                 </div>
                 <p>
                     { "More is coming.." }

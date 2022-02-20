@@ -57,6 +57,10 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 - `use_measure` - tracks an HTML element's dimensions using the `ResizeObserver` API.
 - `use_geolocation` - tracks user's geographic location.
 
+### UI
+
+- `use_click_away` - triggers a callback when user clicks outside the target element.
+
 ## Examples
 
 ### `use_counter` demo

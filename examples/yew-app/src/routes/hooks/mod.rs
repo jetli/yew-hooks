@@ -1,6 +1,7 @@
 mod use_async;
 mod use_before_unload;
 mod use_bool_toggle;
+mod use_click_away;
 mod use_counter;
 mod use_effect_once;
 mod use_event;
@@ -40,6 +41,7 @@ mod use_window_size;
 pub use use_async::*;
 pub use use_before_unload::*;
 pub use use_bool_toggle::*;
+pub use use_click_away::*;
 pub use use_counter::*;
 pub use use_effect_once::*;
 pub use use_event::*;
