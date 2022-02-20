@@ -71,6 +71,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseSearchParam} classes="app-link" >{ "use_search_param" }</Link<AppRoute>> { " - tracks brower's location search param value." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseSize} classes="app-link" >{ "use_size" }</Link<AppRoute>> { " - tracks an HTML element's dimensions using the ResizeObserver API." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseMeasure} classes="app-link" >{ "use_measure" }</Link<AppRoute>> { " - tracks an HTML element's dimensions using the ResizeObserver API." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseGeolocation} classes="app-link" >{ "use_geolocation" }</Link<AppRoute>> { " - tracks user's geographic location." }</li>
                     </ul>
                 </div>
                 <p>

@@ -1,6 +1,6 @@
 [package]
 name = "yew-hooks"
-version = "0.1.34"
+version = "0.1.35"
 edition = "2018"
 authors = ["Jet Li <jing.i.qin@icloud.com>"]
 categories = ["gui", "wasm", "web-programming"]
@@ -34,6 +34,12 @@ features = [
     "CloseEvent",
     "BinaryType",
     "DomRectReadOnly",
+    "Navigator",
+    "Geolocation",
+    "Coordinates",
+    "Position",
+    "PositionError",
+    "PositionOptions",
 ]
 
 [dev-dependencies]

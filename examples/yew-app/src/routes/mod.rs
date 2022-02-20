@@ -88,6 +88,8 @@ pub enum AppRoute {
     UseSize,
     #[at("/use_measure")]
     UseMeasure,
+    #[at("/use_geolocation")]
+    UseGeolocation,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -137,6 +139,7 @@ pub fn switch(routes: &AppRoute) -> Html {
         AppRoute::UseStatePtrEq => html! { <UseStatePtrEq /> },
         AppRoute::UseSize => html! { <UseSize /> },
         AppRoute::UseMeasure => html! { <UseMeasure /> },
+        AppRoute::UseGeolocation => html! { <UseGeolocation /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }
