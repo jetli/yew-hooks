@@ -1,6 +1,70 @@
-# Yew Hooks
+<!-- markdownlint-disable MD033 -->
+
+<h1 align="center">Yew Hooks</h1>
+
+<div align="center">
+    <!-- Version -->
+    <a href="https://crates.io/crates/yew-hooks">
+        <img src="https://img.shields.io/crates/v/yew-hooks.svg"
+            alt="crates.io Version" />
+    </a>
+    <!-- Downloads -->
+    <a href="https://crates.io/crates/yew-hooks">
+        <img src="https://img.shields.io/crates/d/yew-hooks.svg"
+            alt="crates.io Downloads" />
+    </a>
+    <!-- Docs -->
+    <a href="https://docs.rs/yew-hooks">
+        <img src="https://img.shields.io/badge/docs-latest-blue.svg"
+            alt="docs.rs Docs" />
+    </a>
+    <!-- CI -->
+    <a href="https://github.com/jetli/yew-hooks/actions">
+        <img src="https://github.com/jetli/yew-hooks/actions/workflows/rust.yml/badge.svg"
+            alt="Github actions CI status" />
+    </a>
+</div>
+
+<div align="center">
+    <h3>
+        <a href="https://jetli.github.io/yew-hooks/"> Demos </a>
+        <span> | </span>
+        <a href="https://github.com/jetli/yew-hooks/tree/main/examples/yew-app"> Examples </a>
+        <span> | </span>
+        <a href="https://docs.rs/yew-hooks"> Docs </a>
+    </h3>
+</div>
+
+<br/>
 
 Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-use](https://github.com/streamich/react-use) and [alibaba/hooks](https://github.com/alibaba/hooks).
+
+```rust
+use yew_hooks::use_counter;
+
+#[function_component(Counter)]
+fn counter() -> Html {
+    let counter = use_counter(0);
+
+    let onincrease = {
+        let counter = counter.clone();
+        Callback::from(move |_| counter.increase())
+    };
+    let ondecrease = {
+        let counter = counter.clone();
+        Callback::from(move |_| counter.decrease())
+    };
+    
+    html! {
+        <>
+            <button onclick={onincrease}>{ "Increase" }</button>
+            <button onclick={ondecrease}>{ "Decrease" }</button>
+            <b>{ "Current value: " }</b>
+            { *counter }
+        </>
+    }
+}
+```
 
 ## Hooks
 
@@ -31,6 +95,7 @@ Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-u
 ### Lifecycles
 
 - `use_effect_once` - a modified use_effect hook that only runs once.
+- `use_effect_update` - runs an effect only on updates.
 - `use_mount` - calls mount callbacks.
 - `use_unmount` - calls unmount callbacks.
 - `use_is_first_mount` - checks if current render is first.
@@ -286,3 +351,13 @@ pub fn web_socket() -> Html {
 ## Demo
 
 [Check out a live demo](https://jetli.github.io/yew-hooks/)
+
+## Contribute
+
+Feel free to take a look at the current issues in this repo for anything that currently needs to be worked on.
+
+You are also welcome to open a PR or a new issue if you see something is missing or could be improved upon.
+
+## License
+
+Apache-2.0/MIT
