@@ -49,6 +49,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseIsMounted} classes="app-link">{ "use_is_mounted" }</Link<AppRoute>> { " - tracks if component is mounted." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseEvent} classes="app-link">{ "use_event" }</Link<AppRoute>> { " - subscribe to events." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseEffectUpdate} classes="app-link">{ "use_effect_update" }</Link<AppRoute>> { " - runs an effect only on updates." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseLogger} classes="app-link">{ "use_logger" }</Link<AppRoute>> { " - logs in console as component goes through life cycles." }</li>
                     </ul>
 
                     <h2>{ "Animations" }</h2>

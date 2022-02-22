@@ -101,6 +101,7 @@ fn counter() -> Html {
 - `use_is_first_mount` - checks if current render is first.
 - `use_is_mounted` - tracks if component is mounted.
 - `use_event` - subscribes to events.
+- `use_logger` - logs in console as component goes through life cycles.
 
 ### Animations
 
