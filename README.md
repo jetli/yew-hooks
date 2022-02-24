@@ -126,6 +126,7 @@ fn counter() -> Html {
 ### UI
 
 - `use_click_away` - triggers a callback when user clicks outside the target element.
+- `use_drop` - tracks file, link and copy-paste drops.
 
 ## Examples
 

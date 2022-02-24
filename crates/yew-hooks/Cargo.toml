@@ -1,6 +1,6 @@
 [package]
 name = "yew-hooks"
-version = "0.1.38"
+version = "0.1.39"
 edition = "2018"
 authors = ["Jet Li <jing.i.qin@icloud.com>"]
 categories = ["gui", "wasm", "web-programming"]
@@ -40,6 +40,10 @@ features = [
     "Position",
     "PositionError",
     "PositionOptions",
+    "File",
+    "DataTransfer",
+    "DataTransferItem",
+    "DataTransferItemList",
 ]
 
 [dev-dependencies]

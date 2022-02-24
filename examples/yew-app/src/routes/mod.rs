@@ -96,6 +96,8 @@ pub enum AppRoute {
     UseEffectUpdate,
     #[at("/use_logger")]
     UseLogger,
+    #[at("/use_drop")]
+    UseDrop,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -149,6 +151,7 @@ pub fn switch(routes: &AppRoute) -> Html {
         AppRoute::UseClickAway => html! { <UseClickAway /> },
         AppRoute::UseEffectUpdate => html! { <UseEffectUpdate /> },
         AppRoute::UseLogger => html! { <UseLogger /> },
+        AppRoute::UseDrop => html! { <UseDrop /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }
