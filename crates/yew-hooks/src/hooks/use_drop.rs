@@ -17,6 +17,19 @@ pub struct UseDropOptions {
     pub ontext: Option<Box<dyn FnMut(String, DataTransfer)>>,
     /// Callback for uri drops.
     pub onuri: Option<Box<dyn FnMut(String, DataTransfer)>>,
+
+    /// Callback for `dragover`.
+    pub ondragover: Option<Box<dyn FnMut(DragEvent)>>,
+    /// Callback for `dragenter`.
+    pub ondragenter: Option<Box<dyn FnMut(DragEvent)>>,
+    /// Callback for `dragleave`.
+    pub ondragleave: Option<Box<dyn FnMut(DragEvent)>>,
+    /// Callback for `dragexit`.
+    pub ondragexit: Option<Box<dyn FnMut(DragEvent)>>,
+    /// Callback for `drop`.
+    pub ondrop: Option<Box<dyn FnMut(DragEvent)>>,
+    /// Callback for `paste`.
+    pub onpaste: Option<Box<dyn FnMut(ClipboardEvent)>>,
 }
 
 /// State handle for the [`use_drop`] hook.
@@ -117,11 +130,24 @@ pub fn use_drop_with_options(node: NodeRef, options: UseDropOptions) -> UseDropH
     let ontext_ref = use_mut_latest(options.ontext);
     let onuri_ref = use_mut_latest(options.onuri);
 
+    let ondragover_ref = use_mut_latest(options.ondragover);
+    let ondragenter_ref = use_mut_latest(options.ondragenter);
+    let ondragleave_ref = use_mut_latest(options.ondragleave);
+    let ondragexit_ref = use_mut_latest(options.ondragexit);
+    let ondrop_ref = use_mut_latest(options.ondrop);
+    let onpaste_ref = use_mut_latest(options.onpaste);
+
     {
         let over = over.clone();
         use_event(node.clone(), "dragover", move |e: DragEvent| {
             e.prevent_default();
             over.set(true);
+
+            let ondragover_ref = ondragover_ref.current();
+            let ondragover = &mut *ondragover_ref.borrow_mut();
+            if let Some(ondragover) = ondragover {
+                ondragover(e);
+            }
         });
     }
 
@@ -130,20 +156,38 @@ pub fn use_drop_with_options(node: NodeRef, options: UseDropOptions) -> UseDropH
         use_event(node.clone(), "dragenter", move |e: DragEvent| {
             e.prevent_default();
             over.set(true);
+
+            let ondragenter_ref = ondragenter_ref.current();
+            let ondragenter = &mut *ondragenter_ref.borrow_mut();
+            if let Some(ondragenter) = ondragenter {
+                ondragenter(e);
+            }
         });
     }
 
     {
         let over = over.clone();
-        use_event(node.clone(), "dragleave", move |_: DragEvent| {
+        use_event(node.clone(), "dragleave", move |e: DragEvent| {
             over.set(false);
+
+            let ondragleave_ref = ondragleave_ref.current();
+            let ondragleave = &mut *ondragleave_ref.borrow_mut();
+            if let Some(ondragleave) = ondragleave {
+                ondragleave(e);
+            }
         });
     }
 
     {
         let over = over.clone();
-        use_event(node.clone(), "dragexit", move |_: DragEvent| {
+        use_event(node.clone(), "dragexit", move |e: DragEvent| {
             over.set(false);
+
+            let ondragexit_ref = ondragexit_ref.current();
+            let ondragexit = &mut *ondragexit_ref.borrow_mut();
+            if let Some(ondragexit) = ondragexit {
+                ondragexit(e);
+            }
         });
     }
 
@@ -211,6 +255,12 @@ pub fn use_drop_with_options(node: NodeRef, options: UseDropOptions) -> UseDropH
             if let Some(data_transfer) = e.data_transfer() {
                 on_data_transfer(data_transfer);
             }
+
+            let ondrop_ref = ondrop_ref.current();
+            let ondrop = &mut *ondrop_ref.borrow_mut();
+            if let Some(ondrop) = ondrop {
+                ondrop(e);
+            }
         });
     }
 
@@ -219,6 +269,12 @@ pub fn use_drop_with_options(node: NodeRef, options: UseDropOptions) -> UseDropH
         use_event(node, "paste", move |e: ClipboardEvent| {
             if let Some(data_transfer) = e.clipboard_data() {
                 on_data_transfer(data_transfer);
+            }
+
+            let onpaste_ref = onpaste_ref.current();
+            let onpaste = &mut *onpaste_ref.borrow_mut();
+            if let Some(onpaste) = onpaste {
+                onpaste(e);
             }
         });
     }

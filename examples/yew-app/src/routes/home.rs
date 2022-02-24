@@ -80,6 +80,7 @@ pub fn home() -> Html {
 
                     <ul>
                         <li><Link<AppRoute> to={AppRoute::UseClickAway} classes="app-link" >{ "use_click_away" }</Link<AppRoute>> { " - triggers a callback when user clicks outside the target element." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseDrag} classes="app-link" >{ "use_drag" }</Link<AppRoute>> { " - tracks file, link and copy-paste drags, used along with use_drop hook." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseDrop} classes="app-link" >{ "use_drop" }</Link<AppRoute>> { " - tracks file, link and copy-paste drops." }</li>
                     </ul>
                 </div>

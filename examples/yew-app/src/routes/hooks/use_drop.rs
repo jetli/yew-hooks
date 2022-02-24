@@ -26,7 +26,7 @@ pub fn drop() -> Html {
                 <div ref={node} style={if *state.over {
                         "background-color: #71eaff; border: 5px dashed white;"
                     } else {
-                        "background-color: #61dafb; border: 3px dashed white" }}>
+                        "background-color: #61dafb; border: 3px dashed white;" }}>
                     <p><b>{ " Files: " }</b></p>
                     {if let Some(files) = &*state.files {
                         html! {for files.iter().map(|file| {
