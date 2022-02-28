@@ -165,7 +165,7 @@ impl Clone for UseMediaHandle {
 ///                 <button onclick={onmute} disabled={*video.muted}>{ "Mute" }</button>
 ///                 <button onclick={onunmute} disabled={!*video.muted}>{ "Unmute" }</button>
 ///                 <button onclick={onvol}>{ "Volume: 50%" }</button>
-///                 <button onclick={onseek1}>{ "Seek: +5 secs" }</button>
+///                 <button onclick={onseek}>{ "Seek: +5 secs" }</button>
 ///             </p>
 ///         </>
 ///     }
