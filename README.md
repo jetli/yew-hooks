@@ -200,8 +200,7 @@ pub fn async_demo() -> Html {
     let onclick = {
         let state = state.clone();
         Callback::from(move |_| {
-            let state = state.clone();
-            // You can trigger to run in callback or use_effect_with_deps.
+            // You can trigger to run in callback or use_effect.
             state.run();
         })
     };
