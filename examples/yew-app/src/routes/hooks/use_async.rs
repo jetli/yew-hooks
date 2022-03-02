@@ -1,28 +1,52 @@
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
+use web_sys::HtmlInputElement;
 
 use yew::prelude::*;
 
-use yew_hooks::use_async;
+use yew_hooks::{use_async, use_async_with_options, UseAsyncOptions};
 
 /// `use_async` demo
 #[function_component(UseAsync)]
 pub fn async_demo() -> Html {
-    let state = use_async(async move { fetch_repo("jetli/yew-hooks".to_string()).await });
+    let repo = use_state(|| "jetli/yew-hooks".to_string());
+    // Demo #1, manually call `run` to load data.
+    let state = {
+        let repo = repo.clone();
+        use_async(async move { fetch_repo((*repo).clone()).await })
+    };
 
     let onclick = {
         let state = state.clone();
         Callback::from(move |_| {
-            let state = state.clone();
-            // You can trigger to run in callback or use_effect_with_deps.
+            // You can manually trigger to run in callback or use_effect.
             state.run();
         })
+    };
+
+    let oninput = {
+        let repo = repo.clone();
+        Callback::from(move |e: InputEvent| {
+            let input: HtmlInputElement = e.target_unchecked_into();
+            repo.set(input.value());
+        })
+    };
+
+    // Demo #2, automatically load data when mount
+    let _ = {
+        let repo = repo.clone();
+        use_async_with_options(
+            async move { fetch_repo((*repo).clone()).await },
+            // This will load data automatically when mount.
+            UseAsyncOptions::enable_auto(),
+        )
     };
 
     html! {
         <div class="app">
             <header class="app-header">
                 <div>
-                    <button {onclick} disabled={state.loading}>{ "Start to load repo: jetli/yew-hooks" }</button>
+                    <input placeholder="Repo" value={(*repo).clone()} {oninput}/>
+                    <button {onclick} disabled={state.loading}>{ "Start to load repo" }</button>
                     <p>
                         {
                             if state.loading {
