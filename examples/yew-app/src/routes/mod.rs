@@ -106,6 +106,8 @@ pub enum AppRoute {
     UseSwipe,
     #[at("/use_renders_count")]
     UseRendersCount,
+    #[at("/use_default")]
+    UseDefault,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -164,6 +166,7 @@ pub fn switch(routes: &AppRoute) -> Html {
         AppRoute::UseMedia => html! { <UseMedia /> },
         AppRoute::UseSwipe => html! { <UseSwipe /> },
         AppRoute::UseRendersCount => html! { <UseRendersCount /> },
+        AppRoute::UseDefault => html! { <UseDefault /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }

@@ -27,6 +27,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseRafState} classes="app-link">{ "use_raf_state" }</Link<AppRoute>> { " - creates set method which only updates after requestAnimationFrame." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseStatePtrEq} classes="app-link">{ "use_state_ptr_eq" }</Link<AppRoute>> { " - similar to use_state_eq, but checks if the two Rcs of values point to the same allocation." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseRendersCount} classes="app-link">{ "use_renders_count" }</Link<AppRoute>> { " - counts component renders." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseDefault} classes="app-link">{ "use_default" }</Link<AppRoute>> { " - returns the default value when state is None." }</li>
                     </ul>
 
                     <h2>{ "Side-effects" }</h2>

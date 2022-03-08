@@ -83,6 +83,7 @@ fn counter() -> Html {
 - `use_raf_state` - creates `set` method which only updates after `requestAnimationFrame`.
 - `use_state_ptr_eq` - similar to `use_state_eq`, but checks if the two `Rc`s of values point to the same allocation.
 - `use_renders_count` - counts component renders.
+- `use_default` - returns the default value when state is None.
 
 ### Side-effects
 
