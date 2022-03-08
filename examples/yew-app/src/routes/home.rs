@@ -74,6 +74,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseSize} classes="app-link" >{ "use_size" }</Link<AppRoute>> { " - tracks an HTML element's dimensions using the ResizeObserver API." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseMeasure} classes="app-link" >{ "use_measure" }</Link<AppRoute>> { " - tracks an HTML element's dimensions using the ResizeObserver API." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseGeolocation} classes="app-link" >{ "use_geolocation" }</Link<AppRoute>> { " - tracks user's geographic location." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseSwipe} classes="app-link" >{ "use_swipe" }</Link<AppRoute>> { " - detects swipe based on TouchEvent." }</li>
                     </ul>
 
                     <h2>{ "UI" }</h2>

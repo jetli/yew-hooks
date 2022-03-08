@@ -37,7 +37,7 @@
 
 <br/>
 
-Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-use](https://github.com/streamich/react-use) and [alibaba/hooks](https://github.com/alibaba/hooks).
+Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-use](https://github.com/streamich/react-use), [alibaba/hooks](https://github.com/alibaba/hooks) and [vueuse/vueuse](https://github.com/vueuse/vueuse).
 
 ```rust
 use yew_hooks::use_counter;
@@ -122,6 +122,7 @@ fn counter() -> Html {
 - `use_size` - tracks an HTML element's dimensions using the `ResizeObserver` API.
 - `use_measure` - tracks an HTML element's dimensions using the `ResizeObserver` API.
 - `use_geolocation` - tracks user's geographic location.
+- `use_swipe` - detects swipe based on TouchEvent.
 
 ### UI
 
