@@ -1,17 +1,28 @@
 use yew::prelude::*;
 
-use yew_hooks::{use_counter, use_logger, use_toggle};
+use yew_hooks::{use_counter, use_logger, use_logger_eq, use_toggle};
 
 /// `use_logger` demo
 #[function_component(MyComponent)]
 fn my_component(props: &MyComponentProps) -> Html {
-    use_logger("MyComponent".to_string(), props.clone());
+    // Demo #1,
+    use_logger("MyComponent Props".to_string(), props.clone());
+
+    let counter = use_counter(0);
+    use_logger_eq("MyComponent States".to_string(), counter.clone());
+
+    let onincrease = {
+        let counter = counter.clone();
+        Callback::from(move |_| counter.increase())
+    };
 
     html! {
         <>
             { "My Component" }
             <p>
+                <button onclick={onincrease}>{ "Increase internal" }</button><br/>
                 <b>{ " counter: " }</b> { props.counter }
+                <b>{ " internal counter: " }</b> { *counter }
                 <b>{ " title: " }</b> { &props.title }
             </p>
         </>
