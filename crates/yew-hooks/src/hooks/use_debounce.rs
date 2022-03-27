@@ -1,5 +1,3 @@
-use yew::prelude::*;
-
 use super::{use_timeout, UseTimeoutHandle};
 
 /// State handle for the [`use_debounce`] hook.
@@ -8,6 +6,11 @@ pub struct UseDebounceHandle {
 }
 
 impl UseDebounceHandle {
+    /// Run the debounce.
+    pub fn run(&self) {
+        self.inner.reset()
+    }
+
     /// Cancel the debounce.
     pub fn cancel(&self) {
         self.inner.cancel()
@@ -22,9 +25,8 @@ impl Clone for UseDebounceHandle {
     }
 }
 
-/// A hook that shat delays invoking a function until after wait milliseconds have elapsed
+/// A hook that delays invoking a function until after wait milliseconds have elapsed
 /// since the last time the debounced function was invoked.
-/// The debounce timeout will start when the dependents changes.
 ///
 /// # Example
 ///
@@ -42,26 +44,26 @@ impl Clone for UseDebounceHandle {
 ///     
 ///     let debounce = {
 ///         let value = value.clone();
-///         let value2 = value.clone();
 ///         let status = status.clone();
 ///         let debounced_value = debounced_value.clone();
 ///         use_debounce(
 ///             move || {
-///                 debounced_value.set((*value2).clone());
+///                 debounced_value.set((*value).clone());
 ///                 status.set("Typing stopped".to_string());
 ///             },
 ///             2000,
-///             value,
 ///         )
 ///     };
 ///     
 ///     let oninput = {
 ///         let status = status.clone();
 ///         let value = value.clone();
+///         let debounce = debounce.clone();
 ///         Callback::from(move |e: InputEvent| {
 ///             let input: HtmlInputElement = e.target_unchecked_into();
 ///             value.set(input.value());
 ///             status.set("Waiting for typing to stop...".to_string());
+///             debounce.run();
 ///         })
 ///     };
 ///     
@@ -82,28 +84,11 @@ impl Clone for UseDebounceHandle {
 ///     }
 /// }
 /// ```
-pub fn use_debounce<Callback, Dependents>(
-    callback: Callback,
-    millis: u32,
-    deps: Dependents,
-) -> UseDebounceHandle
+pub fn use_debounce<Callback>(callback: Callback, millis: u32) -> UseDebounceHandle
 where
     Callback: FnOnce() + 'static,
-    Dependents: PartialEq + 'static,
 {
     let inner = use_timeout(callback, millis);
-
-    {
-        let inner = inner.clone();
-        use_effect_with_deps(
-            move |_| {
-                inner.reset();
-
-                || ()
-            },
-            deps,
-        );
-    }
 
     UseDebounceHandle { inner }
 }

@@ -13,26 +13,26 @@ pub fn debounce() -> Html {
 
     let debounce = {
         let value = value.clone();
-        let value2 = value.clone();
         let status = status.clone();
         let debounced_value = debounced_value.clone();
         use_debounce(
             move || {
-                debounced_value.set((*value2).clone());
+                debounced_value.set((*value).clone());
                 status.set("Typing stopped".to_string());
             },
             2000,
-            value,
         )
     };
 
     let oninput = {
         let status = status.clone();
         let value = value.clone();
+        let debounce = debounce.clone();
         Callback::from(move |e: InputEvent| {
             let input: HtmlInputElement = e.target_unchecked_into();
             value.set(input.value());
             status.set("Waiting for typing to stop...".to_string());
+            debounce.run();
         })
     };
 
