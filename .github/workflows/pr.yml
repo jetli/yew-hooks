@@ -1,7 +1,7 @@
-name: Rust
+name: Pull Request
 
 on:
-  push:
+  pull_request:
     branches: [ main ]
 
 env:
@@ -31,9 +31,3 @@ jobs:
         cd examples/yew-app/
         npm install
         npm run build
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@v4.2.2
-      with:
-        branch: gh-pages
-        folder: examples/yew-app/dist
-        clean: true

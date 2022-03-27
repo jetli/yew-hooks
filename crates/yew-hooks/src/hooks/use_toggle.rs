@@ -212,7 +212,7 @@ where
     let left = value.clone();
     let right = Rc::new(other);
 
-    let handle = use_reducer(move || UseToggleReducer { value, left, right });
+    let inner = use_reducer(move || UseToggleReducer { value, left, right });
 
-    UseToggleHandle { inner: handle }
+    UseToggleHandle { inner }
 }
