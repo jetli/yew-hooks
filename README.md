@@ -93,6 +93,7 @@ fn counter() -> Html {
 - `use_local_storage` - manages a value in `localStorage`.
 - `use_session_storage` - manages a value in `sessionStorage`.
 - `use_before_unload` - shows browser alert when user try to reload or close the page.
+- `use_debounce` - debounces a function.
 
 ### Lifecycles
 

@@ -108,6 +108,8 @@ pub enum AppRoute {
     UseRendersCount,
     #[at("/use_default")]
     UseDefault,
+    #[at("/use_debounce")]
+    UseDebounce,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -167,6 +169,7 @@ pub fn switch(routes: &AppRoute) -> Html {
         AppRoute::UseSwipe => html! { <UseSwipe /> },
         AppRoute::UseRendersCount => html! { <UseRendersCount /> },
         AppRoute::UseDefault => html! { <UseDefault /> },
+        AppRoute::UseDebounce => html! { <UseDebounce /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }

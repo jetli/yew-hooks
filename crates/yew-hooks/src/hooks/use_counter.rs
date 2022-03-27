@@ -168,10 +168,10 @@ impl PartialEq for UseCounterHandle {
 /// }
 /// ```
 pub fn use_counter(default: i32) -> UseCounterHandle {
-    let handle = use_reducer(move || UseCounterReducer {
+    let inner = use_reducer(move || UseCounterReducer {
         value: default,
         default,
     });
 
-    UseCounterHandle { inner: handle }
+    UseCounterHandle { inner }
 }
