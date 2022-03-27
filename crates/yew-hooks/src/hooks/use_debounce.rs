@@ -84,10 +84,7 @@ impl Clone for UseDebounceHandle {
 ///     }
 /// }
 /// ```
-pub fn use_debounce<Callback>(
-    callback: Callback,
-    millis: u32,
-) -> UseDebounceHandle
+pub fn use_debounce<Callback>(callback: Callback, millis: u32) -> UseDebounceHandle
 where
     Callback: FnOnce() + 'static,
 {
