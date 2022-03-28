@@ -85,6 +85,7 @@ fn counter() -> Html {
 - `use_renders_count` - counts component renders.
 - `use_default` - returns the default value when state is None.
 - `use_debounce_state` - debounces state.
+- `use_throttle_state` - throttles state.
 
 ### Side-effects
 
