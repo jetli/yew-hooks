@@ -112,6 +112,8 @@ pub enum AppRoute {
     UseDebounce,
     #[at("/use_debounce_state")]
     UseDebounceState,
+    #[at("/use_throttle")]
+    UseThrottle,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -173,6 +175,7 @@ pub fn switch(routes: &AppRoute) -> Html {
         AppRoute::UseDefault => html! { <UseDefault /> },
         AppRoute::UseDebounce => html! { <UseDebounce /> },
         AppRoute::UseDebounceState => html! { <UseDebounceState /> },
+        AppRoute::UseThrottle => html! { <UseThrottle /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }

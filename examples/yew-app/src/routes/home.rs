@@ -41,6 +41,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseSessionStorage} classes="app-link" >{ "use_session_storage" }</Link<AppRoute>> { " - manages a value in sessionStorage." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseBeforeUnload} classes="app-link" >{ "use_before_unload" }</Link<AppRoute>> { " - shows browser alert when user try to reload or close the page." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseDebounce} classes="app-link" >{ "use_debounce" }</Link<AppRoute>> { " - debounces a function." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseThrottle} classes="app-link" >{ "use_throttle" }</Link<AppRoute>> { " - throttles a function." }</li>
                     </ul>
 
                     <h2>{ "Lifecycles" }</h2>
