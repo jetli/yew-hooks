@@ -29,6 +29,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseRendersCount} classes="app-link">{ "use_renders_count" }</Link<AppRoute>> { " - counts component renders." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseDefault} classes="app-link">{ "use_default" }</Link<AppRoute>> { " - returns the default value when state is None." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseDebounceState} classes="app-link">{ "use_debounce_state" }</Link<AppRoute>> { " - debounces state." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseThrottleState} classes="app-link">{ "use_throttle_state" }</Link<AppRoute>> { " - throttles state." }</li>
                     </ul>
 
                     <h2>{ "Side-effects" }</h2>

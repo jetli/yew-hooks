@@ -62,17 +62,11 @@ impl Clone for UseThrottleHandle {
 ///     let oncancel = { Callback::from(move |_| throttle.cancel()) };
 ///
 ///     html! {
-///         <div class="app">
-///             <header class="app-header">
-///                 <div>
-///                     <button {onclick}>{ "Click fast!" }</button>
-///                     <button onclick={oncancel}>{ "Cancel throttle" }</button>
-///                     <p>
-///                         <b>{ "State: " }</b> {*state}
-///                     </p>
-///                 </div>
-///             </header>
-///         </div>
+///         <>
+///             <button {onclick}>{ "Click fast!" }</button>
+///             <button onclick={oncancel}>{ "Cancel throttle" }</button>
+///             <b>{ "State: " }</b> {*state}
+///         </>
 ///     }
 /// }
 /// ```
