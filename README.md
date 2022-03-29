@@ -98,6 +98,7 @@ fn counter() -> Html {
 - `use_debounce` - debounces a function.
 - `use_debounce_effect` - debounces an effect.
 - `use_throttle` - throttles a function.
+- `use_throttle_effect` - throttles an effect.
 
 ### Lifecycles
 
