@@ -44,6 +44,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseDebounce} classes="app-link" >{ "use_debounce" }</Link<AppRoute>> { " - debounces a function." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseDebounceEffect} classes="app-link" >{ "use_debounce_effect" }</Link<AppRoute>> { " - debounces an effect." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseThrottle} classes="app-link" >{ "use_throttle" }</Link<AppRoute>> { " - throttles a function." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseThrottleEffect} classes="app-link" >{ "use_throttle_effect" }</Link<AppRoute>> { " - throttles an effect." }</li>
                     </ul>
 
                     <h2>{ "Lifecycles" }</h2>
