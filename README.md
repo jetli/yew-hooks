@@ -92,6 +92,7 @@ fn counter() -> Html {
 - `use_async` - resolves an `async` future, e.g. fetching REST api.
 - `use_web_socket` - communicates with `WebSocket`.
 - `use_title` - sets title of the page.
+- `use_favicon` - sets favicon of the page.
 - `use_local_storage` - manages a value in `localStorage`.
 - `use_session_storage` - manages a value in `sessionStorage`.
 - `use_before_unload` - shows browser alert when user try to reload or close the page.
