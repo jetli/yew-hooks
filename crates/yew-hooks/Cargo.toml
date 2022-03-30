@@ -1,6 +1,6 @@
 [package]
 name = "yew-hooks"
-version = "0.1.52"
+version = "0.1.53"
 edition = "2018"
 authors = ["Jet Li <jing.i.qin@icloud.com>"]
 categories = ["gui", "wasm", "web-programming"]
@@ -48,6 +48,8 @@ features = [
     "TimeRanges",
     "Touch",
     "TouchList",
+    "HtmlLinkElement",
+    "HtmlCollection",
 ]
 
 [dev-dependencies]
