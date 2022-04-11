@@ -1,7 +1,6 @@
 use std::rc::Rc;
 
 use web_sys::Node;
-
 use yew::{prelude::*, TargetCast};
 
 use super::{use_event_with_window, use_latest};

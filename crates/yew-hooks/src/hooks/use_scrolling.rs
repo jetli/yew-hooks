@@ -1,5 +1,4 @@
 use gloo::timers::callback::Timeout;
-
 use yew::prelude::*;
 
 use super::{use_event, use_unmount};

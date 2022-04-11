@@ -1,7 +1,6 @@
 use std::rc::Rc;
 
 use web_sys::{DataTransfer, File};
-
 use yew::prelude::*;
 
 use super::{use_event, use_mut_latest};

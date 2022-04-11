@@ -3,7 +3,6 @@ use std::rc::Rc;
 
 use wasm_bindgen::{prelude::*, JsValue};
 use web_sys::{HtmlMediaElement, TimeRanges};
-
 use yew::{prelude::*, TargetCast};
 
 use super::{use_event, use_mut_latest};

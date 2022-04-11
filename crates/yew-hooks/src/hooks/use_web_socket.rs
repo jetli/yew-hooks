@@ -4,7 +4,6 @@ use gloo::timers::callback::Timeout;
 use js_sys::Array;
 use wasm_bindgen::{prelude::*, JsCast, JsValue};
 use web_sys::{BinaryType, MessageEvent, WebSocket};
-
 use yew::prelude::*;
 
 use super::{use_mut_latest, use_state_ptr_eq, use_unmount, UseStatePtrEqHandle};

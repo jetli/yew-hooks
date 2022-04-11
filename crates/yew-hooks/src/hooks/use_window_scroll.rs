@@ -1,5 +1,4 @@
 use gloo::utils::window;
-
 use yew::prelude::*;
 
 use super::{use_event_with_window, use_mount, use_raf_state};

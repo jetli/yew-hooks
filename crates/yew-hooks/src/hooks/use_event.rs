@@ -4,7 +4,6 @@ use std::ops::Deref;
 use gloo::events::{EventListener, EventListenerOptions};
 use gloo::utils::window;
 use wasm_bindgen::JsValue;
-
 use yew::prelude::*;
 
 use super::use_latest;
@@ -40,7 +39,6 @@ where
     F: Fn(E) + 'static,
     E: From<JsValue>,
 {
-    let listener = use_mut_ref(|| None);
     let callback = use_latest(callback);
 
     use_effect_with_deps(
@@ -52,7 +50,7 @@ where
 
             // We should only set passive event listeners for `touchstart` and `touchmove`.
             // See here: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Improving_scrolling_performance_with_passive_listeners
-            *listener.borrow_mut() = if event_type == "touchstart"
+            let listener = if event_type == "touchstart"
                 || event_type == "touchmove"
                 || event_type == "scroll"
             {
@@ -74,7 +72,7 @@ where
                 ))
             };
 
-            move || *listener.borrow_mut() = None
+            move || drop(listener)
         },
         (node, event_type.into()),
     );

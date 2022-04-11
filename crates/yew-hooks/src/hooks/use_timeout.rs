@@ -1,6 +1,6 @@
-use gloo::timers::callback::Timeout;
 use std::rc::Rc;
 
+use gloo::timers::callback::Timeout;
 use yew::prelude::*;
 
 use super::{use_mut_latest, use_unmount};

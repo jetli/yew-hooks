@@ -2,7 +2,6 @@ use std::ops::Deref;
 use std::{future::Future, rc::Rc};
 
 use wasm_bindgen_futures::spawn_local;
-
 use yew::prelude::*;
 
 use super::{use_mount, use_mut_latest};

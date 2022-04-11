@@ -1,5 +1,4 @@
 use web_sys::Element;
-
 use yew::prelude::*;
 
 use super::{use_event, use_mount};

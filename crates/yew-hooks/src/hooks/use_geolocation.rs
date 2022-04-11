@@ -1,7 +1,6 @@
 use gloo::utils::window;
 use wasm_bindgen::{prelude::*, JsCast};
 use web_sys::{Position, PositionError};
-
 use yew::prelude::*;
 
 use super::use_effect_once;
