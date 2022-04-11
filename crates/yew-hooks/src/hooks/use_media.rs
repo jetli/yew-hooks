@@ -53,32 +53,32 @@ pub struct UseMediaHandle {
 impl UseMediaHandle {
     /// Play the media.
     pub fn play(&self) {
-        (&self.play)()
+        (self.play)()
     }
 
     /// Pause the media.
     pub fn pause(&self) {
-        (&self.pause)()
+        (self.pause)()
     }
 
     /// Mute the media.
     pub fn mute(&self) {
-        (&self.mute)()
+        (self.mute)()
     }
 
     /// Unmute the media.
     pub fn unmute(&self) {
-        (&self.unmute)()
+        (self.unmute)()
     }
 
     /// Set volume of the media.
     pub fn set_volume(&self, value: f64) {
-        (&self.set_volume)(value)
+        (self.set_volume)(value)
     }
 
     /// Seek the media.
     pub fn seek(&self, value: f64) {
-        (&self.seek)(value)
+        (self.seek)(value)
     }
 }
 

@@ -13,12 +13,12 @@ pub struct UseThrottleHandle {
 impl UseThrottleHandle {
     /// Run the throttle.
     pub fn run(&self) {
-        (&self.run)()
+        (self.run)()
     }
 
     /// Cancel the throttle.
     pub fn cancel(&self) {
-        (&self.cancel)()
+        (self.cancel)()
     }
 }
 

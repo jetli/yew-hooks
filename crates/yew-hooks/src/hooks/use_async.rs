@@ -36,7 +36,7 @@ pub struct UseAsyncHandle<T, E> {
 impl<T, E> UseAsyncHandle<T, E> {
     /// Start to resolve the async future to a final value.
     pub fn run(&self) {
-        (&self.run)()
+        (self.run)()
     }
 
     /// Update `data` directly.
