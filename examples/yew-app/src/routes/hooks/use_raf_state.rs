@@ -1,5 +1,4 @@
 use web_sys::{window, Window};
-
 use yew::prelude::*;
 
 use yew_hooks::{use_event_with_window, use_raf_state};

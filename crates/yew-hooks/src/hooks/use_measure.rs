@@ -1,6 +1,5 @@
 use wasm_bindgen::{prelude::*, JsCast};
 use web_sys::Element;
-
 use yew::prelude::*;
 
 use super::use_raf_state;

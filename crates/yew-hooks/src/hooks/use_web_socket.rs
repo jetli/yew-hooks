@@ -4,7 +4,6 @@ use gloo::timers::callback::Timeout;
 use js_sys::Array;
 use wasm_bindgen::{prelude::*, JsCast, JsValue};
 use web_sys::{BinaryType, MessageEvent, WebSocket};
-
 use yew::prelude::*;
 
 use super::{use_mut_latest, use_state_ptr_eq, use_unmount, UseStatePtrEqHandle};
@@ -64,22 +63,22 @@ pub struct UseWebSocketHandle {
 impl UseWebSocketHandle {
     /// Connect `WebSocket` manually. If already connected, close the current one and reconnect.
     pub fn open(&self) {
-        (&self.open)()
+        (self.open)()
     }
 
     /// Disconnect `WebSocket` manually.
     pub fn close(&self) {
-        (&self.close)()
+        (self.close)()
     }
 
     /// Send text message to `WebSocket`.
     pub fn send(&self, data: String) {
-        (&self.send)(data)
+        (self.send)(data)
     }
 
     /// Send binary message to `WebSocket`.
     pub fn send_bytes(&self, data: Vec<u8>) {
-        (&self.send_bytes)(data)
+        (self.send_bytes)(data)
     }
 }
 

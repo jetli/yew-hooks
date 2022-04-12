@@ -1,5 +1,4 @@
 use gloo::dialogs::alert;
-
 use yew::prelude::*;
 
 use yew_hooks::{use_event, use_event_with_window};

@@ -14,7 +14,7 @@ pub struct UseThrottleStateHandle<T> {
 impl<T> UseThrottleStateHandle<T> {
     // Set the value.
     pub fn set(&self, value: T) {
-        (&self.set)(value)
+        (self.set)(value)
     }
 }
 

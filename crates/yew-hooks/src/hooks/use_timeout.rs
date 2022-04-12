@@ -1,6 +1,6 @@
-use gloo::timers::callback::Timeout;
 use std::rc::Rc;
 
+use gloo::timers::callback::Timeout;
 use yew::prelude::*;
 
 use super::{use_mut_latest, use_unmount};
@@ -14,12 +14,12 @@ pub struct UseTimeoutHandle {
 impl UseTimeoutHandle {
     /// Reset the timeout.
     pub fn reset(&self) {
-        (&self.reset)()
+        (self.reset)()
     }
 
     /// Cancel the timeout.
     pub fn cancel(&self) {
-        (&self.cancel)()
+        (self.cancel)()
     }
 }
 

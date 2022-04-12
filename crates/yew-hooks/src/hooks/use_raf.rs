@@ -2,7 +2,6 @@ use std::cmp::min_by;
 
 use gloo::render::request_animation_frame;
 use gloo::timers::callback::Timeout;
-
 use yew::prelude::*;
 
 /// An animation hook that forces component to re-render on each `requestAnimationFrame`,

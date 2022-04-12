@@ -1,5 +1,4 @@
 use gloo::timers::callback::Interval;
-
 use yew::prelude::*;
 
 use super::use_mut_latest;

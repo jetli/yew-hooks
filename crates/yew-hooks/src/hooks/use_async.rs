@@ -2,7 +2,6 @@ use std::ops::Deref;
 use std::{future::Future, rc::Rc};
 
 use wasm_bindgen_futures::spawn_local;
-
 use yew::prelude::*;
 
 use super::{use_mount, use_mut_latest};
@@ -37,7 +36,7 @@ pub struct UseAsyncHandle<T, E> {
 impl<T, E> UseAsyncHandle<T, E> {
     /// Start to resolve the async future to a final value.
     pub fn run(&self) {
-        (&self.run)()
+        (self.run)()
     }
 
     /// Update `data` directly.

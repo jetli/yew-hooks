@@ -1,5 +1,4 @@
 use gloo::dialogs::alert;
-
 use yew::prelude::*;
 
 use yew_hooks::{use_mount, use_toggle};

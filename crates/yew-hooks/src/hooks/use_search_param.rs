@@ -1,6 +1,5 @@
 use gloo::utils::window;
 use web_sys::UrlSearchParams;
-
 use yew::prelude::*;
 
 use super::use_event_with_window;

@@ -3,7 +3,6 @@ use std::rc::Rc;
 
 use gloo::storage::{SessionStorage, Storage};
 use serde::{Deserialize, Serialize};
-
 use yew::prelude::*;
 
 /// State handle for the [`use_session_storage`] hook.

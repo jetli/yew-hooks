@@ -1,6 +1,5 @@
 use gloo::utils::window;
 use wasm_bindgen::JsValue;
-
 use yew::prelude::*;
 
 use super::use_event_with_window;

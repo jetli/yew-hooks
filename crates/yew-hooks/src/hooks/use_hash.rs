@@ -1,7 +1,6 @@
 use std::ops::Deref;
 
 use gloo::utils::window;
-
 use yew::prelude::*;
 
 use super::use_event_with_window;
