@@ -122,6 +122,8 @@ pub enum AppRoute {
     UseThrottleEffect,
     #[at("/use_favicon")]
     UseFavicon,
+    #[at("/use_clipboard")]
+    UseClipboard,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -188,6 +190,7 @@ pub fn switch(routes: &AppRoute) -> Html {
         AppRoute::UseDebounceEffect => html! { <UseDebounceEffect /> },
         AppRoute::UseThrottleEffect => html! { <UseThrottleEffect /> },
         AppRoute::UseFavicon => html! { <UseFavicon /> },
+        AppRoute::UseClipboard => html! { <UseClipboard /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }

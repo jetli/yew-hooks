@@ -100,6 +100,7 @@ fn counter() -> Html {
 - `use_debounce_effect` - debounces an effect.
 - `use_throttle` - throttles a function.
 - `use_throttle_effect` - throttles an effect.
+- `use_clipboard` - reads from or writes to clipboard for text/bytes.
 
 ### Lifecycles
 

@@ -46,6 +46,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseDebounceEffect} classes="app-link" >{ "use_debounce_effect" }</Link<AppRoute>> { " - debounces an effect." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseThrottle} classes="app-link" >{ "use_throttle" }</Link<AppRoute>> { " - throttles a function." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseThrottleEffect} classes="app-link" >{ "use_throttle_effect" }</Link<AppRoute>> { " - throttles an effect." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseClipboard} classes="app-link" >{ "use_clipboard" }</Link<AppRoute>> { " - reads from or writes to clipboard for text/bytes." }</li>
                     </ul>
 
                     <h2>{ "Lifecycles" }</h2>
