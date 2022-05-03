@@ -3,7 +3,10 @@ use std::rc::Rc;
 
 use gloo::storage::{LocalStorage, Storage};
 use serde::{Deserialize, Serialize};
+use web_sys::StorageEvent;
 use yew::prelude::*;
+
+use super::use_event_with_window;
 
 /// State handle for the [`use_local_storage`] hook.
 pub struct UseLocalStorageHandle<T> {
@@ -102,6 +105,18 @@ where
     let inner: UseStateHandle<Option<T>> =
         use_state(|| LocalStorage::get(&key).unwrap_or_default());
     let key = use_ref(|| key);
+
+    {
+        let key = key.clone();
+        let inner = inner.clone();
+        use_event_with_window("storage", move |e: StorageEvent| {
+            if let Some(k) = e.key() {
+                if k == *key {
+                    inner.set(LocalStorage::get(&*key).unwrap_or_default())
+                }
+            }
+        });
+    }
 
     UseLocalStorageHandle { inner, key }
 }

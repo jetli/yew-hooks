@@ -51,6 +51,7 @@ features = [
     "HtmlLinkElement",
     "HtmlCollection",
     "Blob",
+    "StorageEvent",
 ]
 
 [dev-dependencies]
