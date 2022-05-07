@@ -126,6 +126,7 @@ fn counter() -> Html {
 - `use_window_scroll` - tracks Window scroll position.
 - `use_scroll` - tracks an HTML element's scroll position.
 - `use_scrolling` - tracks whether HTML element is scrolling.
+- `use_infinite_scroll` - infinite scrolling of the element.
 - `use_location` - tracks brower's location value.
 - `use_hash` - tracks brower's location hash value.
 - `use_search_param` - tracks brower's location search param value.

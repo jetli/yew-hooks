@@ -1,7 +1,6 @@
-use gloo::timers::callback::Timeout;
 use yew::prelude::*;
 
-use super::{use_event, use_unmount};
+use super::{use_debounce, use_event};
 
 /// A sensor hook that tracks whether HTML element is scrolling.
 ///
@@ -26,24 +25,25 @@ use super::{use_event, use_unmount};
 /// }
 /// ```
 pub fn use_scrolling(node: NodeRef) -> bool {
-    let state = use_state(|| false);
-    let timer = use_mut_ref(|| None);
+    let state = use_state_eq(|| false);
+
+    let debounce = {
+        let state = state.clone();
+        use_debounce(
+            move || {
+                state.set(false);
+            },
+            150,
+        )
+    };
 
     {
         let state = state.clone();
-        let timer = timer.clone();
         use_event(node, "scroll", move |_: Event| {
             state.set(true);
-            let state = state.clone();
-            *timer.borrow_mut() = Some(Timeout::new(150, move || {
-                state.set(false);
-            }));
+            debounce.run();
         });
     }
-
-    use_unmount(move || {
-        *timer.borrow_mut() = None;
-    });
 
     *state
 }

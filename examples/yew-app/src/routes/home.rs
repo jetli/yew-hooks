@@ -25,7 +25,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseSet} classes="app-link">{ "use_set" }</Link<AppRoute>> { " - tracks state of a hash set." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseQueue} classes="app-link">{ "use_queue" }</Link<AppRoute>> { " - tracks state of a queue." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseRafState} classes="app-link">{ "use_raf_state" }</Link<AppRoute>> { " - creates set method which only updates after requestAnimationFrame." }</li>
-                        <li><Link<AppRoute> to={AppRoute::UseStatePtrEq} classes="app-link">{ "use_state_ptr_eq" }</Link<AppRoute>> { " - similar to use_state_eq, but checks if the two Rcs of values point to the same allocation." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseStatePtrEq} classes="app-link">{ "use_state_ptr_eq" }</Link<AppRoute>> { " - similar to use_state_eq, but checks two Rcs' pointers of allocation." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseRendersCount} classes="app-link">{ "use_renders_count" }</Link<AppRoute>> { " - counts component renders." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseDefault} classes="app-link">{ "use_default" }</Link<AppRoute>> { " - returns the default value when state is None." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseDebounceState} classes="app-link">{ "use_debounce_state" }</Link<AppRoute>> { " - debounces state." }</li>
@@ -78,6 +78,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseWindowScroll} classes="app-link" >{ "use_window_scroll" }</Link<AppRoute>> { " - tracks Window scroll position." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseScroll} classes="app-link" >{ "use_scroll" }</Link<AppRoute>> { " - tracks an HTML element's scroll position." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseScrolling} classes="app-link" >{ "use_scrolling" }</Link<AppRoute>> { " - tracks whether HTML element is scrolling." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseInfiniteScroll} classes="app-link" >{ "use_infinite_scroll" }</Link<AppRoute>> { " - infinite scrolling of the element." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseLocation} classes="app-link" >{ "use_location" }</Link<AppRoute>> { " - tracks brower's location value." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseHash} classes="app-link" >{ "use_hash" }</Link<AppRoute>> { " - tracks brower's location hash value." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseSearchParam} classes="app-link" >{ "use_search_param" }</Link<AppRoute>> { " - tracks brower's location search param value." }</li>
