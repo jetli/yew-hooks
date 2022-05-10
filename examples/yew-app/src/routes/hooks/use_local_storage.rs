@@ -1,7 +1,6 @@
 use serde::{Deserialize, Serialize};
 use yew::prelude::*;
-
-use yew_hooks::use_local_storage;
+use yew_hooks::prelude::*;
 
 #[derive(Serialize, Deserialize, Clone)]
 struct User {

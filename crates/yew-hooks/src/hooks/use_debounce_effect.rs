@@ -11,7 +11,7 @@ use super::{use_debounce, use_unmount};
 /// # use web_sys::HtmlInputElement;
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_debounce_effect;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(DebounceEffect)]
 /// fn debounce_effect() -> Html {

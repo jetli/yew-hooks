@@ -1,9 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::{
-    use_list, use_web_socket, use_web_socket_with_options, UseWebSocketOptions,
-    UseWebSocketReadyState,
-};
+use yew_hooks::prelude::*;
 
 /// `use_web_socket` demo
 #[function_component(UseWebSocket)]

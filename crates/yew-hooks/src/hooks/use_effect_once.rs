@@ -8,7 +8,7 @@ use yew::prelude::*;
 /// # use yew::prelude::*;
 /// # use log::debug;
 /// #
-/// use yew_hooks::use_effect_once;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(EffectOnce)]
 /// fn effect_once() -> Html {

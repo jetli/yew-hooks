@@ -9,7 +9,7 @@ use super::use_unmount;
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_title;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(Title)]
 /// fn title() -> Html {

@@ -1,8 +1,7 @@
 use std::collections::VecDeque;
 
 use yew::prelude::*;
-
-use yew_hooks::use_queue;
+use yew_hooks::prelude::*;
 
 /// `use_queue` demo
 #[function_component(UseQueue)]

@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::{use_title, use_toggle};
+use yew_hooks::prelude::*;
 
 /// `use_title` demo
 #[function_component(MyComponent)]

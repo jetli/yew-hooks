@@ -1,8 +1,7 @@
 use std::collections::HashMap;
 
 use yew::prelude::*;
-
-use yew_hooks::use_map;
+use yew_hooks::prelude::*;
 
 /// `use_map` demo
 #[function_component(UseMap)]

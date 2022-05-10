@@ -11,7 +11,7 @@ use yew::prelude::*;
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_favicon;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(Favicon)]
 /// fn favicon() -> Html {

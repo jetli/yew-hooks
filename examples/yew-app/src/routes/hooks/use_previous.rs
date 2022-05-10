@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_previous;
+use yew_hooks::prelude::*;
 
 /// `use_previous` demo
 #[function_component(UsePrevious)]

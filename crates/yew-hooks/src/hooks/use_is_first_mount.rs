@@ -7,7 +7,7 @@ use yew::prelude::*;
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_is_first_mount;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(IsFirstMount)]
 /// fn is_first_mount() -> Html {

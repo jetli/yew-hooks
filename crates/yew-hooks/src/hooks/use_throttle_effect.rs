@@ -9,7 +9,7 @@ use super::{use_throttle, use_unmount};
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::{use_throttle_effect, use_update};
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(ThrottleEffect)]
 /// fn throttle_effect() -> Html {

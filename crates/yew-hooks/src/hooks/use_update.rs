@@ -9,7 +9,7 @@ use yew::prelude::*;
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_update;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(Update)]
 /// fn update() -> Html {

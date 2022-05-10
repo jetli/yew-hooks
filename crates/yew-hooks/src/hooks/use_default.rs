@@ -53,7 +53,7 @@ where
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_default;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseDefault)]
 /// fn default() -> Html {

@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_favicon;
+use yew_hooks::prelude::*;
 
 /// `use_favicon` demo
 #[function_component(UseFavicon)]

@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::{use_throttle_effect, use_update};
+use yew_hooks::prelude::*;
 
 /// `use_throttle_effect` demo
 #[function_component(UseThrottleEffect)]

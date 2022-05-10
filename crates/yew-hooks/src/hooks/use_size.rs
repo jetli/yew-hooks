@@ -12,7 +12,7 @@ use crate::web_sys_ext::{ResizeObserver, ResizeObserverEntry};
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_size;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseSize)]
 /// fn size() -> Html {

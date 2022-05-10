@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_bool_toggle;
+use yew_hooks::prelude::*;
 
 /// `use_bool_toggle` demo
 #[function_component(UseBoolToggle)]

@@ -59,7 +59,7 @@ where
 /// # use web_sys::Window;
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::{use_event_with_window, use_raf_state};
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseRafState)]
 /// fn raf_state() -> Html {

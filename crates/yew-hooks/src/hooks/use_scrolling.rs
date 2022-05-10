@@ -9,7 +9,7 @@ use super::{use_debounce, use_event};
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_scrolling;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseScrolling)]
 /// fn scrolling() -> Html {

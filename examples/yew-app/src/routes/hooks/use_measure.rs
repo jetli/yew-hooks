@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_measure;
+use yew_hooks::prelude::*;
 
 /// `use_measure` demo
 #[function_component(UseMeasure)]

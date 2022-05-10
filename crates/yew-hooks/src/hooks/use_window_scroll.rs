@@ -10,7 +10,7 @@ use super::{use_event_with_window, use_mount, use_raf_state};
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_window_scroll;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseWindowScroll)]
 /// fn window_scroll() -> Html {

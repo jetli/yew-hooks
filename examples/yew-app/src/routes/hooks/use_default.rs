@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_default;
+use yew_hooks::prelude::*;
 
 /// `use_default` demo
 #[function_component(UseDefault)]

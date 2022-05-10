@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::{use_async_with_options, use_clipboard, UseAsyncOptions};
+use yew_hooks::prelude::*;
 
 /// `use_clipboard` demo
 #[function_component(UseClipboard)]

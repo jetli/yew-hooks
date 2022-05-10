@@ -1,8 +1,7 @@
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
 use web_sys::HtmlInputElement;
 use yew::prelude::*;
-
-use yew_hooks::{use_async, use_async_with_options, UseAsyncOptions};
+use yew_hooks::prelude::*;
 
 /// `use_async` demo
 #[function_component(UseAsync)]

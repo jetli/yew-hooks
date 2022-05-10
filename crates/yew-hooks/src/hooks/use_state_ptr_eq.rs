@@ -68,7 +68,7 @@ where
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_state_ptr_eq;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseStatePtrEq)]
 /// fn state_ptr_eq() -> Html {

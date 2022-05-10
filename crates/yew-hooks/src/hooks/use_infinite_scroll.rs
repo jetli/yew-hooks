@@ -10,7 +10,7 @@ use super::{use_debounce, use_event, use_latest};
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::{use_infinite_scroll, use_list};
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseInfiniteScroll)]
 /// fn infinite_scroll() -> Html {

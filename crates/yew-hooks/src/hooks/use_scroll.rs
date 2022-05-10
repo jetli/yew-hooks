@@ -10,7 +10,7 @@ use super::{use_event, use_mount};
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_scroll;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseScroll)]
 /// fn scroll() -> Html {

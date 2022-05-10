@@ -65,7 +65,7 @@ where
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_local_storage;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(LocalStorage)]
 /// fn local_storage() -> Html {

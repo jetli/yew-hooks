@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_search_param;
+use yew_hooks::prelude::*;
 
 /// `use_search_param` demo
 #[function_component(UseSearchParam)]

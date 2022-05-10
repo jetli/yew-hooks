@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_location;
+use yew_hooks::prelude::*;
 
 /// `use_location` demo
 #[function_component(UseLocation)]

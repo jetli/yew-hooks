@@ -105,7 +105,7 @@ impl Clone for UseWebSocketHandle {
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::{use_list, use_web_socket, UseWebSocketReadyState};
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseWebSocket)]
 /// fn web_socket() -> Html {
@@ -166,10 +166,7 @@ pub fn use_web_socket(url: String) -> UseWebSocketHandle {
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::{
-///     use_list, use_web_socket_with_options,
-///     UseWebSocketOptions, UseWebSocketReadyState
-/// };
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseWebSocket)]
 /// fn web_socket() -> Html {

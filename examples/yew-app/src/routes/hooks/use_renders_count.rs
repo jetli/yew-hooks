@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::{use_renders_count, use_update};
+use yew_hooks::prelude::*;
 
 /// `use_renders_count` demo
 #[function_component(UseRendersCount)]

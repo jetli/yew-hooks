@@ -104,7 +104,7 @@ where
 /// # use std::collections::HashMap;
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_map;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseMap)]
 /// fn map() -> Html {
