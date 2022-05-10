@@ -1,7 +1,6 @@
 use gloo::dialogs::alert;
 use yew::prelude::*;
-
-use yew_hooks::{use_effect_once, use_toggle};
+use yew_hooks::prelude::*;
 
 /// `use_effect_once` demo
 #[function_component(MyComponent)]

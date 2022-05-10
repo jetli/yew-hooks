@@ -54,7 +54,7 @@ impl Clone for UseSwipeHandle {
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::{use_swipe, UseSwipeDirection};
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseSwipe)]
 /// fn swipe() -> Html {
@@ -113,7 +113,7 @@ pub fn use_swipe_with_window() -> UseSwipeHandle {
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::{use_swipe_with_options, UseSwipeOptions};
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseSwipe)]
 /// fn swipe() -> Html {

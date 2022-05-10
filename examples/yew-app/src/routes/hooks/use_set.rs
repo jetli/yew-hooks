@@ -1,8 +1,7 @@
 use std::collections::HashSet;
 
 use yew::prelude::*;
-
-use yew_hooks::use_set;
+use yew_hooks::prelude::*;
 
 /// `use_set` demo
 #[function_component(UseSet)]

@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_timeout;
+use yew_hooks::prelude::*;
 
 /// `use_timeout` demo
 #[function_component(UseTimeout)]

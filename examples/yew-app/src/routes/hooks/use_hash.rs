@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_hash;
+use yew_hooks::prelude::*;
 
 /// `use_hash` demo
 #[function_component(UseHash)]

@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_size;
+use yew_hooks::prelude::*;
 
 /// `use_size` demo
 #[function_component(UseSize)]

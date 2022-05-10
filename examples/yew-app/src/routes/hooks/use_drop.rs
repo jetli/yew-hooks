@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::{use_drop, use_drop_with_options, UseDropOptions};
+use yew_hooks::prelude::*;
 
 /// `use_drop` demo
 #[function_component(UseDrop)]

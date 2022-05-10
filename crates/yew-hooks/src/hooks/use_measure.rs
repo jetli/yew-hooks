@@ -24,7 +24,7 @@ pub struct UseMeasureState {
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_measure;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseMeasure)]
 /// fn measure() -> Html {

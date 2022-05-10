@@ -1,7 +1,6 @@
 use web_sys::HtmlInputElement;
 use yew::prelude::*;
-
-use yew_hooks::use_debounce;
+use yew_hooks::prelude::*;
 
 /// `use_debounce` demo
 #[function_component(UseDebounce)]

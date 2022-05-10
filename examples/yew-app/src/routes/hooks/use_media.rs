@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::{use_media, use_media_with_options, UseMediaOptions};
+use yew_hooks::prelude::*;
 
 /// `use_media` demo
 #[function_component(UseMedia)]

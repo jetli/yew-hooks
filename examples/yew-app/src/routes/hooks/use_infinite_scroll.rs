@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::{use_infinite_scroll, use_list};
+use yew_hooks::prelude::*;
 
 /// `use_infinite_scroll` demo
 #[function_component(UseInfiniteScroll)]

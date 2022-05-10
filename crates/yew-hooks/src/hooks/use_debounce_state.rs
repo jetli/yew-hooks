@@ -53,7 +53,7 @@ where
 /// # use web_sys::HtmlInputElement;
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_debounce_state;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(DebounceState)]
 /// fn debounce_state() -> Html {

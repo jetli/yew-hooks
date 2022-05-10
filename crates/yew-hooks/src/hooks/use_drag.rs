@@ -25,7 +25,7 @@ pub struct UseDragHandle {
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_drag;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseDrag)]
 /// fn drag() -> Html {
@@ -57,7 +57,7 @@ pub fn use_drag(node: NodeRef) -> UseDragHandle {
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::{use_drag_with_options, UseDragOptions};
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseDrag)]
 /// fn drag() -> Html {

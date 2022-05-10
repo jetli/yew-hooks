@@ -9,7 +9,7 @@ use super::use_event_with_window;
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_before_unload;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseBeforeUnload)]
 /// fn before_unload() -> Html {

@@ -11,7 +11,7 @@ use super::use_event_with_window;
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_search_param;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseSearchParam)]
 /// fn search_param() -> Html {

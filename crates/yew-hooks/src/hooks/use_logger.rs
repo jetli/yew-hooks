@@ -10,7 +10,7 @@ use super::{use_effect_once, use_effect_update, use_effect_update_with_deps, use
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_logger;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseLogger)]
 /// fn logger(props: &Props) -> Html {
@@ -69,7 +69,7 @@ where
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_logger_eq;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseLogger)]
 /// fn logger(props: &Props) -> Html {

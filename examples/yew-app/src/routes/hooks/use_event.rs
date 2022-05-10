@@ -1,7 +1,6 @@
 use gloo::dialogs::alert;
 use yew::prelude::*;
-
-use yew_hooks::{use_event, use_event_with_window};
+use yew_hooks::prelude::*;
 
 /// `use_event` demo
 #[function_component(UseEvent)]

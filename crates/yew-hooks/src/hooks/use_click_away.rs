@@ -13,7 +13,7 @@ use super::{use_event_with_window, use_latest};
 /// # use yew::prelude::*;
 /// # use log::debug;
 /// #
-/// use yew_hooks::use_click_away;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseClickAway)]
 /// fn click_away() -> Html {

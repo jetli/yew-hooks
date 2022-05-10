@@ -1,7 +1,6 @@
 use gloo::dialogs::alert;
 use yew::prelude::*;
-
-use yew_hooks::use_click_away;
+use yew_hooks::prelude::*;
 
 /// `use_click_away` demo
 #[function_component(UseClickAway)]

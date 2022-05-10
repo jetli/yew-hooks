@@ -83,7 +83,7 @@ where
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_async;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(Async)]
 /// fn async_test() -> Html {
@@ -148,7 +148,7 @@ where
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::{use_async_with_options, UseAsyncOptions};
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(Async)]
 /// fn async_test() -> Html {

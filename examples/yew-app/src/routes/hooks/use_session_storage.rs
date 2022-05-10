@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_session_storage;
+use yew_hooks::prelude::*;
 
 /// `use_session_storage` demo
 #[function_component(UseSessionStorage)]

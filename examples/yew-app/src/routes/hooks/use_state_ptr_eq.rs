@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::{use_list, use_state_ptr_eq};
+use yew_hooks::prelude::*;
 
 /// `use_state_ptr_eq` demo
 #[function_component(UseStatePtrEq)]

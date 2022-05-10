@@ -16,7 +16,7 @@ use super::use_latest;
 /// # use yew::prelude::*;
 /// # use log::debug;
 /// #
-/// use yew_hooks::use_event;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseEvent)]
 /// fn event() -> Html {
@@ -87,7 +87,7 @@ where
 /// # use yew::prelude::*;
 /// # use log::debug;
 /// #
-/// use yew_hooks::use_event_with_window;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseEvent)]
 /// fn event() -> Html {

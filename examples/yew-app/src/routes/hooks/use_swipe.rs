@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::{use_swipe, use_swipe_with_options, UseSwipeDirection, UseSwipeOptions};
+use yew_hooks::prelude::*;
 
 /// `use_swipe` demo
 #[function_component(UseSwipe)]

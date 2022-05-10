@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_is_first_mount;
+use yew_hooks::prelude::*;
 
 /// `use_is_first_mount` demo
 #[function_component(UseIsFirstMount)]

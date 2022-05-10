@@ -103,7 +103,7 @@ where
 /// # use std::collections::HashSet;
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_set;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseSet)]
 /// fn set() -> Html {

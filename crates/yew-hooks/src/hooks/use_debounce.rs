@@ -34,7 +34,7 @@ impl Clone for UseDebounceHandle {
 /// # use web_sys::HtmlInputElement;
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_debounce;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(Debounce)]
 /// fn debounce() -> Html {

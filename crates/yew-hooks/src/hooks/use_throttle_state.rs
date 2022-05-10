@@ -51,7 +51,7 @@ where
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_throttle_state;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(ThrottleState)]
 /// fn throttle_state() -> Html {

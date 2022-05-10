@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::{use_drag, use_drag_with_options, use_drop, UseDragOptions};
+use yew_hooks::prelude::*;
 
 /// `use_drag` demo
 #[function_component(UseDragComponent)]

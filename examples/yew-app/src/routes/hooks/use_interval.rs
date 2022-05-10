@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_interval;
+use yew_hooks::prelude::*;
 
 /// `use_interval` demo
 #[function_component(UseInterval)]
