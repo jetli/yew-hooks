@@ -148,7 +148,7 @@ where
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_list;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseList)]
 /// fn list() -> Html {

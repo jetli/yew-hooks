@@ -91,7 +91,7 @@ where
 /// # use std::collections::VecDeque;
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_queue;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseQueue)]
 /// fn queue() -> Html {

@@ -11,7 +11,7 @@ use super::use_is_first_mount;
 /// # use yew::prelude::*;
 /// # use log::debug;
 /// #
-/// use yew_hooks::use_effect_update;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseEffectUpdate)]
 /// fn effect_update() -> Html {

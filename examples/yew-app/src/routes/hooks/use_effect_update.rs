@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_effect_update_with_deps;
+use yew_hooks::prelude::*;
 
 /// `use_effect_update` demo
 #[function_component(UseEffectUpdate)]

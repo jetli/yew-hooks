@@ -50,7 +50,7 @@ pub struct UseDropHandle {
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_drop;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseDrop)]
 /// fn drop() -> Html {
@@ -98,7 +98,7 @@ pub fn use_drop(node: NodeRef) -> UseDropHandle {
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::{use_drop_with_options, UseDropOptions};
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseDrop)]
 /// fn drop() -> Html {

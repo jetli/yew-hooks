@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_counter;
+use yew_hooks::prelude::*;
 
 /// `use_counter` demo
 #[function_component(UseCounter)]

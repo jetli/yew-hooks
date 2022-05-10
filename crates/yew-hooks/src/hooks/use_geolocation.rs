@@ -28,7 +28,7 @@ pub struct UseGeolocationState {
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_geolocation;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseGeolocation)]
 /// fn geolocation() -> Html {

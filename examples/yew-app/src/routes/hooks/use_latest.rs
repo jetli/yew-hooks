@@ -1,7 +1,6 @@
 use gloo::timers::callback::Interval;
 use yew::prelude::*;
-
-use yew_hooks::{use_effect_once, use_latest};
+use yew_hooks::prelude::*;
 
 /// `use_latest` demo
 #[function_component(UseLatest)]

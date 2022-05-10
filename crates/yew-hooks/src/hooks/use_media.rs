@@ -110,7 +110,7 @@ impl Clone for UseMediaHandle {
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_media;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseMedia)]
 /// fn media() -> Html {

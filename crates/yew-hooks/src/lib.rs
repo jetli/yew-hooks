@@ -65,3 +65,7 @@ mod hooks;
 pub(crate) mod web_sys_ext;
 
 pub use hooks::*;
+
+pub mod prelude {
+    pub use crate::hooks::*;
+}

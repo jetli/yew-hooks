@@ -47,7 +47,7 @@ impl PartialEq for UseHashHandle {
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_hash;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseHash)]
 /// fn hash() -> Html {

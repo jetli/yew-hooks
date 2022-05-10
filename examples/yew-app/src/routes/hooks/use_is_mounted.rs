@@ -1,7 +1,6 @@
 use gloo::dialogs::alert;
 use yew::prelude::*;
-
-use yew_hooks::{use_is_mounted, use_timeout};
+use yew_hooks::prelude::*;
 
 /// `use_is_mounted` demo
 #[function_component(UseIsMounted)]

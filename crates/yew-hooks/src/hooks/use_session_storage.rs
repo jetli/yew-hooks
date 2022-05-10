@@ -62,7 +62,7 @@ where
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_session_storage;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(SessionStorage)]
 /// fn session_storage() -> Html {

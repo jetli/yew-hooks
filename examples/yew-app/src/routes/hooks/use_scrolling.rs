@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_scrolling;
+use yew_hooks::prelude::*;
 
 /// `use_scrolling` demo
 #[function_component(UseScrolling)]

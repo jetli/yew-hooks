@@ -8,7 +8,7 @@ use super::use_effect_once;
 /// # use yew::prelude::*;
 /// # use log::debug;
 /// #
-/// use yew_hooks::use_mount;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(Mount)]
 /// fn mount() -> Html {

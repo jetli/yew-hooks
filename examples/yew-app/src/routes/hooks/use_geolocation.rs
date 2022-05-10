@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_geolocation;
+use yew_hooks::prelude::*;
 
 /// `use_geolocation` demo
 #[function_component(UseGeolocation)]

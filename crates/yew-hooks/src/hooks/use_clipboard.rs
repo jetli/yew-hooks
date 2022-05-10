@@ -76,7 +76,7 @@ impl Clone for UseClipboardHandle {
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_clipboard;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseClipboard)]
 /// fn clipboard() -> Html {

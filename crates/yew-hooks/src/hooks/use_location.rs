@@ -27,7 +27,7 @@ pub struct LocationState {
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_location;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UseLocation)]
 /// fn location() -> Html {

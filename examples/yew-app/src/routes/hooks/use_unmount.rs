@@ -1,7 +1,6 @@
 use gloo::dialogs::alert;
 use yew::prelude::*;
-
-use yew_hooks::{use_toggle, use_unmount};
+use yew_hooks::prelude::*;
 
 /// `use_unmount` demo
 #[function_component(MyComponent)]

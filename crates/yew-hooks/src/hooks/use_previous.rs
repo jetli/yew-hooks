@@ -47,7 +47,7 @@ where
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_previous;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(UsePrevious)]
 /// fn previous() -> Html {

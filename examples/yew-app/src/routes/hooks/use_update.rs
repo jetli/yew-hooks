@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_update;
+use yew_hooks::prelude::*;
 
 /// `use_update` demo
 #[function_component(UseUpdate)]

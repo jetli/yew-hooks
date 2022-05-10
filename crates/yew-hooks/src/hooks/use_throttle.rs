@@ -38,7 +38,7 @@ impl Clone for UseThrottleHandle {
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_throttle;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(Throttle)]
 /// fn throttle() -> Html {

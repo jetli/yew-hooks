@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_list;
+use yew_hooks::prelude::*;
 
 /// `use_list` demo
 #[function_component(UseList)]

@@ -8,7 +8,7 @@ use super::{use_effect_once, use_mut_latest};
 /// # use yew::prelude::*;
 /// # use log::debug;
 /// #
-/// use yew_hooks::use_unmount;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(Unmount)]
 /// fn unmount() -> Html {

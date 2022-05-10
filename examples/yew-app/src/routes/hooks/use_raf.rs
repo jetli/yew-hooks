@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::use_raf;
+use yew_hooks::prelude::*;
 
 /// `use_raf` demo
 #[function_component(UseRaf)]

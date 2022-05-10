@@ -149,7 +149,7 @@ where
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// use yew_hooks::use_bool_toggle;
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component(Toggle)]
 /// fn toggle() -> Html {
@@ -182,8 +182,8 @@ pub fn use_bool_toggle(default: bool) -> UseToggleHandle<bool> {
 /// ```rust
 /// # use yew::prelude::*;
 /// #
-/// # use yew_hooks::use_toggle;
-/// #
+/// use yew_hooks::prelude::*;
+///
 /// #[function_component(UseToggle)]
 /// fn toggle() -> Html {
 ///     let toggle = use_toggle("Hello", "World");

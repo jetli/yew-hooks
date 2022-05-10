@@ -1,6 +1,5 @@
 use yew::prelude::*;
-
-use yew_hooks::{use_before_unload, use_bool_toggle};
+use yew_hooks::prelude::*;
 
 /// `use_before_unload` demo
 #[function_component(UseBeforeUnload)]
