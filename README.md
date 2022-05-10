@@ -40,7 +40,7 @@
 Hooks for [Yew](https://github.com/yewstack/yew), inspired by [streamich/react-use](https://github.com/streamich/react-use), [alibaba/hooks](https://github.com/alibaba/hooks) and [vueuse/vueuse](https://github.com/vueuse/vueuse).
 
 ```rust
-use yew_hooks::use_counter;
+use yew_hooks::prelude::*;
 
 #[function_component(Counter)]
 fn counter() -> Html {
@@ -148,8 +148,7 @@ fn counter() -> Html {
 
 ```rust
 use yew::prelude::*;
-
-use yew_hooks::use_counter;
+use yew_hooks::prelude::*;
 
 #[function_component(Counter)]
 fn counter() -> Html {
@@ -202,8 +201,7 @@ fn counter() -> Html {
 ```rust
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
 use yew::prelude::*;
-
-use yew_hooks::use_async;
+use yew_hooks::prelude::*;
 
 #[function_component(UseAsync)]
 pub fn async_demo() -> Html {
@@ -311,8 +309,7 @@ enum Error {
 
 ```rust
 use yew::prelude::*;
-
-use yew_hooks::{use_list, use_web_socket, UseWebSocketReadyState};
+use yew_hooks::prelude::*;
 
 #[function_component(UseWebSocket)]
 pub fn web_socket() -> Html {
