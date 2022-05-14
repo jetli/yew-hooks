@@ -65,13 +65,13 @@ where
             move || {
                 load_more.set(false);
             },
-            150,
+            100,
         )
     };
 
     use_event(node, "scroll", move |e: Event| {
         let element: Element = e.target_unchecked_into();
-        if element.scroll_height() - element.scroll_top() <= element.client_height() {
+        if element.scroll_height() - element.scroll_top() <= element.client_height() + 100 {
             load_more.set(true);
             debounce.run();
         }
