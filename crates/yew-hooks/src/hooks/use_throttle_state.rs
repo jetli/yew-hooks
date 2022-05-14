@@ -70,6 +70,7 @@ where
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_throttle_state<T, F>(init_fn: F, millis: u32) -> UseThrottleStateHandle<T>
 where
     T: 'static,

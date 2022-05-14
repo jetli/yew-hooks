@@ -24,7 +24,8 @@ use super::use_effect_once;
 ///     }
 /// }
 /// ```
-pub fn use_is_mounted() -> Rc<impl Fn() -> bool> {
+#[hook]
+pub fn use_is_mounted() -> Rc<dyn Fn() -> bool> {
     let is_mounted = use_mut_ref(|| false);
 
     {

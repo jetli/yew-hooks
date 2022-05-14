@@ -1,3 +1,5 @@
+use yew::prelude::*;
+
 use super::{use_effect_once, use_mut_latest};
 
 /// A lifecycle hook that calls a function when the component will unmount.
@@ -22,6 +24,7 @@ use super::{use_effect_once, use_mut_latest};
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_unmount<Callback>(callback: Callback)
 where
     Callback: FnOnce() + 'static,

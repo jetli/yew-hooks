@@ -171,6 +171,7 @@ where
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_bool_toggle(default: bool) -> UseToggleHandle<bool> {
     use_toggle(default, !default)
 }
@@ -204,6 +205,7 @@ pub fn use_bool_toggle(default: bool) -> UseToggleHandle<bool> {
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_toggle<T>(default: T, other: T) -> UseToggleHandle<T>
 where
     T: 'static + PartialEq,

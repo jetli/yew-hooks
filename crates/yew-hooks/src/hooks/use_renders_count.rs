@@ -26,6 +26,7 @@ use yew::prelude::*;
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_renders_count() -> i32 {
     let count = use_mut_ref(|| 0);
 

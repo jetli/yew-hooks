@@ -1,6 +1,8 @@
 use std::fmt::Debug;
 use std::rc::Rc;
 
+use yew::prelude::*;
+
 use super::{use_effect_once, use_effect_update, use_effect_update_with_deps, use_previous};
 
 /// This hook logs in console as component goes through life-cycles.
@@ -36,6 +38,7 @@ use super::{use_effect_once, use_effect_update, use_effect_update_with_deps, use
 ///     pub b: String,
 /// }
 /// ```
+#[hook]
 pub fn use_logger<T>(name: String, props: T)
 where
     T: Debug + 'static,
@@ -95,6 +98,7 @@ where
 ///     pub b: String,
 /// }
 /// ```
+#[hook]
 pub fn use_logger_eq<T>(name: String, props: T)
 where
     T: Debug + PartialEq + 'static,

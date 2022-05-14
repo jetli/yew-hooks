@@ -27,6 +27,7 @@ use super::use_event_with_window;
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_search_param(param: String) -> Option<String> {
     let state = use_state(|| get_param(param.clone()));
 

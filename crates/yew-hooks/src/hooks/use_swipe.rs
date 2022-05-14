@@ -95,12 +95,14 @@ impl Clone for UseSwipeHandle {
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_swipe(node: NodeRef) -> UseSwipeHandle {
     use_swipe_with_options(node, UseSwipeOptions::default())
 }
 
 /// A sensor hook that detects swipe based on TouchEvent for window.
 /// See [`use_swipe`].
+#[hook]
 pub fn use_swipe_with_window() -> UseSwipeHandle {
     use_swipe_with_options(NodeRef::default(), UseSwipeOptions::default())
 }
@@ -144,6 +146,7 @@ pub fn use_swipe_with_window() -> UseSwipeHandle {
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_swipe_with_options(node: NodeRef, options: UseSwipeOptions) -> UseSwipeHandle {
     let swiping = use_state_eq(|| false);
     let direction = use_state_eq(|| UseSwipeDirection::None);

@@ -29,6 +29,7 @@ use crate::web_sys_ext::{ResizeObserver, ResizeObserverEntry};
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_size(node: NodeRef) -> (u32, u32) {
     let state = use_raf_state(|| (0, 0));
 

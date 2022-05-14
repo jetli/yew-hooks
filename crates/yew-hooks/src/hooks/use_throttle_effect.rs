@@ -36,6 +36,7 @@ use super::{use_throttle, use_unmount};
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_throttle_effect<Callback>(callback: Callback, millis: u32)
 where
     Callback: FnMut() + 'static,
@@ -60,6 +61,7 @@ where
 ///
 /// Whenever the dependencies are changed, the throttle effect is run again.
 /// To detect changes, dependencies must implement `PartialEq`.
+#[hook]
 pub fn use_throttle_effect_with_deps<Callback, Dependents>(
     callback: Callback,
     millis: u32,

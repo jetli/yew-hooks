@@ -166,6 +166,7 @@ where
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_map<K, V>(initial_value: HashMap<K, V>) -> UseMapHandle<K, V>
 where
     K: 'static,

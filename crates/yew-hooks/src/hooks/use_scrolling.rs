@@ -24,6 +24,7 @@ use super::{use_debounce, use_event};
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_scrolling(node: NodeRef) -> bool {
     let state = use_state_eq(|| false);
 

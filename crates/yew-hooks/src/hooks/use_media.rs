@@ -170,12 +170,14 @@ impl Clone for UseMediaHandle {
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_media(node: NodeRef, src: String) -> UseMediaHandle {
     use_media_with_options(node, src, UseMediaOptions::default())
 }
 
 /// This hook plays video or audio and exposes its controls with options.
 /// see [`use_media`]
+#[hook]
 pub fn use_media_with_options(
     node: NodeRef,
     src: String,

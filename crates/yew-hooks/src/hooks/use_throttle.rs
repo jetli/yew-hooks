@@ -70,6 +70,7 @@ impl Clone for UseThrottleHandle {
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_throttle<Callback>(callback: Callback, millis: u32) -> UseThrottleHandle
 where
     Callback: FnMut() + 'static,

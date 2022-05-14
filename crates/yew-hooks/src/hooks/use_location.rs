@@ -87,6 +87,7 @@ pub struct LocationState {
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_location() -> UseStateHandle<LocationState> {
     let state = use_state(|| build_location("load".to_string()));
 

@@ -71,6 +71,7 @@ impl PartialEq for UseHashHandle {
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_hash() -> UseHashHandle {
     let inner = use_state(|| window().location().hash().unwrap_or_default());
 

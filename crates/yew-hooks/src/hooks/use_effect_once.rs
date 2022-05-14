@@ -24,6 +24,7 @@ use yew::prelude::*;
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_effect_once<Callback, Destructor>(callback: Callback)
 where
     Callback: FnOnce() -> Destructor + 'static,
