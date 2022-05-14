@@ -92,6 +92,7 @@ where
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_state_ptr_eq<T, F>(init_fn: F) -> UseStatePtrEqHandle<T>
 where
     T: 'static,

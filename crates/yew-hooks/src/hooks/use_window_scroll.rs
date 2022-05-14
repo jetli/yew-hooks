@@ -26,6 +26,7 @@ use super::{use_event_with_window, use_mount, use_raf_state};
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_window_scroll() -> (f64, f64) {
     let state = use_raf_state(|| {
         (

@@ -16,12 +16,12 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 log = "0.4"
-gloo = "0.4"
+gloo = "0.7"
 js-sys = "0.3"
 serde = "1"
 reqwest = { version = "0.11.7", features = ["json"] }
-yew = "0.19.3"
-yew-router = "0.16.0"
+yew = { git = "https://github.com/yewstack/yew", features=["csr"] }
+yew-router = { git = "https://github.com/yewstack/yew" }
 yew-hooks = { path = "../../crates/yew-hooks" }
 wasm-bindgen = "0.2"
 wasm-logger = "0.2.0"

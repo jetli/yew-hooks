@@ -27,6 +27,7 @@ use super::{use_event, use_mount};
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_scroll(node: NodeRef) -> (i32, i32) {
     let state = use_state(|| (0, 0));
 

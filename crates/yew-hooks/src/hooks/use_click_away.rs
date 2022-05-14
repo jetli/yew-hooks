@@ -30,6 +30,7 @@ use super::{use_event_with_window, use_latest};
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_click_away<F>(node: NodeRef, callback: F)
 where
     F: Fn(Event) + 'static,

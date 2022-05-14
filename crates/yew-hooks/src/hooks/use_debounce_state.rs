@@ -75,6 +75,7 @@ where
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_debounce_state<T, F>(init_fn: F, millis: u32) -> UseDebounceStateHandle<T>
 where
     T: 'static,

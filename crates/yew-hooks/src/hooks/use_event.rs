@@ -33,6 +33,7 @@ use super::use_latest;
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_event<T, F, E>(node: NodeRef, event_type: T, callback: F)
 where
     T: Into<Cow<'static, str>>,
@@ -102,6 +103,7 @@ where
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_event_with_window<T, F, E>(event_type: T, callback: F)
 where
     T: Into<Cow<'static, str>>,

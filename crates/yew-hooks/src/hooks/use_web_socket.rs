@@ -155,6 +155,7 @@ impl Clone for UseWebSocketHandle {
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_web_socket(url: String) -> UseWebSocketHandle {
     use_web_socket_with_options(url, UseWebSocketOptions::default())
 }
@@ -222,6 +223,7 @@ pub fn use_web_socket(url: String) -> UseWebSocketHandle {
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_web_socket_with_options(
     url: String,
     options: UseWebSocketOptions,

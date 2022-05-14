@@ -1,3 +1,5 @@
+use yew::prelude::*;
+
 use super::{use_timeout, UseTimeoutHandle};
 
 /// State handle for the [`use_debounce`] hook.
@@ -84,6 +86,7 @@ impl Clone for UseDebounceHandle {
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_debounce<Callback>(callback: Callback, millis: u32) -> UseDebounceHandle
 where
     Callback: FnOnce() + 'static,

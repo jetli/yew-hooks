@@ -26,7 +26,8 @@ use yew::prelude::*;
 ///     }
 /// }
 /// ```
-pub fn use_update() -> Rc<impl Fn()> {
+#[hook]
+pub fn use_update() -> Rc<dyn Fn()> {
     let state = use_state(|| 0);
 
     Rc::new(move || {

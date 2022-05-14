@@ -95,13 +95,14 @@ where
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_session_storage<T>(key: String) -> UseSessionStorageHandle<T>
 where
     T: for<'de> Deserialize<'de> + 'static,
 {
     let inner: UseStateHandle<Option<T>> =
         use_state(|| SessionStorage::get(&key).unwrap_or_default());
-    let key = use_ref(|| key);
+    let key = use_memo(|_| key, ());
 
     UseSessionStorageHandle { inner, key }
 }

@@ -80,6 +80,7 @@ where
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_previous<T>(value: T) -> UsePreviousHandle<T>
 where
     T: 'static,

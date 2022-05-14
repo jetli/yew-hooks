@@ -20,6 +20,7 @@ use yew::prelude::*;
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_is_first_mount() -> bool {
     let is_first = use_mut_ref(|| true);
 

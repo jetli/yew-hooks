@@ -134,8 +134,8 @@ pub enum AppRoute {
 }
 
 /// Switch app routes
-pub fn switch(routes: &AppRoute) -> Html {
-    match routes.clone() {
+pub fn switch(routes: AppRoute) -> Html {
+    match routes {
         AppRoute::Home => html! { <Home /> },
         AppRoute::About => html! { <About /> },
         AppRoute::UseBoolToggle => html! { <UseBoolToggle /> },

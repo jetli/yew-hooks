@@ -37,6 +37,7 @@ use super::{use_debounce, use_event, use_latest};
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_infinite_scroll<Callback>(node: NodeRef, callback: Callback)
 where
     Callback: Fn() + 'static,

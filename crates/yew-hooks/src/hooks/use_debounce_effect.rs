@@ -58,6 +58,7 @@ use super::{use_debounce, use_unmount};
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_debounce_effect<Callback>(callback: Callback, millis: u32)
 where
     Callback: FnOnce() + 'static,
@@ -82,6 +83,7 @@ where
 ///
 /// Whenever the dependencies are changed, the debounce effect is run again.
 /// To detect changes, dependencies must implement `PartialEq`.
+#[hook]
 pub fn use_debounce_effect_with_deps<Callback, Dependents>(
     callback: Callback,
     millis: u32,

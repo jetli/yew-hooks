@@ -102,6 +102,7 @@ where
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_mut_latest<T>(value: T) -> UseMutLatestHandle<T>
 where
     T: 'static,
@@ -153,6 +154,7 @@ where
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_latest<T>(value: T) -> UseLatestHandle<T>
 where
     T: 'static,

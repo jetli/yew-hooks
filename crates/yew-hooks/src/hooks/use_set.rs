@@ -162,6 +162,7 @@ where
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_set<T>(initial_value: HashSet<T>) -> UseSetHandle<T>
 where
     T: 'static,

@@ -53,6 +53,7 @@ pub struct UseMeasureState {
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_measure(node: NodeRef) -> UseMeasureState {
     let state = use_raf_state(UseMeasureState::default);
 

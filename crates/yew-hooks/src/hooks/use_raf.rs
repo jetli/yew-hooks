@@ -26,6 +26,7 @@ use yew::prelude::*;
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_raf(millis: u32, delay: u32) -> f64 {
     let elapsed = use_state(|| 0f64);
     let start = use_mut_ref(|| 0f64);

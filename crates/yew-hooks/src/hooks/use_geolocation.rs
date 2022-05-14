@@ -56,12 +56,14 @@ pub struct UseGeolocationState {
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_geolocation() -> UseGeolocationState {
     use_geolocation_with_options(UseGeolocationOptions::default())
 }
 
 /// A sensor hook that tracks user's geographic location.
 /// See [`use_geolocation`]
+#[hook]
 pub fn use_geolocation_with_options(options: UseGeolocationOptions) -> UseGeolocationState {
     let state = use_state(|| UseGeolocationState {
         loading: true,

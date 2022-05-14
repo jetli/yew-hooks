@@ -23,6 +23,7 @@ use yew::prelude::*;
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_favicon(href: String) {
     use_effect_with_deps(
         move |href| {

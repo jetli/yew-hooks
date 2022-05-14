@@ -199,6 +199,7 @@ where
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_list<T>(initial_value: Vec<T>) -> UseListHandle<T>
 where
     T: 'static,

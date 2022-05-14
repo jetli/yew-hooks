@@ -1,4 +1,5 @@
 use web_sys::BeforeUnloadEvent;
+use yew::prelude::*;
 
 use super::use_event_with_window;
 
@@ -21,6 +22,7 @@ use super::use_event_with_window;
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_before_unload(enabled: bool, msg: String) {
     use_event_with_window("beforeunload", move |e: BeforeUnloadEvent| {
         if !enabled {

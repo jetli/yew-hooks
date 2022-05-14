@@ -131,6 +131,7 @@ where
 ///     Ok(String::from("Jet Li"))
 /// }
 /// ```
+#[hook]
 pub fn use_async<F, T, E>(future: F) -> UseAsyncHandle<T, E>
 where
     F: Future<Output = Result<T, E>> + 'static,
@@ -188,6 +189,7 @@ where
 ///     Ok(String::from("Jet Li"))
 /// }
 /// ```
+#[hook]
 pub fn use_async_with_options<F, T, E>(future: F, options: UseAsyncOptions) -> UseAsyncHandle<T, E>
 where
     F: Future<Output = Result<T, E>> + 'static,

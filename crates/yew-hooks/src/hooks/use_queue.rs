@@ -143,6 +143,7 @@ where
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_queue<T>(initial_value: VecDeque<T>) -> UseQueueHandle<T>
 where
     T: 'static,

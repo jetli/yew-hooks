@@ -1,3 +1,5 @@
+use yew::prelude::*;
+
 use super::use_effect_once;
 
 /// A lifecycle hook that calls a function after the component is mounted.
@@ -22,6 +24,7 @@ use super::use_effect_once;
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_mount<Callback>(callback: Callback)
 where
     Callback: FnOnce() + 'static,

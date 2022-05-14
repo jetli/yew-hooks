@@ -83,13 +83,14 @@ where
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_default<T, F>(init_fn: F, default: T) -> UseDefaultHandle<T>
 where
     T: 'static,
     F: FnOnce() -> Option<T>,
 {
     let inner = use_state(init_fn);
-    let default = use_ref(|| default);
+    let default = use_memo(|_| default, ());
 
     UseDefaultHandle { inner, default }
 }
