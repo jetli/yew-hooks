@@ -11,7 +11,7 @@ pub fn infinite_scroll() -> Html {
         let state = state.clone();
         use_infinite_scroll(node.clone(), move || {
             let max = state.current().len() + 1;
-            let mut more = vec![max, max + 1, max + 2, max + 3, max + 4];
+            let mut more = vec![max, max + 1, max + 2, max + 3, max + 4, max + 5, max + 6];
             state.append(&mut more);
         });
     }
