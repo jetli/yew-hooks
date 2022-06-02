@@ -1,7 +1,7 @@
 [package]
 name = "yew-hooks-test"
 version = "0.1.0"
-edition = "2018"
+edition = "2021"
 authors = ["Jet Li <jing.i.qin@icloud.com>"]
 categories = ["gui", "wasm", "web-programming"]
 keywords = ["wasm", "yew", "hooks"]
