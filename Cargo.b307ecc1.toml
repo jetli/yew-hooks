@@ -2,7 +2,7 @@
 authors = ["You <you@example.com>"]
 categories = ["wasm"]
 description = "My awesome Yew app."
-edition = "2018"
+edition = "2021"
 license = "Apache-2.0/MIT"
 name = "yew-app"
 readme = "./README.md"
