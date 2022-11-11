@@ -90,7 +90,7 @@ fn counter() -> Html {
 ### Side-effects
 
 - `use_async` - resolves an `async` future, e.g. fetching REST api.
-- `use_web_socket` - communicates with `WebSocket`.
+- `use_websocket` - communicates with `WebSocket`.
 - `use_title` - sets title of the page.
 - `use_favicon` - sets favicon of the page.
 - `use_local_storage` - manages a value in `localStorage`.
@@ -305,7 +305,7 @@ enum Error {
 }
 ```
 
-### `use_web_socket` demo
+### `use_websocket` demo
 
 ```rust
 use yew::prelude::*;
@@ -314,7 +314,7 @@ use yew_hooks::prelude::*;
 #[function_component(UseWebSocket)]
 pub fn web_socket() -> Html {
     let history = use_list(vec![]);
-    let ws = use_web_socket("wss://echo.websocket.events/".to_string());
+    let ws = use_websocket("wss://echo.websocket.events/".to_string());
 
     let onclick = {
         let ws = ws.clone();

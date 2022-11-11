@@ -1,13 +1,13 @@
 use yew::prelude::*;
 use yew_hooks::prelude::*;
 
-/// `use_web_socket` demo
+/// `use_websocket` demo
 #[function_component(UseWebSocket)]
 pub fn web_socket() -> Html {
     let history = use_list(vec![]);
 
     // Demo #1, auto connect to websocket by default.
-    let ws = use_web_socket("wss://echo.websocket.events/".to_string());
+    let ws = use_websocket("wss://echo.websocket.events/".to_string());
     let onclick = {
         let ws = ws.clone();
         let history = history.clone();
@@ -60,7 +60,7 @@ pub fn web_socket() -> Html {
     // Demo #3, manually connect to websocket with custom options.
     let ws2 = {
         let history = history.clone();
-        use_web_socket_with_options(
+        use_websocket_with_options(
             "wss://echo.websocket.events/".to_string(),
             UseWebSocketOptions {
                 // Receive message by callback `onmessage`.

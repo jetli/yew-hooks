@@ -43,7 +43,7 @@ pub struct UseWebSocketOptions {
     pub protocols: Option<Vec<String>>,
 }
 
-/// State handle for the [`use_web_socket`] hook.
+/// State handle for the [`use_websocket`] hook.
 pub struct UseWebSocketHandle {
     /// The current state of the `WebSocket` connection.
     pub ready_state: UseStateHandle<UseWebSocketReadyState>,
@@ -111,7 +111,7 @@ impl Clone for UseWebSocketHandle {
 /// fn web_socket() -> Html {
 ///     let history = use_list(vec![]);
 ///
-///     let ws = use_web_socket("wss://echo.websocket.events/".to_string());
+///     let ws = use_websocket("wss://echo.websocket.events/".to_string());
 ///     let onclick = {
 ///         let ws = ws.clone();
 ///         let history = history.clone();
@@ -156,8 +156,8 @@ impl Clone for UseWebSocketHandle {
 /// }
 /// ```
 #[hook]
-pub fn use_web_socket(url: String) -> UseWebSocketHandle {
-    use_web_socket_with_options(url, UseWebSocketOptions::default())
+pub fn use_websocket(url: String) -> UseWebSocketHandle {
+    use_websocket_with_options(url, UseWebSocketOptions::default())
 }
 
 /// This hook communicates with `WebSocket` with options.
@@ -175,7 +175,7 @@ pub fn use_web_socket(url: String) -> UseWebSocketHandle {
 ///
 ///     let ws = {
 ///         let history = history.clone();
-///         use_web_socket_with_options(
+///         use_websocket_with_options(
 ///             "wss://echo.websocket.events/".to_string(),
 ///             UseWebSocketOptions {
 ///                 // Receive message by callback `onmessage`.
@@ -224,7 +224,7 @@ pub fn use_web_socket(url: String) -> UseWebSocketHandle {
 /// }
 /// ```
 #[hook]
-pub fn use_web_socket_with_options(
+pub fn use_websocket_with_options(
     url: String,
     options: UseWebSocketOptions,
 ) -> UseWebSocketHandle {

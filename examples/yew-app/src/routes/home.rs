@@ -36,7 +36,7 @@ pub fn home() -> Html {
 
                     <ul>
                         <li><Link<AppRoute> to={AppRoute::UseAsync} classes="app-link" >{ "use_async" }</Link<AppRoute>> { " - resolves an async future, e.g. fetching REST api." }</li>
-                        <li><Link<AppRoute> to={AppRoute::UseWebSocket} classes="app-link" >{ "use_web_socket" }</Link<AppRoute>> { " - communicates with WebSocket." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseWebSocket} classes="app-link" >{ "use_websocket" }</Link<AppRoute>> { " - communicates with WebSocket." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseTitle} classes="app-link" >{ "use_title" }</Link<AppRoute>> { " - sets title of the page." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseFavicon} classes="app-link" >{ "use_favicon" }</Link<AppRoute>> { " - sets favicon of the page." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseLocalStorage} classes="app-link" >{ "use_local_storage" }</Link<AppRoute>> { " - manages a value in localStorage." }</li>
