@@ -80,7 +80,7 @@ pub enum AppRoute {
     UseSearchParam,
     #[at("/use_location")]
     UseLocation,
-    #[at("/use_web_socket")]
+    #[at("/use_websocket")]
     UseWebSocket,
     #[at("/use_state_ptr_eq")]
     UseStatePtrEq,
