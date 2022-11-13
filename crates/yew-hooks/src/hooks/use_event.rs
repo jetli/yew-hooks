@@ -47,7 +47,7 @@ where
             let window = window();
             let node = node.get();
             // If we cannot get the wrapped `Node`, then we use `Window` as the default target of the event.
-            let target = node.as_deref().map_or(window.deref(), |t| t);
+            let target = node.as_deref().map_or(&*window, |t| t);
 
             // We should only set passive event listeners for `touchstart` and `touchmove`.
             // See here: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Improving_scrolling_performance_with_passive_listeners
