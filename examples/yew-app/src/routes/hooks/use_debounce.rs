@@ -6,8 +6,8 @@ use yew_hooks::prelude::*;
 #[function_component(UseDebounce)]
 pub fn debounce() -> Html {
     let status = use_state(|| "Typing stopped".to_string());
-    let value = use_state(|| "".to_string());
-    let debounced_value = use_state(|| "".to_string());
+    let value = use_state(String::new);
+    let debounced_value = use_state(String::new);
 
     let debounce = {
         let status = status.clone();

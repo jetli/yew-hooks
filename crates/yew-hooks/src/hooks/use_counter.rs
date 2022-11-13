@@ -53,32 +53,32 @@ pub struct UseCounterHandle {
 impl UseCounterHandle {
     /// Increase by `1`.
     pub fn increase(&self) {
-        self.inner.dispatch(CounterAction::Increase)
+        self.inner.dispatch(CounterAction::Increase);
     }
 
     /// Increase by `delta`.
     pub fn increase_by(&self, delta: i32) {
-        self.inner.dispatch(CounterAction::IncreaseBy(delta))
+        self.inner.dispatch(CounterAction::IncreaseBy(delta));
     }
 
     /// Decrease by `1`.
     pub fn decrease(&self) {
-        self.inner.dispatch(CounterAction::Decrease)
+        self.inner.dispatch(CounterAction::Decrease);
     }
 
     /// Decrease by `delta`.
     pub fn decrease_by(&self, delta: i32) {
-        self.inner.dispatch(CounterAction::DecreaseBy(delta))
+        self.inner.dispatch(CounterAction::DecreaseBy(delta));
     }
 
     /// Set to `value`.
     pub fn set(&self, value: i32) {
-        self.inner.dispatch(CounterAction::Set(value))
+        self.inner.dispatch(CounterAction::Set(value));
     }
 
     /// Reset to initial value.
     pub fn reset(&self) {
-        self.inner.dispatch(CounterAction::Reset)
+        self.inner.dispatch(CounterAction::Reset);
     }
 }
 

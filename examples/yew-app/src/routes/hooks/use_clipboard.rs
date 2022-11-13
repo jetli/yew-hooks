@@ -12,11 +12,7 @@ pub fn update() -> Html {
             )
             .await
             {
-                if let Ok(bytes) = response.bytes().await {
-                    Ok(bytes.to_vec())
-                } else {
-                    Err("Bytes error")
-                }
+                (response.bytes().await).map_or(Err("Bytes error"), |bytes| Ok(bytes.to_vec()))
             } else {
                 Err("Response err")
             }

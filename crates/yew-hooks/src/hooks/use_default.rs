@@ -15,7 +15,7 @@ where
 {
     /// Replaces the value.
     pub fn set(&self, value: Option<T>) {
-        self.inner.set(value)
+        self.inner.set(value);
     }
 }
 

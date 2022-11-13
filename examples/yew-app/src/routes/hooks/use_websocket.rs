@@ -37,7 +37,7 @@ pub fn web_socket() -> Html {
         let ws = ws.clone();
         let history = history.clone();
         Callback::from(move |_| {
-            let message = "Hello, world!\r\n".as_bytes().to_vec();
+            let message = b"Hello, world!\r\n".to_vec();
             ws.send_bytes(message.clone());
             history.push(format!("ws1 [send]: bytes {:?}", message));
         })

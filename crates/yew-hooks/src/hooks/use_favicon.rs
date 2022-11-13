@@ -50,5 +50,5 @@ pub fn use_favicon(href: String) {
             || ()
         },
         href,
-    )
+    );
 }

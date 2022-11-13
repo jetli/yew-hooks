@@ -5,8 +5,8 @@ use yew_hooks::prelude::*;
 /// `use_debounce_state` demo
 #[function_component(UseDebounceState)]
 pub fn debounce_state() -> Html {
-    let value = use_state(|| "".to_string());
-    let debounced_value = use_debounce_state(|| "".to_string(), 2000);
+    let value = use_state(String::new);
+    let debounced_value = use_debounce_state(String::new, 2000);
 
     let oninput = {
         let value = value.clone();

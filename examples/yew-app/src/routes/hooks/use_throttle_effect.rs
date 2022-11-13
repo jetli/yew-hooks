@@ -14,7 +14,7 @@ pub fn throttle_effect() -> Html {
                 state.set(*state + 1);
             },
             2000,
-        )
+        );
     };
 
     let onclick = { Callback::from(move |_| update()) };

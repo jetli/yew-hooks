@@ -62,7 +62,7 @@ pub fn use_measure(node: NodeRef) -> UseMeasureState {
         use_effect_with_deps(
             move |node| {
                 let closure = Closure::wrap(Box::new(move |entries: Vec<ResizeObserverEntry>| {
-                    for entry in entries.iter() {
+                    for entry in &entries {
                         let rect = entry.content_rect();
                         state.set(UseMeasureState {
                             x: rect.x(),

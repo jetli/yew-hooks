@@ -36,9 +36,8 @@ where
                     self.left.clone()
                 }
             }
-            ToggleAction::Reset => self.left.clone(),
             ToggleAction::Set(value) => Rc::new(value),
-            ToggleAction::SetLeft => self.left.clone(),
+            ToggleAction::Reset | ToggleAction::SetLeft => self.left.clone(),
             ToggleAction::SetRight => self.right.clone(),
         };
 
@@ -74,27 +73,27 @@ where
 {
     /// Toggle the value.
     pub fn toggle(&self) {
-        self.inner.dispatch(ToggleAction::Toggle)
+        self.inner.dispatch(ToggleAction::Toggle);
     }
 
     /// Set to a value.
     pub fn set(&self, value: T) {
-        self.inner.dispatch(ToggleAction::Set(value))
+        self.inner.dispatch(ToggleAction::Set(value));
     }
 
     /// Set to the left default value.
     pub fn set_left(&self) {
-        self.inner.dispatch(ToggleAction::SetLeft)
+        self.inner.dispatch(ToggleAction::SetLeft);
     }
 
     /// Set to the right other value.
     pub fn set_right(&self) {
-        self.inner.dispatch(ToggleAction::SetRight)
+        self.inner.dispatch(ToggleAction::SetRight);
     }
 
     /// Reset to the default value.
     pub fn reset(&self) {
-        self.inner.dispatch(ToggleAction::Reset)
+        self.inner.dispatch(ToggleAction::Reset);
     }
 }
 
@@ -129,10 +128,7 @@ where
     }
 }
 
-impl<T: fmt::Debug> fmt::Debug for UseToggleHandle<T>
-where
-    T: PartialEq,
-{
+impl<T: fmt::Debug + PartialEq> fmt::Debug for UseToggleHandle<T> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         f.debug_struct("UseToggleHandle")
             .field("value", &format!("{:?}", self.inner.value))

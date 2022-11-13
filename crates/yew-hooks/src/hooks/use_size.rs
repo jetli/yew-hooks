@@ -38,7 +38,7 @@ pub fn use_size(node: NodeRef) -> (u32, u32) {
         use_effect_with_deps(
             move |node| {
                 let closure = Closure::wrap(Box::new(move |entries: Vec<ResizeObserverEntry>| {
-                    for entry in entries.iter() {
+                    for entry in &entries {
                         let element = entry.target();
                         state.set((
                             element.client_width() as u32,

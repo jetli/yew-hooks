@@ -1,5 +1,4 @@
 use std::borrow::Cow;
-use std::ops::Deref;
 
 use gloo::events::{EventListener, EventListenerOptions};
 use gloo::utils::window;

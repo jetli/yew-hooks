@@ -31,7 +31,7 @@ pub struct UseStatePtrEqHandle<T> {
 impl<T> UseStatePtrEqHandle<T> {
     /// Replaces the value
     pub fn set(&self, value: T) {
-        self.inner.dispatch(value)
+        self.inner.dispatch(value);
     }
 }
 

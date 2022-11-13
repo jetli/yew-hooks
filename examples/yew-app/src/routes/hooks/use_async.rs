@@ -55,31 +55,23 @@ pub fn async_demo() -> Html {
                         }
                     </p>
                     {
-                        if let Some(repo) = &state.data {
-                            html! {
-                                <>
-                                    <p>{ "Repo name: " }<b>{ &repo.name }</b></p>
-                                    <p>{ "Repo full name: " }<b>{ &repo.full_name }</b></p>
-                                    <p>{ "Repo description: " }<b>{ &repo.description }</b></p>
+                        state.data.as_ref().map_or_else(|| html! {}, |repo| html! {
+                            <>
+                                <p>{ "Repo name: " }<b>{ &repo.name }</b></p>
+                                <p>{ "Repo full name: " }<b>{ &repo.full_name }</b></p>
+                                <p>{ "Repo description: " }<b>{ &repo.description }</b></p>
 
-                                    <p>{ "Owner name: " }<b>{ &repo.owner.login }</b></p>
-                                    <p>{ "Owner avatar: " }<b><br/><img alt="avatar" src={repo.owner.avatar_url.clone()} /></b></p>
-                                </>
-                                }
-                        } else {
-                            html! {}
-                        }
+                                <p>{ "Owner name: " }<b>{ &repo.owner.login }</b></p>
+                                <p>{ "Owner avatar: " }<b><br/><img alt="avatar" src={repo.owner.avatar_url.clone()} /></b></p>
+                            </>
+                            })
                     }
                     <p>
                         {
-                            if let Some(error) = &state.error {
-                                match error {
-                                    Error::DeserializeError => html! { "DeserializeError" },
-                                    Error::RequestError => html! { "RequestError" },
-                                }
-                            } else {
-                                html! {}
-                            }
+                            state.error.as_ref().map_or_else(|| html! {}, |error| match error {
+                                Error::DeserializeError => html! { "DeserializeError" },
+                                Error::RequestError => html! { "RequestError" },
+                            })
                         }
                     </p>
                 </div>
@@ -99,11 +91,7 @@ where
 {
     let response = reqwest::get(url).await;
     if let Ok(data) = response {
-        if let Ok(repo) = data.json::<T>().await {
-            Ok(repo)
-        } else {
-            Err(Error::DeserializeError)
-        }
+        (data.json::<T>().await).map_or(Err(Error::DeserializeError), |repo| Ok(repo))
     } else {
         Err(Error::RequestError)
     }

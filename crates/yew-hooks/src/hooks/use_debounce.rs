@@ -10,12 +10,12 @@ pub struct UseDebounceHandle {
 impl UseDebounceHandle {
     /// Run the debounce.
     pub fn run(&self) {
-        self.inner.reset()
+        self.inner.reset();
     }
 
     /// Cancel the debounce.
     pub fn cancel(&self) {
-        self.inner.cancel()
+        self.inner.cancel();
     }
 }
 

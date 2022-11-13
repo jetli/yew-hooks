@@ -53,11 +53,10 @@ pub fn drag() -> Html {
                     } else {
                         "background-color: #61dafb; border: 3px dashed white; margin-top: 20px;" }}>
                     <p><b>{ " Text: " }</b></p>
-                        {if let Some(text) = &*state.text {
-                            html! {<p>{ text }</p>}
-                        } else {
-                            html! {}
-                        }}
+                        {
+                            (*state.text).as_ref().map_or_else(|| html! {},
+                                                               |text| html! {<p>{ text }</p>})
+                        }
                     <p>
                         { "Try to drop something to this area" }
                     </p>

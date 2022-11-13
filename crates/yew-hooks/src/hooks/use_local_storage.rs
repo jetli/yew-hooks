@@ -113,7 +113,7 @@ where
         use_event_with_window("storage", move |e: StorageEvent| {
             if let Some(k) = e.key() {
                 if k == *key {
-                    inner.set(LocalStorage::get(&*key).unwrap_or_default())
+                    inner.set(LocalStorage::get(&*key).unwrap_or_default());
                 }
             }
         });

@@ -4,7 +4,7 @@ use yew_hooks::prelude::*;
 /// `use_state_ptr_eq` demo
 #[function_component(UseStatePtrEq)]
 pub fn state_ptr_eq() -> Html {
-    let state = use_state_ptr_eq(|| "".to_string());
+    let state = use_state_ptr_eq(String::new);
     let history = use_list(vec![]);
 
     let onclick = {

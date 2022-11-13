@@ -63,22 +63,22 @@ pub struct UseWebSocketHandle {
 impl UseWebSocketHandle {
     /// Connect `WebSocket` manually. If already connected, close the current one and reconnect.
     pub fn open(&self) {
-        (self.open)()
+        (self.open)();
     }
 
     /// Disconnect `WebSocket` manually.
     pub fn close(&self) {
-        (self.close)()
+        (self.close)();
     }
 
     /// Send text message to `WebSocket`.
     pub fn send(&self, data: String) {
-        (self.send)(data)
+        (self.send)(data);
     }
 
     /// Send binary message to `WebSocket`.
     pub fn send_bytes(&self, data: Vec<u8>) {
-        (self.send_bytes)(data)
+        (self.send_bytes)(data);
     }
 }
 
@@ -301,15 +301,17 @@ pub fn use_websocket_with_options(url: String, options: UseWebSocketOptions) -> 
             }
 
             let web_socket = {
-                if let Some(protocols) = &protocols {
-                    let array = protocols
-                        .iter()
-                        .map(|p| JsValue::from(p.clone()))
-                        .collect::<Array>();
-                    WebSocket::new_with_str_sequence(&url, &JsValue::from(&array)).unwrap_throw()
-                } else {
-                    WebSocket::new(&url).unwrap_throw()
-                }
+                protocols.as_ref().map_or_else(
+                    || WebSocket::new(&url).unwrap_throw(),
+                    |protocols| {
+                        let array = protocols
+                            .iter()
+                            .map(|p| JsValue::from(p.clone()))
+                            .collect::<Array>();
+                        WebSocket::new_with_str_sequence(&url, &JsValue::from(&array))
+                            .unwrap_throw()
+                    },
+                )
             };
             web_socket.set_binary_type(BinaryType::Arraybuffer);
             ready_state.set(UseWebSocketReadyState::Connecting);
@@ -346,28 +348,36 @@ pub fn use_websocket_with_options(url: String, options: UseWebSocketOptions) -> 
                         return;
                     }
 
-                    if let Ok(array_buffer) = e.data().dyn_into::<js_sys::ArrayBuffer>() {
-                        let array = js_sys::Uint8Array::new(&array_buffer);
-                        let array = array.to_vec();
-                        let onmessage_bytes_ref = onmessage_bytes_ref.current();
-                        let onmessage_bytes = &mut *onmessage_bytes_ref.borrow_mut();
-                        if let Some(onmessage_bytes) = onmessage_bytes {
-                            let array = array.clone();
-                            onmessage_bytes(array);
-                        }
-                        message_bytes.set(Some(array));
-                    } else if let Ok(txt) = e.data().dyn_into::<js_sys::JsString>() {
-                        let txt = String::from(&txt);
-                        let onmessage_ref = onmessage_ref.current();
-                        let onmessage = &mut *onmessage_ref.borrow_mut();
-                        if let Some(onmessage) = onmessage {
-                            let txt = txt.clone();
-                            onmessage(txt);
-                        }
-                        message.set(Some(txt));
-                    } else {
-                        unreachable!("message event, received Unknown: {:?}", e.data());
-                    }
+                    e.data().dyn_into::<js_sys::ArrayBuffer>().map_or_else(
+                        |_| {
+                            e.data().dyn_into::<js_sys::JsString>().map_or_else(
+                                |_| {
+                                    unreachable!("message event, received Unknown: {:?}", e.data());
+                                },
+                                |txt| {
+                                    let txt = String::from(&txt);
+                                    let onmessage_ref = onmessage_ref.current();
+                                    let onmessage = &mut *onmessage_ref.borrow_mut();
+                                    if let Some(onmessage) = onmessage {
+                                        let txt = txt.clone();
+                                        onmessage(txt);
+                                    }
+                                    message.set(Some(txt));
+                                },
+                            );
+                        },
+                        |array_buffer| {
+                            let array = js_sys::Uint8Array::new(&array_buffer);
+                            let array = array.to_vec();
+                            let onmessage_bytes_ref = onmessage_bytes_ref.current();
+                            let onmessage_bytes = &mut *onmessage_bytes_ref.borrow_mut();
+                            if let Some(onmessage_bytes) = onmessage_bytes {
+                                let array = array.clone();
+                                onmessage_bytes(array);
+                            }
+                            message_bytes.set(Some(array));
+                        },
+                    );
                 })
                     as Box<dyn FnMut(MessageEvent)>);
                 web_socket.set_onmessage(Some(onmessage_closure.as_ref().unchecked_ref()));
