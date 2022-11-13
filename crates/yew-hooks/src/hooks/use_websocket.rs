@@ -11,7 +11,7 @@ use super::{use_mut_latest, use_state_ptr_eq, use_unmount, UseStatePtrEqHandle};
 pub use web_sys::CloseEvent;
 
 /// The current state of the `WebSocket` connection.
-#[derive(Debug, PartialEq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum UseWebSocketReadyState {
     Connecting,
     Open,
@@ -294,7 +294,7 @@ pub fn use_websocket_with_options(url: String, options: UseWebSocketOptions) -> 
             *reconnect_timer_ref.borrow_mut() = None;
 
             {
-                let web_socket: &mut Option<WebSocket> = &mut *ws.borrow_mut();
+                let web_socket: &mut Option<WebSocket> = &mut ws.borrow_mut();
                 if let Some(web_socket) = web_socket {
                     let _ = web_socket.close();
                 }
@@ -432,7 +432,7 @@ pub fn use_websocket_with_options(url: String, options: UseWebSocketOptions) -> 
         let ws = ws.clone();
         Rc::new(move |data: String| {
             if *ready_state == UseWebSocketReadyState::Open {
-                let web_socket: &mut Option<WebSocket> = &mut *ws.borrow_mut();
+                let web_socket: &mut Option<WebSocket> = &mut ws.borrow_mut();
                 if let Some(web_socket) = web_socket {
                     let _ = web_socket.send_with_str(&data);
                 }
@@ -445,7 +445,7 @@ pub fn use_websocket_with_options(url: String, options: UseWebSocketOptions) -> 
         let ws = ws.clone();
         Rc::new(move |data: Vec<u8>| {
             if *ready_state == UseWebSocketReadyState::Open {
-                let web_socket: &mut Option<WebSocket> = &mut *ws.borrow_mut();
+                let web_socket: &mut Option<WebSocket> = &mut ws.borrow_mut();
                 if let Some(web_socket) = web_socket {
                     let _ = web_socket.send_with_u8_array(&data);
                 }
@@ -469,7 +469,7 @@ pub fn use_websocket_with_options(url: String, options: UseWebSocketOptions) -> 
             *reconnect_timer_ref.borrow_mut() = None;
             *reconnect_times_ref.borrow_mut() = reconnect_limit;
 
-            let web_socket: &mut Option<WebSocket> = &mut *ws.borrow_mut();
+            let web_socket: &mut Option<WebSocket> = &mut ws.borrow_mut();
             if let Some(web_socket) = web_socket {
                 let _ = web_socket.close();
             }

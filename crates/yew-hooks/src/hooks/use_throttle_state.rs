@@ -22,7 +22,7 @@ impl<T> Deref for UseThrottleStateHandle<T> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
-        &(*self.inner)
+        &self.inner
     }
 }
 

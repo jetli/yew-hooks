@@ -33,7 +33,7 @@ impl<T> Deref for UseSessionStorageHandle<T> {
     type Target = Option<T>;
 
     fn deref(&self) -> &Self::Target {
-        &(*self.inner)
+        &self.inner
     }
 }
 

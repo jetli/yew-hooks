@@ -32,22 +32,22 @@ pub struct UseClipboardHandle {
 impl UseClipboardHandle {
     /// Read bytes from clipboard.
     pub fn read(&self) {
-        (self.read)()
+        (self.read)();
     }
 
     /// Read text from clipboard.
     pub fn read_text(&self) {
-        (self.read_text)()
+        (self.read_text)();
     }
 
     /// Write bytes with mime type to clipboard.
     pub fn write(&self, data: Vec<u8>, mime_type: Option<String>) {
-        (self.write)(data, mime_type)
+        (self.write)(data, mime_type);
     }
 
     /// Write text to clipboard.
     pub fn write_text(&self, data: String) {
-        (self.write_text)(data)
+        (self.write_text)(data);
     }
 }
 
@@ -205,7 +205,7 @@ pub fn use_clipboard() -> UseClipboardHandle {
                         let resolve_closure = Closure::wrap(Box::new(move |_| {
                             bytes.set(Some(data.clone()));
                             bytes_mime_type.set(mime_type.clone());
-                            copied.set(true)
+                            copied.set(true);
                         })
                             as Box<dyn FnMut(JsValue)>);
                         let reject_closure = Closure::wrap(Box::new(move |_| {
@@ -233,15 +233,18 @@ pub fn use_clipboard() -> UseClipboardHandle {
                 let text = text.clone();
                 let text2 = text.clone();
                 let resolve_closure = Closure::wrap(Box::new(move |data: JsValue| {
-                    if let Some(data) = data.as_string() {
-                        if data.is_empty() {
+                    data.as_string().map_or_else(
+                        || {
                             text.set(None);
-                        } else {
-                            text.set(Some(data));
-                        }
-                    } else {
-                        text.set(None);
-                    }
+                        },
+                        |data| {
+                            if data.is_empty() {
+                                text.set(None);
+                            } else {
+                                text.set(Some(data));
+                            }
+                        },
+                    );
                 }) as Box<dyn FnMut(JsValue)>);
                 let reject_closure = Closure::wrap(Box::new(move |_| {
                     text2.set(None);
@@ -352,8 +355,8 @@ pub fn use_clipboard() -> UseClipboardHandle {
         text,
         bytes,
         bytes_mime_type,
-        is_supported,
         copied,
+        is_supported,
         write_text,
         write,
         read_text,

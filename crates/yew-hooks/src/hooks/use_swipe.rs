@@ -6,7 +6,7 @@ use yew::prelude::*;
 use super::{use_event, use_mut_latest};
 
 /// Swipe direction.
-#[derive(PartialEq, Clone, Debug)]
+#[derive(PartialEq, Eq, Clone, Debug)]
 pub enum UseSwipeDirection {
     Up,
     Right,
@@ -163,13 +163,13 @@ pub fn use_swipe_with_options(node: NodeRef, options: UseSwipeOptions) -> UseSwi
     let diff_x = {
         let coords_start = coords_start.clone();
         let coords_end = coords_end.clone();
-        Rc::new(move || ((*coords_start).0 - (*coords_end).0) as i32)
+        Rc::new(move || (coords_start.0 - coords_end.0) as i32)
     };
 
     let diff_y = {
         let coords_start = coords_start.clone();
         let coords_end = coords_end.clone();
-        Rc::new(move || ((*coords_start).1 - (*coords_end).1) as i32)
+        Rc::new(move || (coords_start.1 - coords_end.1) as i32)
     };
 
     let ontouchend = {

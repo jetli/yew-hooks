@@ -22,7 +22,7 @@ impl<T> Deref for UseDebounceStateHandle<T> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
-        &(*self.inner)
+        &self.inner
     }
 }
 

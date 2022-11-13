@@ -18,7 +18,7 @@ pub fn state_ptr_eq() -> Html {
         // This effect will not run if use `use_state` or `use_state_eq`.
         use_effect_with_deps(
             move |message| {
-                history.push((&**message).clone());
+                history.push((**message).clone());
 
                 || ()
             },

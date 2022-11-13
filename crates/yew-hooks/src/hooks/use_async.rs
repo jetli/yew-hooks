@@ -14,13 +14,13 @@ pub struct UseAsyncOptions {
 
 impl UseAsyncOptions {
     /// Automatically run when mount
-    pub fn enable_auto() -> Self {
+    pub const fn enable_auto() -> Self {
         Self { auto: true }
     }
 }
 
 /// State for an async future.
-#[derive(PartialEq)]
+#[derive(PartialEq, Eq)]
 pub struct UseAsyncState<T, E> {
     pub loading: bool,
     pub data: Option<T>,
@@ -36,7 +36,7 @@ pub struct UseAsyncHandle<T, E> {
 impl<T, E> UseAsyncHandle<T, E> {
     /// Start to resolve the async future to a final value.
     pub fn run(&self) {
-        (self.run)()
+        (self.run)();
     }
 
     /// Update `data` directly.
@@ -53,7 +53,7 @@ impl<T, E> Deref for UseAsyncHandle<T, E> {
     type Target = UseAsyncState<T, E>;
 
     fn deref(&self) -> &Self::Target {
-        &(*self.inner)
+        &self.inner
     }
 }
 
@@ -216,8 +216,8 @@ where
                     // Only set loading to true and leave previous data/error alone.
                     inner.set(UseAsyncState {
                         loading: true,
-                        data: (*inner).data.clone(),
-                        error: (*inner).error.clone(),
+                        data: inner.data.clone(),
+                        error: inner.error.clone(),
                     });
                     match future.await {
                         // Success with some data and clear previous error.
@@ -229,7 +229,7 @@ where
                         // Failed with some error and leave previous data alone.
                         Err(error) => inner.set(UseAsyncState {
                             loading: false,
-                            data: (*inner).data.clone(),
+                            data: inner.data.clone(),
                             error: Some(error),
                         }),
                     }

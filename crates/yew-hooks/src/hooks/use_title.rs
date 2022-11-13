@@ -30,6 +30,6 @@ pub fn use_title(title: String) {
     }
 
     use_unmount(move || {
-        gloo::utils::document().set_title(&*pre_title);
+        gloo::utils::document().set_title(&pre_title);
     });
 }

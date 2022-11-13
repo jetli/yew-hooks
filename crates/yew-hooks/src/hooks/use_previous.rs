@@ -19,7 +19,7 @@ impl<T> Deref for UsePreviousHandle<T> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
-        &(*self.inner)
+        &self.inner
     }
 }
 

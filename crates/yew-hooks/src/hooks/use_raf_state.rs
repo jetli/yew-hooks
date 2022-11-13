@@ -29,7 +29,7 @@ impl<T> Deref for UseRafStateHandle<T> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
-        &(*self.inner)
+        &self.inner
     }
 }
 

@@ -36,7 +36,7 @@ impl<T> Deref for UseLocalStorageHandle<T> {
     type Target = Option<T>;
 
     fn deref(&self) -> &Self::Target {
-        &(*self.inner)
+        &self.inner
     }
 }
 
