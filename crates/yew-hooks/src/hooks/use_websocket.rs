@@ -224,10 +224,7 @@ pub fn use_websocket(url: String) -> UseWebSocketHandle {
 /// }
 /// ```
 #[hook]
-pub fn use_websocket_with_options(
-    url: String,
-    options: UseWebSocketOptions,
-) -> UseWebSocketHandle {
+pub fn use_websocket_with_options(url: String, options: UseWebSocketOptions) -> UseWebSocketHandle {
     let ready_state = use_state(|| UseWebSocketReadyState::Closed);
     let message = use_state_ptr_eq(|| None);
     let message_bytes = use_state_ptr_eq(|| None);
