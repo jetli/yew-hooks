@@ -7,7 +7,7 @@ pub mod hooks;
 
 use about::About;
 use home::Home;
-use hooks::{UseAsync, UseBeforeUnload, UseBoolToggle, UseClickAway, UseClipboard, UseCounter, UseDebounce, UseDebounceEffect, UseDebounceState, UseDefault, UseDrag, UseDrop, UseEffectOnce, UseEffectUpdate, UseEvent, UseFavicon, UseGeolocation, UseHash, UseInfiniteScroll, UseInterval, UseIsFirstMount, UseIsMounted, UseLatest, UseList, UseLocalStorage, UseLocation, UseLogger, UseMap, UseMeasure, UseMedia, UseMount, UseMutLatest, UsePrevious, UseQueue, UseRaf, UseRafState, UseRendersCount, UseScroll, UseScrolling, UseSearchParam, UseSessionStorage, UseSet, UseSize, UseStatePtrEq, UseSwipe, UseThrottle, UseThrottleEffect, UseThrottleState, UseTimeout, UseTitle, UseToggle, UseUnmount, UseUpdate, UseWebSocket, UseWindowScroll, UseWindowSize};
+use hooks::*;
 
 /// App routes
 #[derive(Routable, Debug, Clone, PartialEq, Eq)]
