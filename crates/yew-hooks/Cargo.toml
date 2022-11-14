@@ -17,7 +17,7 @@ documentation = "https://docs.rs/yew-hooks/"
 [dependencies]
 log = "0.4"
 yew = { git = "https://github.com/yewstack/yew", features=["csr"] }
-gloo = "0.7"
+gloo = "0.8"
 wasm-bindgen = "0.2"
 wasm-bindgen-futures = "0.4"
 serde = "1"
