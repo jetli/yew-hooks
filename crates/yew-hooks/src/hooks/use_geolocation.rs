@@ -133,7 +133,7 @@ pub fn use_geolocation_with_options(options: UseGeolocationOptions) -> UseGeoloc
                     .navigator()
                     .geolocation()
                     .unwrap_throw()
-                    .clear_watch(watch_id)
+                    .clear_watch(watch_id);
             }
         });
     }

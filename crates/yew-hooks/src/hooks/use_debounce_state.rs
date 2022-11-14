@@ -14,7 +14,7 @@ pub struct UseDebounceStateHandle<T> {
 impl<T> UseDebounceStateHandle<T> {
     // Set the value.
     pub fn set(&self, value: T) {
-        (self.set)(value)
+        (self.set)(value);
     }
 }
 
@@ -22,7 +22,7 @@ impl<T> Deref for UseDebounceStateHandle<T> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
-        &(*self.inner)
+        &self.inner
     }
 }
 

@@ -24,11 +24,9 @@ pub fn session_storage() -> Html {
                     <p>
                         <b>{ "Current value: " }</b>
                         {
-                            if let Some(value) = &*storage {
-                                html! { value }
-                            } else {
-                                html! {}
-                            }
+                            (*storage)
+                                .as_ref()
+                                .map_or_else(|| html! {}, |value| html! { value })
                         }
                     </p>
                 </div>

@@ -14,12 +14,12 @@ pub struct UseTimeoutHandle {
 impl UseTimeoutHandle {
     /// Reset the timeout.
     pub fn reset(&self) {
-        (self.reset)()
+        (self.reset)();
     }
 
     /// Cancel the timeout.
     pub fn cancel(&self) {
-        (self.cancel)()
+        (self.cancel)();
     }
 }
 

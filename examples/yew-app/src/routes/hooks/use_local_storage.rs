@@ -19,7 +19,7 @@ pub fn local_storage() -> Html {
             storage.set(User {
                 name: String::from("Jet Li"),
                 token: String::from("jwt_token"),
-            })
+            });
         })
     };
     let ondelete = {
@@ -32,8 +32,11 @@ pub fn local_storage() -> Html {
             <header class="app-header">
                 <div>
                     {
-                        if let Some(user) = &*storage {
-                            html! {
+                        (*storage).as_ref().map_or_else(|| html! {
+                                <>
+                                    <button onclick={onclick}>{ "Sign in" }</button>
+                                </>
+                            }, |user| html! {
                                 <>
                                     <button onclick={ondelete}>{ "Logout" }</button>
                                     <p>
@@ -41,14 +44,7 @@ pub fn local_storage() -> Html {
                                         { &user.name } { " - " } { &user.token }
                                     </p>
                                 </>
-                                }
-                        } else {
-                            html! {
-                                <>
-                                    <button onclick={onclick}>{ "Sign in" }</button>
-                                </>
-                            }
-                        }
+                        })
                     }
                 </div>
             </header>

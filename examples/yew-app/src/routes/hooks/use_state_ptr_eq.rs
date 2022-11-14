@@ -4,7 +4,7 @@ use yew_hooks::prelude::*;
 /// `use_state_ptr_eq` demo
 #[function_component(UseStatePtrEq)]
 pub fn state_ptr_eq() -> Html {
-    let state = use_state_ptr_eq(|| "".to_string());
+    let state = use_state_ptr_eq(String::new);
     let history = use_list(vec![]);
 
     let onclick = {
@@ -18,7 +18,7 @@ pub fn state_ptr_eq() -> Html {
         // This effect will not run if use `use_state` or `use_state_eq`.
         use_effect_with_deps(
             move |message| {
-                history.push((&**message).clone());
+                history.push((**message).clone());
 
                 || ()
             },

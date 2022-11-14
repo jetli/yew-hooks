@@ -36,5 +36,5 @@ pub fn use_before_unload(enabled: bool, msg: String) {
         // WebKit-derived browsers don't follow the spec for the dialog box.
         // We should return msg in the future for the event handler.
         // https://developer.mozilla.org/en-US/docs/Web/API/BeforeUnloadEvent
-    })
+    });
 }

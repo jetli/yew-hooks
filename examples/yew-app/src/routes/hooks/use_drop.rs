@@ -27,25 +27,28 @@ pub fn drop() -> Html {
                     } else {
                         "background-color: #61dafb; border: 3px dashed white;" }}>
                     <p><b>{ " Files: " }</b></p>
-                    {if let Some(files) = &*state.files {
-                        html! {for files.iter().map(|file| {
-                            html! { <p> { file.name() }</p> }
-                        })}
-                    } else {
-                        html! {}
-                    }}
+                    {
+                        (*state.files).as_ref().map_or_else(
+                            || html! {},
+                            |files| {
+                                html! {for files.iter().map(|file| {
+                                    html! { <p> { file.name() }</p> }
+                                })}
+                            },
+                        )
+                    }
                     <p><b>{ " Text: " }</b></p>
-                    {if let Some(text) = &*state.text {
-                        html! {<p>{ text }</p>}
-                    } else {
-                        html! {}
-                    }}
+                    {
+                        (*state.text)
+                            .as_ref()
+                            .map_or_else(|| html! {}, |text| html! {<p>{ text }</p>})
+                    }
                     <p><b>{ " Uri: " }</b></p>
-                    {if let Some(uri) = &*state.uri {
-                        html! {<p>{ uri }</p>}
-                    } else {
-                        html! {}
-                    }}
+                    {
+                        (*state.uri)
+                            .as_ref()
+                            .map_or_else(|| html! {}, |uri| html! {<p>{ uri }</p>})
+                    }
                     <p>
                         { "Try to drag & drop or copy & paste something here, e.g. files, links or text" }
                     </p>

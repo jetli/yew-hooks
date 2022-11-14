@@ -32,22 +32,22 @@ pub struct UseClipboardHandle {
 impl UseClipboardHandle {
     /// Read bytes from clipboard.
     pub fn read(&self) {
-        (self.read)()
+        (self.read)();
     }
 
     /// Read text from clipboard.
     pub fn read_text(&self) {
-        (self.read_text)()
+        (self.read_text)();
     }
 
     /// Write bytes with mime type to clipboard.
     pub fn write(&self, data: Vec<u8>, mime_type: Option<String>) {
-        (self.write)(data, mime_type)
+        (self.write)(data, mime_type);
     }
 
     /// Write text to clipboard.
     pub fn write_text(&self, data: String) {
-        (self.write_text)(data)
+        (self.write_text)(data);
     }
 }
 
@@ -205,7 +205,7 @@ pub fn use_clipboard() -> UseClipboardHandle {
                         let resolve_closure = Closure::wrap(Box::new(move |_| {
                             bytes.set(Some(data.clone()));
                             bytes_mime_type.set(mime_type.clone());
-                            copied.set(true)
+                            copied.set(true);
                         })
                             as Box<dyn FnMut(JsValue)>);
                         let reject_closure = Closure::wrap(Box::new(move |_| {
@@ -233,15 +233,18 @@ pub fn use_clipboard() -> UseClipboardHandle {
                 let text = text.clone();
                 let text2 = text.clone();
                 let resolve_closure = Closure::wrap(Box::new(move |data: JsValue| {
-                    if let Some(data) = data.as_string() {
-                        if data.is_empty() {
+                    data.as_string().map_or_else(
+                        || {
                             text.set(None);
-                        } else {
-                            text.set(Some(data));
-                        }
-                    } else {
-                        text.set(None);
-                    }
+                        },
+                        |data| {
+                            if data.is_empty() {
+                                text.set(None);
+                            } else {
+                                text.set(Some(data));
+                            }
+                        },
+                    );
                 }) as Box<dyn FnMut(JsValue)>);
                 let reject_closure = Closure::wrap(Box::new(move |_| {
                     text2.set(None);
@@ -268,73 +271,92 @@ pub fn use_clipboard() -> UseClipboardHandle {
                     let items = Array::from(&items);
                     let bytes = bytes.clone();
                     for item in items.iter() {
-                        if let Ok(item) = item.dyn_into::<ClipboardItem>() {
-                            for t in item.types().iter() {
-                                if let Some(t) = t.as_string() {
-                                    let bytes = bytes.clone();
-                                    let bytes2 = bytes.clone();
-                                    let bytes_mime_type = bytes_mime_type.clone();
-                                    let bytes_mime_type2 = bytes_mime_type.clone();
-                                    let t2 = t.clone();
-                                    let resolve_closure =
-                                        Closure::wrap(Box::new(move |blob: JsValue| {
-                                            if let Ok(blob) = blob.dyn_into::<Blob>() {
-                                                let bytes = bytes.clone();
-                                                let bytes2 = bytes.clone();
-                                                let bytes_mime_type = bytes_mime_type.clone();
-                                                let bytes_mime_type2 = bytes_mime_type.clone();
-                                                let t = t.clone();
-                                                let resolve_closure = Closure::wrap(Box::new(
-                                                    move |buffer: JsValue| {
-                                                        if let Ok(buffer) =
-                                                            buffer.dyn_into::<ArrayBuffer>()
-                                                        {
-                                                            let data =
-                                                                Uint8Array::new(&buffer).to_vec();
-                                                            bytes.set(Some(data));
-                                                            bytes_mime_type.set(Some(t.clone()));
-                                                        } else {
+                        item.dyn_into::<ClipboardItem>().map_or_else(
+                            |_| {
+                                bytes.set(None);
+                                bytes_mime_type.set(None);
+                            },
+                            |item| {
+                                for t in item.types().iter() {
+                                    t.as_string().map_or_else(
+                                        || {
+                                            bytes.set(None);
+                                            bytes_mime_type.set(None);
+                                        },
+                                        |t| {
+                                            let bytes = bytes.clone();
+                                            let bytes2 = bytes.clone();
+                                            let bytes_mime_type = bytes_mime_type.clone();
+                                            let bytes_mime_type2 = bytes_mime_type.clone();
+                                            let t2 = t.clone();
+                                            let resolve_closure =
+                                                Closure::wrap(Box::new(move |blob: JsValue| {
+                                                    blob.dyn_into::<Blob>().map_or_else(
+                                                        |_| {
                                                             bytes.set(None);
                                                             bytes_mime_type.set(None);
-                                                        }
-                                                    },
-                                                )
+                                                        },
+                                                        |blob| {
+                                                            let bytes = bytes.clone();
+                                                            let bytes2 = bytes.clone();
+                                                            let bytes_mime_type =
+                                                                bytes_mime_type.clone();
+                                                            let bytes_mime_type2 =
+                                                                bytes_mime_type.clone();
+                                                            let t = t.clone();
+                                                            let resolve_closure = Closure::wrap(
+                                                                Box::new(move |buffer: JsValue| {
+                                                                    buffer
+                                                               .dyn_into::<ArrayBuffer>()
+                                               .map_or_else(
+                                                           |_| {
+                                                                       bytes.set(None);
+                                                                       bytes_mime_type.set(None);
+                                                                   },
+                                                           |buffer| {
+                                                                       let data = Uint8Array::new(
+                                                                                   &buffer,
+                                                                               )
+                                                                       .to_vec();
+                                                                       bytes.set(Some(data));
+                                                                       bytes_mime_type
+                                                                           .set(Some(t.clone()));
+                                                                   },
+                                                       );
+                                                                })
+                                                                    as Box<dyn FnMut(JsValue)>,
+                                                            );
+                                                            let reject_closure =
+                                                                Closure::wrap(Box::new(move |_| {
+                                                                    bytes2.set(None);
+                                                                    bytes_mime_type2.set(None);
+                                                                })
+                                                                    as Box<dyn FnMut(JsValue)>);
+                                                            let _ = blob.array_buffer().then2(
+                                                                &resolve_closure,
+                                                                &reject_closure,
+                                                            );
+                                                            resolve_closure.forget();
+                                                            reject_closure.forget();
+                                                        },
+                                                    );
+                                                })
                                                     as Box<dyn FnMut(JsValue)>);
-                                                let reject_closure =
-                                                    Closure::wrap(Box::new(move |_| {
-                                                        bytes2.set(None);
-                                                        bytes_mime_type2.set(None);
-                                                    })
-                                                        as Box<dyn FnMut(JsValue)>);
-                                                let _ = blob
-                                                    .array_buffer()
-                                                    .then2(&resolve_closure, &reject_closure);
-                                                resolve_closure.forget();
-                                                reject_closure.forget();
-                                            } else {
-                                                bytes.set(None);
-                                                bytes_mime_type.set(None);
-                                            }
-                                        })
-                                            as Box<dyn FnMut(JsValue)>);
-                                    let reject_closure = Closure::wrap(Box::new(move |_| {
-                                        bytes2.set(None);
-                                        bytes_mime_type2.set(None);
-                                    })
-                                        as Box<dyn FnMut(JsValue)>);
-                                    let _ =
-                                        item.get_type(&t2).then2(&resolve_closure, &reject_closure);
-                                    resolve_closure.forget();
-                                    reject_closure.forget();
-                                } else {
-                                    bytes.set(None);
-                                    bytes_mime_type.set(None);
+                                            let reject_closure = Closure::wrap(Box::new(move |_| {
+                                                bytes2.set(None);
+                                                bytes_mime_type2.set(None);
+                                            })
+                                                as Box<dyn FnMut(JsValue)>);
+                                            let _ = item
+                                                .get_type(&t2)
+                                                .then2(&resolve_closure, &reject_closure);
+                                            resolve_closure.forget();
+                                            reject_closure.forget();
+                                        },
+                                    );
                                 }
-                            }
-                        } else {
-                            bytes.set(None);
-                            bytes_mime_type.set(None);
-                        }
+                            },
+                        );
                     }
                 }) as Box<dyn FnMut(JsValue)>);
                 let reject_closure = Closure::wrap(Box::new(move |_| {
@@ -352,8 +374,8 @@ pub fn use_clipboard() -> UseClipboardHandle {
         text,
         bytes,
         bytes_mime_type,
-        is_supported,
         copied,
+        is_supported,
         write_text,
         write,
         read_text,

@@ -52,10 +52,11 @@ pub fn use_raf(millis: u32, delay: u32) -> f64 {
                         if *start.borrow() <= 0f64 {
                             *start.borrow_mut() = time;
                         }
-                        let time =
-                            min_by(1f64, (time - *start.borrow()) / (millis as f64), |x, y| {
-                                x.partial_cmp(y).unwrap()
-                            });
+                        let time = min_by(
+                            1f64,
+                            (time - *start.borrow()) / f64::from(millis),
+                            |x, y| x.partial_cmp(y).unwrap(),
+                        );
                         elapsed.set(time);
 
                         // Schedule ourself for another requestAnimationFrame callback.

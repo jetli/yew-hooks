@@ -10,7 +10,7 @@ use home::Home;
 use hooks::*;
 
 /// App routes
-#[derive(Routable, Debug, Clone, PartialEq)]
+#[derive(Routable, Debug, Clone, PartialEq, Eq)]
 pub enum AppRoute {
     #[at("/about")]
     About,

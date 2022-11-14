@@ -22,7 +22,7 @@ impl Deref for UseHashHandle {
     type Target = String;
 
     fn deref(&self) -> &Self::Target {
-        &(*self.inner)
+        &self.inner
     }
 }
 

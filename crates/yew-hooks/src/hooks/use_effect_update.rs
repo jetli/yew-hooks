@@ -36,10 +36,10 @@ where
     let first = use_is_first_mount();
 
     use_effect(move || {
-        if !first {
-            Box::new(callback())
-        } else {
+        if first {
             Box::new(|| ()) as Box<dyn FnOnce()>
+        } else {
+            Box::new(callback())
         }
     });
 }
@@ -59,10 +59,10 @@ pub fn use_effect_update_with_deps<Callback, Destructor, Dependents>(
 
     use_effect_with_deps(
         move |deps| {
-            if !first {
-                Box::new(callback(deps))
-            } else {
+            if first {
                 Box::new(|| ()) as Box<dyn FnOnce()>
+            } else {
+                Box::new(callback(deps))
             }
         },
         deps,
