@@ -20,8 +20,8 @@ gloo = "0.8"
 js-sys = "0.3"
 serde = "1"
 reqwest = { version = "0.11.7", features = ["json"] }
-yew = { git = "https://github.com/yewstack/yew", features=["csr"] }
-yew-router = { git = "https://github.com/yewstack/yew" }
+yew = { version = "0.20.0", features=["csr"] }
+yew-router = { version = "0.17.0" }
 yew-hooks = { path = "../../crates/yew-hooks" }
 wasm-bindgen = "0.2"
 wasm-logger = "0.2.0"
