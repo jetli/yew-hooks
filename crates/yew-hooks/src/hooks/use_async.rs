@@ -20,7 +20,7 @@ impl UseAsyncOptions {
 }
 
 /// State for an async future.
-#[derive(PartialEq, Eq)]
+#[derive(Clone, PartialEq, Eq)]
 pub struct UseAsyncState<T, E> {
     pub loading: bool,
     pub data: Option<T>,
