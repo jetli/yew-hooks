@@ -10,3 +10,6 @@ Cargo.lock
 **/*.rs.bk
 
 /.vscode/
+
+# Ignore IntelliJ project files
+.idea/
