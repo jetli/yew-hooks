@@ -163,12 +163,14 @@ pub fn use_swipe_with_options(node: NodeRef, options: UseSwipeOptions) -> UseSwi
     let diff_x = {
         let coords_start = coords_start.clone();
         let coords_end = coords_end.clone();
+        #[allow(clippy::unnecessary_cast)]
         Rc::new(move || (coords_start.0 - coords_end.0) as i32)
     };
 
     let diff_y = {
         let coords_start = coords_start.clone();
         let coords_end = coords_end.clone();
+        #[allow(clippy::unnecessary_cast)]
         Rc::new(move || (coords_start.1 - coords_end.1) as i32)
     };
 

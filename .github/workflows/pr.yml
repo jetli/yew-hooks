@@ -28,6 +28,4 @@ jobs:
         cargo test
     - name: Build examples
       run: |
-        cd examples/yew-app/
-        npm install
-        npm run build
+        cd examples/yew-app && trunk build --public-url=/yew-hooks/
