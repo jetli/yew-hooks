@@ -56,3 +56,4 @@ features = [
 
 [dev-dependencies]
 log = "0.4.8"
+wasm-bindgen-test = "0.3.14"
