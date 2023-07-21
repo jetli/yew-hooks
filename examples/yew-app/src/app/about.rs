@@ -45,6 +45,6 @@ mod tests {
         assert_eq!(app_links.length(), 1);
 
         let link = app_links.item(0).expect("No app-link").inner_html();
-        assert_eq!(link, "Create Yew App");
+        assert_eq!(link, "Yew Hooks");
     }
 }

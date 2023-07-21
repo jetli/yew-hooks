@@ -12,7 +12,7 @@ pub fn home() -> Html {
                 <a href="https://yew.rs" target="_blank" rel="noopener noreferrer">
                     <img class="w-48 h-48 mt-24 mx-auto" src="logo.svg" alt="Yew" />
                 </a>
-                <h1 class="text-4xl font-bold text-center mb-18">{ "Yew Hooks" }</h1>
+                <h1 id="yew_hooks" class="text-4xl font-bold text-center mb-18">{ "Yew Hooks" }</h1>
                 <div class="space-y-4">
                     <h2 class="text-2xl font-bold">{ "State" }</h2>
 

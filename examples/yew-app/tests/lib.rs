@@ -14,8 +14,8 @@ async fn app_has_a_home_page() {
     sleep(Duration::ZERO).await;
 
     let learn_yew = gloo::utils::document()
-        .get_element_by_id("learn_yew")
-        .expect("No learn yew anchor or no home page")
+        .get_element_by_id("yew_hooks")
+        .expect("No Yew Hooks or no home page")
         .inner_html();
-    assert_eq!(learn_yew, "Learn Yew");
+    assert_eq!(learn_yew, "Yew Hooks");
 }
