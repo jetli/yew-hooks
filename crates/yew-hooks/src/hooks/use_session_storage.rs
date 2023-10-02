@@ -102,7 +102,7 @@ where
 {
     let inner: UseStateHandle<Option<T>> =
         use_state(|| SessionStorage::get(&key).unwrap_or_default());
-    let key = use_memo(|_| key, ());
+    let key = use_memo((), |_| key);
 
     UseSessionStorageHandle { inner, key }
 }

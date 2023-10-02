@@ -11,20 +11,17 @@ pub fn UseSwipe() -> Html {
     // You can depend on direction/swiping etc.
     {
         let state = state.clone();
-        use_effect_with_deps(
-            move |direction| {
-                // Do something based on direction.
-                match **direction {
-                    UseSwipeDirection::Left => (),
-                    UseSwipeDirection::Right => (),
-                    UseSwipeDirection::Up => (),
-                    UseSwipeDirection::Down => (),
-                    _ => (),
-                }
-                || ()
-            },
-            state.direction,
-        );
+        use_effect_with(state.direction, move |direction| {
+            // Do something based on direction.
+            match **direction {
+                UseSwipeDirection::Left => (),
+                UseSwipeDirection::Right => (),
+                UseSwipeDirection::Up => (),
+                UseSwipeDirection::Down => (),
+                _ => (),
+            }
+            || ()
+        });
     }
 
     // Demo #2, detect swipe for window with options, or use `use_swipe_with_window`.

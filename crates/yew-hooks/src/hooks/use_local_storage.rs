@@ -105,7 +105,7 @@ where
 {
     let inner: UseStateHandle<Option<T>> =
         use_state(|| LocalStorage::get(&key).unwrap_or_default());
-    let key = use_memo(|_| key, ());
+    let key = use_memo((), |_| key);
 
     {
         let key = key.clone();

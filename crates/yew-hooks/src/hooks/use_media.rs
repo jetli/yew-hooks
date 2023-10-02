@@ -413,25 +413,22 @@ pub fn use_media_with_options(
         let paused = paused.clone();
         let play = play.clone();
         let auto_play = options.auto_play;
-        use_effect_with_deps(
-            move |(node, src)| {
-                if let Some(media) = node.cast::<HtmlMediaElement>() {
-                    media.set_controls(false);
-                    media.set_src(src);
+        use_effect_with((node, src), move |(node, src)| {
+            if let Some(media) = node.cast::<HtmlMediaElement>() {
+                media.set_controls(false);
+                media.set_src(src);
 
-                    volume.set(media.volume());
-                    muted.set(media.muted());
-                    paused.set(media.paused());
+                volume.set(media.volume());
+                muted.set(media.muted());
+                paused.set(media.paused());
 
-                    if auto_play && media.paused() {
-                        play();
-                    }
+                if auto_play && media.paused() {
+                    play();
                 }
+            }
 
-                || ()
-            },
-            (node, src),
-        );
+            || ()
+        });
     }
 
     UseMediaHandle {

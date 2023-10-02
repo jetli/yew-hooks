@@ -57,14 +57,11 @@ pub fn use_effect_update_with_deps<Callback, Destructor, Dependents>(
 {
     let first = use_is_first_mount();
 
-    use_effect_with_deps(
-        move |deps| {
-            if first {
-                Box::new(|| ()) as Box<dyn FnOnce()>
-            } else {
-                Box::new(callback(deps))
-            }
-        },
-        deps,
-    );
+    use_effect_with(deps, move |deps| {
+        if first {
+            Box::new(|| ()) as Box<dyn FnOnce()>
+        } else {
+            Box::new(callback(deps))
+        }
+    });
 }

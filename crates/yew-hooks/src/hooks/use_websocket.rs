@@ -488,16 +488,13 @@ pub fn use_websocket_with_options(url: String, options: UseWebSocketOptions) -> 
 
     {
         let open = open.clone();
-        use_effect_with_deps(
-            move |(_, manual)| {
-                if !*manual {
-                    open();
-                }
+        use_effect_with((url, manual), move |(_, manual)| {
+            if !*manual {
+                open();
+            }
 
-                || ()
-            },
-            (url, manual),
-        );
+            || ()
+        });
     }
 
     {

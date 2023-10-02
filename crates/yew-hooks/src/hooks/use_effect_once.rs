@@ -30,5 +30,5 @@ where
     Callback: FnOnce() -> Destructor + 'static,
     Destructor: FnOnce() + 'static,
 {
-    use_effect_with_deps(move |_| callback(), ());
+    use_effect_with((), move |_| callback());
 }

@@ -59,37 +59,33 @@ pub fn use_measure(node: NodeRef) -> UseMeasureState {
 
     {
         let state = state.clone();
-        use_effect_with_deps(
-            move |node| {
-                let closure = Closure::wrap(Box::new(move |entries: Vec<ResizeObserverEntry>| {
-                    for entry in &entries {
-                        let rect = entry.content_rect();
-                        state.set(UseMeasureState {
-                            x: rect.x(),
-                            y: rect.y(),
-                            width: rect.width(),
-                            height: rect.height(),
-                            top: rect.top(),
-                            left: rect.left(),
-                            bottom: rect.bottom(),
-                            right: rect.right(),
-                        });
-                    }
-                })
-                    as Box<dyn Fn(Vec<ResizeObserverEntry>)>);
-
-                let observer = ResizeObserver::new(closure.as_ref().unchecked_ref()).unwrap_throw();
-                // Forget the closure to keep it alive
-                closure.forget();
-
-                if let Some(element) = &node.cast::<Element>() {
-                    observer.observe(element);
+        use_effect_with(node, move |node| {
+            let closure = Closure::wrap(Box::new(move |entries: Vec<ResizeObserverEntry>| {
+                for entry in &entries {
+                    let rect = entry.content_rect();
+                    state.set(UseMeasureState {
+                        x: rect.x(),
+                        y: rect.y(),
+                        width: rect.width(),
+                        height: rect.height(),
+                        top: rect.top(),
+                        left: rect.left(),
+                        bottom: rect.bottom(),
+                        right: rect.right(),
+                    });
                 }
+            }) as Box<dyn Fn(Vec<ResizeObserverEntry>)>);
 
-                move || observer.disconnect()
-            },
-            node,
-        );
+            let observer = ResizeObserver::new(closure.as_ref().unchecked_ref()).unwrap_throw();
+            // Forget the closure to keep it alive
+            closure.forget();
+
+            if let Some(element) = &node.cast::<Element>() {
+                observer.observe(element);
+            }
+
+            move || observer.disconnect()
+        });
     }
 
     (*state).clone()

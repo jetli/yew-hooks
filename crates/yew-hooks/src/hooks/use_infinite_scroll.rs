@@ -47,17 +47,14 @@ where
 
     {
         let load_more = load_more.clone();
-        use_effect_with_deps(
-            move |load_more| {
-                if **load_more {
-                    let callback = &*callback_ref.current();
-                    callback();
-                }
+        use_effect_with(load_more, move |load_more| {
+            if **load_more {
+                let callback = &*callback_ref.current();
+                callback();
+            }
 
-                || ()
-            },
-            load_more,
-        );
+            || ()
+        });
     }
 
     let debounce = {
