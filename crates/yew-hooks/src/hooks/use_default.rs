@@ -90,7 +90,7 @@ where
     F: FnOnce() -> Option<T>,
 {
     let inner = use_state(init_fn);
-    let default = use_memo(|_| default, ());
+    let default = use_memo((), |_| default);
 
     UseDefaultHandle { inner, default }
 }

@@ -23,7 +23,7 @@ use super::use_unmount;
 /// ```
 #[hook]
 pub fn use_title(title: String) {
-    let pre_title = use_memo(|_| gloo::utils::document().title(), ());
+    let pre_title = use_memo((), |_| gloo::utils::document().title());
 
     if gloo::utils::document().title() != title {
         gloo::utils::document().set_title(&title);

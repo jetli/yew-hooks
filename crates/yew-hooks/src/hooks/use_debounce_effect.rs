@@ -96,14 +96,11 @@ pub fn use_debounce_effect_with_deps<Callback, Dependents>(
 
     {
         let debounce = debounce.clone();
-        use_effect_with_deps(
-            move |_| {
-                debounce.run();
+        use_effect_with(deps, move |_| {
+            debounce.run();
 
-                || ()
-            },
-            deps,
-        );
+            || ()
+        });
     }
 
     use_unmount(move || {

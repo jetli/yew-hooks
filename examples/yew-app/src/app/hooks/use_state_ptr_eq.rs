@@ -18,14 +18,11 @@ pub fn UseStatePtrEq() -> Html {
     {
         let history = history.clone();
         // This effect will not run if use `use_state` or `use_state_eq`.
-        use_effect_with_deps(
-            move |message| {
-                history.push((**message).clone());
+        use_effect_with(state, move |message| {
+            history.push((**message).clone());
 
-                || ()
-            },
-            state,
-        );
+            || ()
+        });
     }
 
     html! {

@@ -12,14 +12,10 @@ pub fn UseEffectUpdate() -> Html {
 
     {
         let count_effect = count_effect.clone();
-        let count = count.clone();
-        use_effect_with_deps(
-            move |_| {
-                count_effect.set(*count_effect + 1);
-                || ()
-            },
-            count,
-        );
+        use_effect_with(count.clone(), move |_| {
+            count_effect.set(*count_effect + 1);
+            || ()
+        });
     }
 
     {

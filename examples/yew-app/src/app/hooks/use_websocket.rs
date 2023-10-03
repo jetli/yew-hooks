@@ -23,15 +23,12 @@ pub fn UseWebSocket() -> Html {
         let history = history.clone();
         let ws = ws.clone();
         // Receive message by depending on `ws.message`.
-        use_effect_with_deps(
-            move |message| {
-                if let Some(message) = &**message {
-                    history.push(format!("ws1 [recv]: {}", message.clone()));
-                }
-                || ()
-            },
-            ws.message,
-        );
+        use_effect_with(ws.message, move |message| {
+            if let Some(message) = &**message {
+                history.push(format!("ws1 [recv]: {}", message.clone()));
+            }
+            || ()
+        });
     }
 
     // Demo #2, send bytes to websocket.
@@ -48,15 +45,12 @@ pub fn UseWebSocket() -> Html {
         let history = history.clone();
         let ws = ws.clone();
         // Receive message by depending on `ws.message_bytes`.
-        use_effect_with_deps(
-            move |message| {
-                if let Some(message) = &**message {
-                    history.push(format!("ws1 [recv]: bytes {:?}", message.clone()));
-                }
-                || ()
-            },
-            ws.message_bytes,
-        );
+        use_effect_with(ws.message_bytes, move |message| {
+            if let Some(message) = &**message {
+                history.push(format!("ws1 [recv]: bytes {:?}", message.clone()));
+            }
+            || ()
+        });
     }
 
     // Demo #3, manually connect to websocket with custom options.

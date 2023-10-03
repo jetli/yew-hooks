@@ -25,30 +25,27 @@ use yew::prelude::*;
 /// ```
 #[hook]
 pub fn use_favicon(href: String) {
-    use_effect_with_deps(
-        move |href| {
-            let link = {
-                if let Ok(Some(link)) = document().query_selector("link[rel*='icon']") {
-                    link
-                } else {
-                    document().create_element("link").unwrap_throw()
-                }
+    use_effect_with(href, move |href| {
+        let link = {
+            if let Ok(Some(link)) = document().query_selector("link[rel*='icon']") {
+                link
+            } else {
+                document().create_element("link").unwrap_throw()
             }
-            .dyn_into::<HtmlLinkElement>()
+        }
+        .dyn_into::<HtmlLinkElement>()
+        .unwrap_throw();
+
+        link.set_type("image/x-icon");
+        link.set_rel("shortcut icon");
+        link.set_href(href);
+
+        let head = document()
+            .get_elements_by_tag_name("head")
+            .item(0)
             .unwrap_throw();
+        let _ = head.append_child(&link.dyn_into::<Node>().unwrap_throw());
 
-            link.set_type("image/x-icon");
-            link.set_rel("shortcut icon");
-            link.set_href(href);
-
-            let head = document()
-                .get_elements_by_tag_name("head")
-                .item(0)
-                .unwrap_throw();
-            let _ = head.append_child(&link.dyn_into::<Node>().unwrap_throw());
-
-            || ()
-        },
-        href,
-    );
+        || ()
+    });
 }
