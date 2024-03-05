@@ -1,7 +1,8 @@
-use crate::use_effect_once;
 use wasm_bindgen::{closure::Closure, JsCast};
 use web_sys::{IntersectionObserver, IntersectionObserverEntry};
-use yew::{functional::*, NodeRef};
+use yew::prelude::*;
+
+use super::use_effect_once;
 
 #[hook]
 /// Check if an element is visible. Internally, it uses an [`IntersectionObserver`] to receive
@@ -55,9 +56,9 @@ pub fn use_visible(node: NodeRef, sticky: bool) -> bool {
             },
         )
         .into_js_value();
-        let observer = IntersectionObserver::new(&closure.dyn_ref().unwrap()).unwrap();
+        let observer = IntersectionObserver::new(closure.dyn_ref().unwrap()).unwrap();
         if let Some(node) = node.get() {
-            observer.observe(&node.dyn_ref().unwrap());
+            observer.observe(node.dyn_ref().unwrap());
         }
         move || observer.disconnect()
     });
