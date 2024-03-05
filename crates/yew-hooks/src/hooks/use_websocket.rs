@@ -33,9 +33,9 @@ pub struct UseWebSocketOptions {
     /// `WebSocket` close callback.
     pub onclose: Option<Box<dyn FnMut(CloseEvent)>>,
 
-    /// Retry times.
+    /// Retry times. Defaults to 3, use `u32::MAX` for infinite retries.
     pub reconnect_limit: Option<u32>,
-    /// Retry interval(ms).
+    /// Retry interval(ms). Defaults to 3000.
     pub reconnect_interval: Option<u32>,
     /// Manually starts connection
     pub manual: Option<bool>,

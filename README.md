@@ -54,7 +54,7 @@ fn counter() -> Html {
         let counter = counter.clone();
         Callback::from(move |_| counter.decrease())
     };
-    
+
     html! {
         <>
             <button onclick={onincrease}>{ "Increase" }</button>
@@ -72,7 +72,7 @@ fn counter() -> Html {
 
 - `use_toggle` - tracks state of counterparts.
 - `use_bool_toggle` - tracks state of a boolean.
-- `use_counter` -  tracks state of a number.
+- `use_counter` - tracks state of a number.
 - `use_latest` - returns the latest immutable ref to state or props.
 - `use_mut_latest` - returns the latest mutable ref to state or props.
 - `use_previous` - returns the previous immutable ref to state or props.
@@ -134,6 +134,7 @@ fn counter() -> Html {
 - `use_measure` - tracks an HTML element's dimensions using the `ResizeObserver` API.
 - `use_geolocation` - tracks user's geographic location.
 - `use_swipe` - detects swipe based on TouchEvent.
+- `use_visible` - checks if an element is visible.
 
 ### UI
 
@@ -178,7 +179,7 @@ fn counter() -> Html {
         let counter = counter.clone();
         Callback::from(move |_| counter.reset())
     };
-    
+
     html! {
         <div>
             <button onclick={onincrease}>{ "Increase" }</button>

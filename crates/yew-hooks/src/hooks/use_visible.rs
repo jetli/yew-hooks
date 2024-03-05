@@ -4,7 +4,6 @@ use yew::prelude::*;
 
 use super::use_effect_once;
 
-#[hook]
 /// Check if an element is visible. Internally, it uses an [`IntersectionObserver`] to receive
 /// notifications from the browser whenever the visibility state of the node changes.
 ///
@@ -15,13 +14,15 @@ use super::use_effect_once;
 /// # Example
 ///
 /// ```rust
-/// use yew::prelude::*;
-/// use yew_hooks::use_visible;
+/// # use yew::prelude::*;
+/// #
+/// use yew_hooks::prelude::*;
 ///
 /// #[function_component]
 /// fn MyComponent() -> Html {
 ///     let node = use_node_ref();
 ///     let visible = use_visible(node.clone(), false);
+///
 ///     html! {
 ///         <div ref={node}>
 ///             if visible {
@@ -33,11 +34,13 @@ use super::use_effect_once;
 ///     }
 /// }
 /// ```
+#[hook]
 pub fn use_visible(node: NodeRef, sticky: bool) -> bool {
     // code adapted from:
     // https://stackoverflow.com/questions/1462138/event-listener-for-when-element-becomes-visible
     let visible = use_state_eq(|| false);
     let visible_clone = visible.clone();
+
     use_effect_once(move || {
         let closure = Closure::<dyn Fn(Vec<IntersectionObserverEntry>, IntersectionObserver)>::new(
             move |entries: Vec<IntersectionObserverEntry>, observer: IntersectionObserver| {
@@ -45,9 +48,7 @@ pub fn use_visible(node: NodeRef, sticky: bool) -> bool {
                 let visible = entries.iter().any(|entry| entry.intersection_ratio() > 0.0);
 
                 // if the visibility changed, update the state.
-                if (visible != *visible_clone) && (!sticky || !*visible_clone) {
-                    visible_clone.set(visible);
-                }
+                visible_clone.set(visible);
 
                 // if this is sticky and it is currently visible, disconnect the observer.
                 if visible && sticky {
@@ -62,5 +63,6 @@ pub fn use_visible(node: NodeRef, sticky: bool) -> bool {
         }
         move || observer.disconnect()
     });
+
     *visible
 }
