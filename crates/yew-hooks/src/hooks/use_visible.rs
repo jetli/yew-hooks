@@ -1,11 +1,7 @@
-use wasm_bindgen::{
-    closure::Closure,
-    JsCast,
-};
-use web_sys::{IntersectionObserver, IntersectionObserverEntry};
-use yew::{NodeRef, functional::*};
 use crate::use_effect_once;
-
+use wasm_bindgen::{closure::Closure, JsCast};
+use web_sys::{IntersectionObserver, IntersectionObserverEntry};
+use yew::{functional::*, NodeRef};
 
 #[hook]
 /// Check if an element is visible. Internally, it uses an [`IntersectionObserver`] to receive
