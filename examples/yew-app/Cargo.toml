@@ -11,16 +11,13 @@ version = "0.1.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-[lib]
-crate-type = ["cdylib", "rlib"]
-
 [dependencies]
 log = "0.4"
 gloo = "0.10"
 js-sys = "0.3"
 serde = "1"
 reqwest = { version = "0.11.7", features = ["json"] }
-yew = { version = "0.21.0", features=["csr"] }
+yew = { version = "0.21.0", features = ["csr"] }
 yew-router = { version = "0.18.0" }
 yew-hooks = { path = "../../crates/yew-hooks" }
 wasm-bindgen = "0.2"
@@ -36,8 +33,4 @@ wasm-bindgen-test = "0.3.14"
 
 [dev-dependencies.web-sys]
 version = "0.3"
-features = [
-  "Document",
-  "Element",
-  "HtmlCollection",
-]
+features = ["Document", "Element", "HtmlCollection"]
