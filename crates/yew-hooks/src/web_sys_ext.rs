@@ -3,6 +3,7 @@
 //! which is inconvenient, so copy the binding code here for now.
 #![allow(unused_imports)]
 #![allow(clippy::unused_unit)]
+#![allow(clippy::empty_docs)]
 use wasm_bindgen::{self, prelude::*};
 use web_sys::{DataTransfer, DomRectReadOnly, Element, Event, EventTarget};
 

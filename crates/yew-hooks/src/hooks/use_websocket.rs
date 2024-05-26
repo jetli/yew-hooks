@@ -33,7 +33,7 @@ pub struct UseWebSocketOptions {
     /// `WebSocket` close callback.
     pub onclose: Option<Box<dyn FnMut(CloseEvent)>>,
 
-    /// Retry times. Defaults to 3, use `u32::MAX` for infinite retries.
+    /// Retry times. Defaults to `u32::MAX` for infinite retries.
     pub reconnect_limit: Option<u32>,
     /// Retry interval(ms). Defaults to 3000.
     pub reconnect_interval: Option<u32>,
@@ -235,7 +235,7 @@ pub fn use_websocket_with_options(url: String, options: UseWebSocketOptions) -> 
     let onmessage_bytes_ref = use_mut_latest(options.onmessage_bytes);
     let onerror_ref = use_mut_latest(options.onerror);
     let onclose_ref = use_mut_latest(options.onclose);
-    let reconnect_limit = options.reconnect_limit.unwrap_or(3);
+    let reconnect_limit = options.reconnect_limit.unwrap_or(u32::MAX);
     let reconnect_interval = options.reconnect_interval.unwrap_or(3 * 1000);
     let manual = options.manual.unwrap_or(false);
     let protocols = options.protocols;
