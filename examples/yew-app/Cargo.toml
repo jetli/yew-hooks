@@ -13,10 +13,10 @@ version = "0.1.0"
 
 [dependencies]
 log = "0.4"
-gloo = "0.10"
+gloo = "0.11"
 js-sys = "0.3"
 serde = "1"
-reqwest = { version = "0.11.7", features = ["json"] }
+reqwest = { version = "0.12.4", features = ["json"] }
 yew = { version = "0.21.0", features = ["csr"] }
 yew-router = { version = "0.18.0" }
 yew-hooks = { path = "../../crates/yew-hooks" }
