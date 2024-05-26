@@ -14,9 +14,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: jetli/wasm-pack-action@v0.3.0
+    - name: Setup toolchain
+      uses: dtolnay/rust-toolchain@master
+      with:
+        toolchain: stable
+        targets: wasm32-unknown-unknown
+        components: rust-src
+    - uses: jetli/wasm-pack-action@v0.4.0
       with:
         # Optional version of wasm-pack to install(eg. '0.9.1', 'latest')
+        version: 'latest'
+    - uses: jetli/trunk-action@v0.5.0
+      with:
+        # Optional version of trunk to install(eg. 'v0.16.0', 'latest')
         version: 'latest'
     - name: Cargo fmt & clippy
       run: |
@@ -26,6 +36,12 @@ jobs:
       run: |
         cd crates/yew-hooks
         cargo test
+    - name: Run hooks tests
+      run: |
+        cd crates/yew-hooks && wasm-pack test --headless --chrome
+    - name: Run examples tests
+      run: |
+        cd examples/yew-app && wasm-pack test --headless --chrome
     - name: Build examples
       run: |
         cd examples/yew-app && trunk build --public-url=/yew-hooks/
