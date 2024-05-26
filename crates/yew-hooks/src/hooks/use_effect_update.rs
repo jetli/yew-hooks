@@ -45,7 +45,7 @@ where
 }
 
 /// This hook is similar to [`use_effect_update`] but it accepts dependencies.
-/// The signature is exactly the same as the [`use_effect_with_deps`] hook.
+/// The signature is exactly the same as the [`use_effect_with`] hook.
 #[hook]
 pub fn use_effect_update_with_deps<Callback, Destructor, Dependents>(
     callback: Callback,

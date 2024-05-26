@@ -125,14 +125,14 @@ impl Clone for UseWebSocketHandle {
 ///         let history = history.clone();
 ///         let ws = ws.clone();
 ///         // Receive message by depending on `ws.message`.
-///         use_effect_with_deps(
+///         use_effect_with(
+///             ws.message,
 ///             move |message| {
 ///                 if let Some(message) = &**message {
 ///                     history.push(format!("[recv]: {}", message.clone()));
 ///                 }
 ///                 || ()
 ///             },
-///             ws.message,
 ///         );
 ///     }
 ///

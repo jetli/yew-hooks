@@ -64,7 +64,7 @@ impl Clone for UseSwipeHandle {
 ///     // You can depend on direction/swiping etc.
 ///     {
 ///         let state = state.clone();
-///         use_effect_with_deps(move |direction| {
+///         use_effect_with(state.direction, move |direction| {
 ///             // Do something based on direction.
 ///             match **direction {
 ///                 UseSwipeDirection::Left => (),
@@ -74,7 +74,7 @@ impl Clone for UseSwipeHandle {
 ///                 _ => (),
 ///             }
 ///             || ()
-///         }, state.direction);
+///         });
 ///     }
 ///     
 ///     html! {
