@@ -21,7 +21,7 @@ pub fn UseEffectUpdate() -> Html {
     {
         let count_effect_update = count_effect_update.clone();
         let count = count.clone();
-        // Count for use_effect_update_with_deps is less than use_effect_with_deps by 1.
+        // Count for use_effect_update_with_deps is less than use_effect_with by 1.
         use_effect_update_with_deps(
             move |_| {
                 count_effect_update.set(*count_effect_update + 1);

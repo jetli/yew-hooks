@@ -330,14 +330,14 @@ pub fn web_socket() -> Html {
     {
         let history = history.clone();
         let ws = ws.clone();
-        use_effect_with_deps(
+        use_effect_with(
+            ws.message,
             move |message| {
                 if let Some(message) = &**message {
                     history.push(format!("[recv]: {}", message.clone()));
                 }
                 || ()
             },
-            ws.message,
         );
     }
 

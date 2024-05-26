@@ -82,7 +82,7 @@ where
 ///
 ///     let latest_closure = use_mut_latest(closure);
 ///
-///     use_effect_with_deps(move |_| {
+///     use_effect_with((), move |_| {
 ///         *interval.borrow_mut() = Some(Interval::new(1000, move || {
 ///             let latest_closure = latest_closure.current();
 ///             let closure = &*latest_closure.borrow_mut();
@@ -90,7 +90,7 @@ where
 ///             closure();
 ///         }));
 ///         move || *interval.borrow_mut() = None
-///     }, ());
+///     });
 ///     
 ///     html! {
 ///         <div>
@@ -135,13 +135,13 @@ where
 ///
 ///     {
 ///         let state = state.clone();
-///         use_effect_with_deps(move |_| {
+///         use_effect_with((), move |_| {
 ///             *interval.borrow_mut() = Some(Interval::new(1000, move || {
 ///                 // This will get the latest state and increase it by 1 each time.
 ///                 state.set(**latest_state.current() + 1);
 ///             }));
 ///             move || *interval.borrow_mut() = None
-///         }, ());
+///         });
 ///     }
 ///     
 ///     html! {
