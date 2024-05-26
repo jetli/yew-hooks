@@ -1,23 +1,29 @@
-<!DOCTYPE html><html lang="en"><head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Yew Hooks</title>
 
-        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="shortcut icon" href="favicon.ico" />
         
 <script type="module">
-import init, * as bindings from '/yew-hooks/yew-app-b1f14ae4a3ea70.js';
-init('/yew-hooks/yew-app-b1f14ae4a3ea70_bg.wasm');
+import init, * as bindings from '/yew-hooks/yew-app-9a4bd9d4852501a7.js';
+const wasm = await init('/yew-hooks/yew-app-9a4bd9d4852501a7_bg.wasm');
+
+
 window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
 
 </script>
         
         
-        <link rel="stylesheet" href="/yew-hooks/tailwind-e2b62329fa2d0e84.css" integrity="sha384-19Pwbm5Zel6d28NdwNy5Ti12tq3SLKxWim9ODwM0iRnfuue1Nev10oiY-2M9-OTq">
-        <base href="/yew-hooks/">
+        <link rel="stylesheet" href="/yew-hooks/tailwind-e2b62329fa2d0e84.css" integrity="sha384&#x2D;19Pwbm5Zel6d28NdwNy5Ti12tq3SLKxWim9ODwM0iRnfuue1Nev10oiY&#x2B;2M9&#x2B;OTq"/>
+        <base href="/yew-hooks/" />
     
-<link rel="preload" href="/yew-hooks/yew-app-b1f14ae4a3ea70_bg.wasm" crossorigin="anonymous" integrity="sha384-RHqxEoZE31-aLBCoVyjecqCxhGsJGWdzIDmMoAnEBMU6gsvxFc7WvkwTOqr-_KHN" as="fetch" type="application/wasm">
-<link rel="modulepreload" href="/yew-hooks/yew-app-b1f14ae4a3ea70.js" crossorigin="anonymous" integrity="sha384-tWw-81LawbU9Rt6WSkD_XH8XflvcrtjvCF2Dqq_k-tAiFeXERa7WDc5Qx9_5WlRN"></head>
-    <body class="min-h-screen">
-
-</body></html>
+<link rel="modulepreload" href="/yew-hooks/yew-app-9a4bd9d4852501a7.js" crossorigin=anonymous integrity="sha384-Vk9gGtGyL4AQ9mC4eYnB/DHOAioF0vrnGIP3BNUZ6NRz31+okKHjxo8v2zBSof1d">
+<link rel="preload" href="/yew-hooks/yew-app-9a4bd9d4852501a7_bg.wasm" crossorigin=anonymous integrity="sha384-Aa+Oqxg/TAzuKnPmQg/8dRaMvXImDResY/O1PUct2roqMv+ohRZVk3O0QOhMG14S" as="fetch" type="application/wasm"></head>
+    <body class="min-h-screen"></body>
+</html>
