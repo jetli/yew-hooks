@@ -32,6 +32,10 @@ jobs:
       run: |
         cargo fmt --all -- --check
         cargo clippy -- --deny=warnings
+    - name: Tests
+      run: |
+        cd crates/yew-hooks
+        cargo test
     - name: Run hooks tests
       run: |
         cd crates/yew-hooks && wasm-pack test --headless --chrome
