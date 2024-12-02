@@ -90,6 +90,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseGeolocation} classes="text-emerald-800 underline" >{ "use_geolocation" }</Link<AppRoute>> { " - tracks user's geographic location." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseSwipe} classes="text-emerald-800 underline" >{ "use_swipe" }</Link<AppRoute>> { " - detects swipe based on TouchEvent." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseVisible} classes="text-emerald-800 underline" >{ "use_visible" }</Link<AppRoute>> { " - checks if an element is visible." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseHovered} classes="text-emerald-800 underline" >{ "use_hovered" }</Link<AppRoute>> { " - checks if an element is being hovered." }</li>
                     </ul>
 
                     <h2 class="text-2xl font-bold">{ "UI" }</h2>

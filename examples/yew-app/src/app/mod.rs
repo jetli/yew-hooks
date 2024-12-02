@@ -129,6 +129,8 @@ pub enum AppRoute {
     UseInfiniteScroll,
     #[at("/use_visible")]
     UseVisible,
+    #[at("/use_hovered")]
+    UseHovered,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -198,6 +200,7 @@ pub fn switch(routes: AppRoute) -> Html {
         AppRoute::UseClipboard => html! { <UseClipboard /> },
         AppRoute::UseInfiniteScroll => html! { <UseInfiniteScroll /> },
         AppRoute::UseVisible => html! { <UseVisible /> },
+        AppRoute::UseHovered => html! { <UseHovered /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }
