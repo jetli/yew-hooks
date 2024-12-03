@@ -135,6 +135,7 @@ fn counter() -> Html {
 - `use_geolocation` - tracks user's geographic location.
 - `use_swipe` - detects swipe based on TouchEvent.
 - `use_visible` - checks if an element is visible.
+- `use_hovered` - checks if an element is hovered.
 
 ### UI
 
