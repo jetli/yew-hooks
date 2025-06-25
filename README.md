@@ -136,6 +136,7 @@ fn counter() -> Html {
 - `use_swipe` - detects swipe based on TouchEvent.
 - `use_visible` - checks if an element is visible.
 - `use_hovered` - checks if an element is hovered.
+- `use_permission` - tracks browser's permission changes using the `Permissions` API.
 
 ### UI
 
