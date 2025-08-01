@@ -30,7 +30,7 @@ pub fn UseSwipe() -> Html {
         UseSwipeOptions {
             onswipeend: Some(Box::new(move |_e, direction| {
                 // Deal with TouchEvent.
-                log::debug!("Swipe direction: {:?}", direction);
+                log::debug!("Swipe direction: {direction:?}");
             })),
             ..Default::default()
         },
