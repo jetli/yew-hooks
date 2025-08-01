@@ -16,7 +16,7 @@ pub fn UseWebSocket() -> Html {
         Callback::from(move |_| {
             let message = "Hello, world!".to_string();
             ws.send(message.clone());
-            history.push(format!("ws1 [send]: {}", message));
+            history.push(format!("ws1 [send]: {message}"));
         })
     };
     {
@@ -38,7 +38,7 @@ pub fn UseWebSocket() -> Html {
         Callback::from(move |_| {
             let message = b"Hello, world!\r\n".to_vec();
             ws.send_bytes(message.clone());
-            history.push(format!("ws1 [send]: bytes {:?}", message));
+            history.push(format!("ws1 [send]: bytes {message:?}"));
         })
     };
     {
@@ -61,7 +61,7 @@ pub fn UseWebSocket() -> Html {
             UseWebSocketOptions {
                 // Receive message by callback `onmessage`.
                 onmessage: Some(Box::new(move |message| {
-                    history.push(format!("ws2 [recv]: {}", message));
+                    history.push(format!("ws2 [recv]: {message}"));
                 })),
                 manual: Some(true),
                 ..Default::default()
@@ -74,7 +74,7 @@ pub fn UseWebSocket() -> Html {
         Callback::from(move |_| {
             let message = "Hello, yew_hooks!".to_string();
             ws2.send(message.clone());
-            history.push(format!("ws2 [send]: {}", message));
+            history.push(format!("ws2 [send]: {message}"));
         })
     };
     let onopen = {

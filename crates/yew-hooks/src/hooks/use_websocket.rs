@@ -257,7 +257,7 @@ pub fn use_websocket_with_options(url: String, options: UseWebSocketOptions) -> 
                 && ws
                     .borrow()
                     .as_ref()
-                    .map_or(false, |ws: &WebSocket| ws.ready_state() != WebSocket::OPEN)
+                    .is_some_and(|ws: &WebSocket| ws.ready_state() != WebSocket::OPEN)
             {
                 let connect_ws = connect_ws.clone();
                 let reconnect_times_ref = reconnect_times_ref.clone();

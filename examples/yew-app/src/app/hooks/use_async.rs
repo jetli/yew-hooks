@@ -83,7 +83,7 @@ pub fn UseAsync() -> Html {
 }
 
 async fn fetch_repo(repo: String) -> Result<Repo, Error> {
-    fetch::<Repo>(format!("https://api.github.com/repos/{}", repo)).await
+    fetch::<Repo>(format!("https://api.github.com/repos/{repo}")).await
 }
 
 /// You can use reqwest or other crates to fetch your api.
