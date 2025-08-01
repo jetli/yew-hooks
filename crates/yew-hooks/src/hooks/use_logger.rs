@@ -51,14 +51,14 @@ where
         let props = props.clone();
 
         use_effect_once(move || {
-            log::debug!("{} mounted: {:?}", name, props);
+            log::debug!("{name} mounted: {props:?}");
 
-            move || log::debug!("{} unmounted", name)
+            move || log::debug!("{name} unmounted")
         });
     }
 
     use_effect_update(move || {
-        log::debug!("{} updated: {:?}", name, props);
+        log::debug!("{name} updated: {props:?}");
         || ()
     });
 }
@@ -112,9 +112,9 @@ where
         let props = props.clone();
 
         use_effect_once(move || {
-            log::debug!("{} mounted: {:?}", name, props);
+            log::debug!("{name} mounted: {props:?}");
 
-            move || log::debug!("{} unmounted", name)
+            move || log::debug!("{name} unmounted")
         });
     }
 
