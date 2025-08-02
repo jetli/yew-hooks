@@ -131,6 +131,8 @@ pub enum AppRoute {
     UseVisible,
     #[at("/use_hovered")]
     UseHovered,
+    #[at("/use_permission")]
+    UsePermission,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -201,6 +203,7 @@ pub fn switch(routes: AppRoute) -> Html {
         AppRoute::UseInfiniteScroll => html! { <UseInfiniteScroll /> },
         AppRoute::UseVisible => html! { <UseVisible /> },
         AppRoute::UseHovered => html! { <UseHovered /> },
+        AppRoute::UsePermission => html! { <UsePermission /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }

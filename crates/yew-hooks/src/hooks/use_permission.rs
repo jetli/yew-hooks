@@ -23,7 +23,7 @@ use crate::use_effect_once;
 ///     html! {
 ///         <>
 ///             <b>{ " state: " }</b>
-///             { state.to_string() }
+///             { format!("{state:?}") }
 ///         </>
 ///     }
 /// }
@@ -39,20 +39,20 @@ pub fn use_permission(name: String) -> UseStateHandle<Option<PermissionState>> {
             let state = state.clone();
 
             spawn_local(async move {
-                let permissions = window().navigator().permissions().unwrap();
+                let permissions = window().navigator().permissions().unwrap_throw();
 
                 let obj = Object::new();
-                Reflect::set(&obj, &"name".into(), &name.into()).unwrap();
+                Reflect::set(&obj, &"name".into(), &name.into()).unwrap_throw();
 
-                let fut = JsFuture::from(permissions.query(&obj).unwrap());
-                let stat = PermissionStatus::from(fut.await.unwrap());
+                let fut = JsFuture::from(permissions.query(&obj).unwrap_throw());
+                let stat = PermissionStatus::from(fut.await.unwrap_throw());
 
                 let onchange = {
                     let state = state.clone();
 
                     Closure::wrap(Box::new(move |event: Event| {
                         if let Some(target) = event.target() {
-                            let stat: PermissionStatus = target.dyn_into().unwrap();
+                            let stat: PermissionStatus = target.dyn_into().unwrap_throw();
 
                             state.set(Some(stat.state()));
                         }
