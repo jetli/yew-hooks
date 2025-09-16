@@ -6,6 +6,7 @@ use yew::prelude::*;
 use super::use_debounce;
 
 /// State handle for the [`use_debounce_state`] hook.
+#[derive(Clone)]
 pub struct UseDebounceStateHandle<T> {
     inner: UseStateHandle<T>,
     set: Rc<dyn Fn(T)>,
@@ -23,15 +24,6 @@ impl<T> Deref for UseDebounceStateHandle<T> {
 
     fn deref(&self) -> &Self::Target {
         &self.inner
-    }
-}
-
-impl<T> Clone for UseDebounceStateHandle<T> {
-    fn clone(&self) -> Self {
-        Self {
-            inner: self.inner.clone(),
-            set: self.set.clone(),
-        }
     }
 }
 
@@ -79,7 +71,7 @@ where
 pub fn use_debounce_state<T, F>(init_fn: F, millis: u32) -> UseDebounceStateHandle<T>
 where
     T: 'static,
-    F: FnOnce() -> T,
+    F: Fn() -> T,
 {
     let value = use_mut_ref(|| None);
     let inner = use_state(init_fn);

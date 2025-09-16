@@ -61,7 +61,7 @@ use super::{use_debounce, use_unmount};
 #[hook]
 pub fn use_debounce_effect<Callback>(callback: Callback, millis: u32)
 where
-    Callback: FnOnce() + 'static,
+    Callback: Fn() + 'static,
 {
     let debounce = use_debounce(callback, millis);
 
@@ -89,7 +89,7 @@ pub fn use_debounce_effect_with_deps<Callback, Dependents>(
     millis: u32,
     deps: Dependents,
 ) where
-    Callback: FnOnce() + 'static,
+    Callback: Fn() + 'static,
     Dependents: PartialEq + 'static,
 {
     let debounce = use_debounce(callback, millis);
