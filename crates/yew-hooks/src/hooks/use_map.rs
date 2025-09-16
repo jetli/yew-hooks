@@ -19,7 +19,7 @@ impl<K, V> UseMapHandle<K, V> {
     /// # Panics
     ///
     /// Panics if the value is currently mutably borrowed
-    pub fn current(&self) -> Ref<HashMap<K, V>> {
+    pub fn current(&'_ self) -> Ref<'_, HashMap<K, V>> {
         self.inner.borrow()
     }
 

@@ -19,7 +19,7 @@ impl<T> UseQueueHandle<T> {
     /// # Panics
     ///
     /// Panics if the value is currently mutably borrowed
-    pub fn current(&self) -> Ref<VecDeque<T>> {
+    pub fn current(&'_ self) -> Ref<'_, VecDeque<T>> {
         self.inner.borrow()
     }
 
