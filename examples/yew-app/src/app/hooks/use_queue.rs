@@ -50,7 +50,7 @@ pub fn UseQueue() -> Html {
                     {
                         for queue.current().iter().map(|v| {
                             html! {
-                                <p><b>{ v }</b></p>
+                                <p><b>{ *v }</b></p>
                             }
                         })
                     }

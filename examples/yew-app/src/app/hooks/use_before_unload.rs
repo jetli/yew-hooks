@@ -21,9 +21,9 @@ pub fn UseBeforeUnload() -> Html {
         <div class="container">
             <header class="mt-24 text-xl text-center">
                 <div class="space-x-4 space-y-4">
-                    <Button {onclick}>{if *dirty { "Disable" } else { "Enable" }}</Button>
+                    <Button {onclick}>{ if *dirty { html! { "Disable" } } else { html! { "Enable" } } }</Button>
                     <p>
-                        <b>{if *dirty { "Try to reload or close tab." } else { "" }}</b>
+                        <b>{ if *dirty { html! { "Try to reload or close tab." } } else { html! {} } }</b>
                     </p>
                 </div>
             </header>

@@ -25,7 +25,7 @@ pub fn UseInfiniteScroll() -> Html {
                             { "Try to scroll in this area vertically." }
                             {
                                 for state.current().iter().map(|element| {
-                                    html! { <p style="height: 50px;">{ element }</p> }
+                                    html! { <p style="height: 50px;">{ *element }</p> }
                                 })
                             }
 

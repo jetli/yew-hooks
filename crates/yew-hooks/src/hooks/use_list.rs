@@ -18,7 +18,7 @@ impl<T> UseListHandle<T> {
     /// # Panics
     ///
     /// Panics if the value is currently mutably borrowed
-    pub fn current(&self) -> Ref<Vec<T>> {
+    pub fn current(&'_ self) -> Ref<'_, Vec<T>> {
         self.inner.borrow()
     }
 

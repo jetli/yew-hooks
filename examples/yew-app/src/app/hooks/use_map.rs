@@ -60,7 +60,7 @@ pub fn UseMap() -> Html {
                     {
                         for map.current().iter().map(|(k, v)| {
                             html! {
-                                <p><b>{ k }</b> {": "} { v }</p>
+                                <p><b>{ *k }</b> {": "} { v }</p>
                             }
                         })
                     }

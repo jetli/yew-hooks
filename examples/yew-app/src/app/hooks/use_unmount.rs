@@ -29,7 +29,7 @@ pub fn UseUnmount() -> Html {
         <div class="container">
             <header class="mt-24 text-xl text-center">
                 <div class="space-x-4 space-y-4">
-                    <Button {onclick}>{ *toggle }</Button>
+                    <Button {onclick}>{ html! { *toggle } }</Button>
                     <p>
                         {
                             if *toggle == "Unmount" {

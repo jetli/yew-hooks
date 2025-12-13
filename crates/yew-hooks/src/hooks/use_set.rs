@@ -19,7 +19,7 @@ impl<T> UseSetHandle<T> {
     /// # Panics
     ///
     /// Panics if the value is currently mutably borrowed
-    pub fn current(&self) -> Ref<HashSet<T>> {
+    pub fn current(&'_ self) -> Ref<'_, HashSet<T>> {
         self.inner.borrow()
     }
 

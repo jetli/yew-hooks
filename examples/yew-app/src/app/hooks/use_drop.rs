@@ -31,9 +31,9 @@ pub fn UseDrop() -> Html {
                         (*state.files).as_ref().map_or_else(
                             || html! {},
                             |files| {
-                                html! {for files.iter().map(|file| {
-                                    html! { <p> { file.name() }</p> }
-                                })}
+                                html! { for file in files.iter() {
+                                    <p>{ file.name() }</p>
+                                } }
                             },
                         )
                     }

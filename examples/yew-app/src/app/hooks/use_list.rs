@@ -89,7 +89,7 @@ pub fn UseList() -> Html {
                         {
                             for list.current().iter().map(|element| {
                                 html! {
-                                    <b class="p-8">{ element }</b>
+                                    <b class="p-8">{ *element }</b>
                                 }
                             })
                         }
