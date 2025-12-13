@@ -66,7 +66,7 @@ pub struct UseDropHandle {
 ///                 } }
 ///             } else {
 ///                 html! {}
-///             }} 
+///             }}
 ///             <p><b>{ " Text: " }</b></p>
 ///             {if let Some(text) = &*state.text {
 ///                 html! {<p>{ text }</p>}
