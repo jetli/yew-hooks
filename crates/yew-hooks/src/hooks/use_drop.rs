@@ -61,12 +61,12 @@ pub struct UseDropHandle {
 ///         <div ref={node}>
 ///             <p><b>{ " Files: " }</b></p>
 ///             {if let Some(files) = &*state.files {
-///                 html! {for files.iter().map(|file| {
-///                     html! { <p> { file.name() }</p> }
-///                 })}
+///                 html! {for file in files.iter() {
+///                     <p> { file.name() }</p>
+///                 } }
 ///             } else {
 ///                 html! {}
-///             }}
+///             }} 
 ///             <p><b>{ " Text: " }</b></p>
 ///             {if let Some(text) = &*state.text {
 ///                 html! {<p>{ text }</p>}

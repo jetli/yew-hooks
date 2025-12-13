@@ -30,7 +30,7 @@ use super::{use_debounce, use_event, use_latest};
 ///         <div ref={node}>
 ///             {
 ///                 for state.current().iter().map(|element| {
-///                     html! { <p>{ element }</p> }
+///                     html! { <p>{ *element }</p> }
 ///                 })
 ///             }
 ///         </div>
