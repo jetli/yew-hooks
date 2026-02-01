@@ -164,9 +164,11 @@ where
                     end_index += 1;
                 }
                 end_index = end_index.min(items.len());
-                let start_index = start_index.saturating_sub(*overscan);
-                let end_index = (end_index + *overscan).min(items.len());
-                let visible_items = (start_index..end_index)
+                let visible_start = start_index;
+                let visible_end = end_index;
+                let render_start = visible_start.saturating_sub(*overscan);
+                let render_end = (visible_end + *overscan).min(items.len());
+                let visible_items = (render_start..render_end)
                     .map(|index| {
                         let top = heights[0..index].iter().sum::<f64>();
                         VirtualListItem {
@@ -196,8 +198,8 @@ where
                 let new_handle = UseVirtualListHandle {
                     visible_items,
                     total_height,
-                    start_index,
-                    end_index,
+                    start_index: visible_start,
+                    end_index: visible_end.saturating_sub(1),
                     scroll_to,
                 };
                 handle_clone.set(new_handle.clone());
