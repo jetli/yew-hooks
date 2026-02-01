@@ -24,6 +24,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseMutLatest} classes="text-emerald-800 underline">{ "use_mut_latest" }</Link<AppRoute>> { " - returns the latest mutable ref to state or props." }</li>
                         <li><Link<AppRoute> to={AppRoute::UsePrevious} classes="text-emerald-800 underline">{ "use_previous" }</Link<AppRoute>> { " - returns the previous immutable ref to state or props." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseList} classes="text-emerald-800 underline">{ "use_list" }</Link<AppRoute>> { " - tracks state of a list." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseVirtualList} classes="text-emerald-800 underline">{ "use_virtual_list" }</Link<AppRoute>> { " - provides virtual scrolling for large lists." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseMap} classes="text-emerald-800 underline">{ "use_map" }</Link<AppRoute>> { " - tracks state of a hash map." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseSet} classes="text-emerald-800 underline">{ "use_set" }</Link<AppRoute>> { " - tracks state of a hash set." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseQueue} classes="text-emerald-800 underline">{ "use_queue" }</Link<AppRoute>> { " - tracks state of a queue." }</li>

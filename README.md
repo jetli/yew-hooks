@@ -86,6 +86,7 @@ fn counter() -> Html {
 - `use_default` - returns the default value when state is None.
 - `use_debounce_state` - debounces state.
 - `use_throttle_state` - throttles state.
+- `use_virtual_list` - provides virtual scrolling for large lists to improve performance.
 
 ### Side-effects
 
