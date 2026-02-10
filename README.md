@@ -145,6 +145,7 @@ fn counter() -> Html {
 - `use_drag` - tracks file, link and copy-paste drags, used along with `use_drop` hook.
 - `use_drop` - tracks file, link and copy-paste drops.
 - `use_media` - plays video or audio and exposes its controls.
+- `use_theme` - toggles light/dark theme and persists preference (follows system preference when no explicit choice is stored).
 
 ## Examples
 
@@ -360,6 +361,33 @@ pub fn web_socket() -> Html {
                 })
             }
         </div>
+    }
+}
+```
+
+### `use_theme` demo
+
+A small example demonstrating the `use_theme` hook. The hook persists an explicit user preference to `localStorage` under the provided key, or follows the system `prefers-color-scheme` when no explicit choice exists.
+
+```rust
+use yew::prelude::*;
+use yew_hooks::prelude::*;
+
+#[function_component(ThemeDemo)]
+fn theme_demo() -> Html {
+    // Use a storage key for persistence across reloads/tabs
+    let theme = use_theme("example_theme".to_string());
+
+    let onclick = {
+        let theme = theme.clone();
+        Callback::from(move |_| theme.toggle())
+    };
+
+    html! {
+        <>
+            <button {onclick}>{ if theme.is_dark() { "Switch to light" } else { "Switch to dark" } }</button>
+            <p>{ format!("Active theme: {}", *theme) }</p>
+        </>
     }
 }
 ```
