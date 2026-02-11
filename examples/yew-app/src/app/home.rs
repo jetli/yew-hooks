@@ -102,6 +102,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseDrag} classes="text-emerald-800 underline" >{ "use_drag" }</Link<AppRoute>> { " - tracks file, link and copy-paste drags, used along with use_drop hook." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseDrop} classes="text-emerald-800 underline" >{ "use_drop" }</Link<AppRoute>> { " - tracks file, link and copy-paste drops." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseMedia} classes="text-emerald-800 underline" >{ "use_media" }</Link<AppRoute>> { " - plays video or audio and exposes its controls." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseTheme} classes="text-emerald-800 underline" >{ "use_theme" }</Link<AppRoute>> { " - toggles site light/dark theme with persistence." }</li>
                     </ul>
                 </div>
                 <p>
