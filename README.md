@@ -128,9 +128,9 @@ fn counter() -> Html {
 - `use_scroll` - tracks an HTML element's scroll position.
 - `use_scrolling` - tracks whether HTML element is scrolling.
 - `use_infinite_scroll` - infinite scrolling of the element.
-- `use_location` - tracks brower's location value.
-- `use_hash` - tracks brower's location hash value.
-- `use_search_param` - tracks brower's location search param value.
+- `use_location` - tracks browser's location value.
+- `use_hash` - tracks browser's location hash value.
+- `use_search_param` - tracks browser's location search param value.
 - `use_size` - tracks an HTML element's dimensions using the `ResizeObserver` API.
 - `use_measure` - tracks an HTML element's dimensions using the `ResizeObserver` API.
 - `use_geolocation` - tracks user's geographic location.
@@ -145,6 +145,7 @@ fn counter() -> Html {
 - `use_drag` - tracks file, link and copy-paste drags, used along with `use_drop` hook.
 - `use_drop` - tracks file, link and copy-paste drops.
 - `use_media` - plays video or audio and exposes its controls.
+- `use_fullscreen` - controls fullscreen mode for elements.
 - `use_theme` - toggles light/dark theme and persists preference (follows system preference when no explicit choice is stored).
 
 ## Examples
