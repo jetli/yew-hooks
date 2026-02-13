@@ -125,6 +125,8 @@ pub enum AppRoute {
     UseFavicon,
     #[at("/use_clipboard")]
     UseClipboard,
+    #[at("/use_fullscreen")]
+    UseFullscreen,
     #[at("/use_infinite_scroll")]
     UseInfiniteScroll,
     #[at("/use_visible")]
@@ -204,6 +206,7 @@ pub fn switch(routes: AppRoute) -> Html {
         AppRoute::UseThrottleEffect => html! { <UseThrottleEffect /> },
         AppRoute::UseFavicon => html! { <UseFavicon /> },
         AppRoute::UseClipboard => html! { <UseClipboard /> },
+        AppRoute::UseFullscreen => html! { <UseFullscreen /> },
         AppRoute::UseInfiniteScroll => html! { <UseInfiniteScroll /> },
         AppRoute::UseVisible => html! { <UseVisible /> },
         AppRoute::UseVirtualList => html! { <UseVirtualList /> },
