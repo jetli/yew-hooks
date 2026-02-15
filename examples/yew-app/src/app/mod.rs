@@ -139,6 +139,8 @@ pub enum AppRoute {
     UseTheme,
     #[at("/use_permission")]
     UsePermission,
+    #[at("/use_cookie")]
+    UseCookie,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -213,6 +215,7 @@ pub fn switch(routes: AppRoute) -> Html {
         AppRoute::UseHovered => html! { <UseHovered /> },
         AppRoute::UseTheme => html! { <UseTheme /> },
         AppRoute::UsePermission => html! { <UsePermission /> },
+        AppRoute::UseCookie => html! { <UseCookie /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }
