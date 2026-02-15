@@ -45,6 +45,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseFavicon} classes="text-emerald-800 underline" >{ "use_favicon" }</Link<AppRoute>> { " - sets favicon of the page." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseLocalStorage} classes="text-emerald-800 underline" >{ "use_local_storage" }</Link<AppRoute>> { " - manages a value in localStorage." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseSessionStorage} classes="text-emerald-800 underline" >{ "use_session_storage" }</Link<AppRoute>> { " - manages a value in sessionStorage." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseCookie} classes="text-emerald-800 underline" >{ "use_cookie" }</Link<AppRoute>> { " - manages browser cookies." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseBeforeUnload} classes="text-emerald-800 underline" >{ "use_before_unload" }</Link<AppRoute>> { " - shows browser alert when user try to reload or close the page." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseDebounce} classes="text-emerald-800 underline" >{ "use_debounce" }</Link<AppRoute>> { " - debounces a function." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseDebounceEffect} classes="text-emerald-800 underline" >{ "use_debounce_effect" }</Link<AppRoute>> { " - debounces an effect." }</li>
