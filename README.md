@@ -139,6 +139,7 @@ fn counter() -> Html {
 - `use_visible` - checks if an element is visible.
 - `use_hovered` - checks if an element is hovered.
 - `use_permission` - tracks browser's permission changes using the `Permissions` API.
+- `use_idle` - tracks whether the user is idle (not interacting with the page).
 
 ### UI
 

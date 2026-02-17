@@ -1,6 +1,6 @@
 [package]
 name = "yew-hooks"
-version = "0.4.5"
+version = "0.4.6"
 edition = "2021"
 authors = ["Jet Li <jing.i.qin@icloud.com>"]
 categories = ["gui", "wasm", "web-programming"]
@@ -63,6 +63,7 @@ features = [
     "UrlSearchParams",
     "WebSocket",
     "Document",
+    "Performance",
 ]
 
 [dev-dependencies]

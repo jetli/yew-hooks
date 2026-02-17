@@ -94,6 +94,7 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseVisible} classes="text-emerald-800 underline" >{ "use_visible" }</Link<AppRoute>> { " - checks if an element is visible." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseHovered} classes="text-emerald-800 underline" >{ "use_hovered" }</Link<AppRoute>> { " - checks if an element is being hovered." }</li>
                         <li><Link<AppRoute> to={AppRoute::UsePermission} classes="text-emerald-800 underline" >{ "use_permission" }</Link<AppRoute>> { " - tracks browser's permission changes using the Permissions API." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseIdle} classes="text-emerald-800 underline" >{ "use_idle" }</Link<AppRoute>> { " - tracks whether the user is idle (not interacting with the page)." }</li>
                     </ul>
 
                     <h2 class="text-2xl font-bold">{ "UI" }</h2>
