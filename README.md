@@ -136,6 +136,7 @@ fn counter() -> Html {
 - `use_measure` - tracks an HTML element's dimensions using the `ResizeObserver` API.
 - `use_geolocation` - tracks user's geographic location.
 - `use_swipe` - detects swipe based on TouchEvent.
+- `use_long_press` - detects when a user presses and holds an element for a specified duration.
 - `use_visible` - checks if an element is visible.
 - `use_hovered` - checks if an element is hovered.
 - `use_permission` - tracks browser's permission changes using the `Permissions` API.
