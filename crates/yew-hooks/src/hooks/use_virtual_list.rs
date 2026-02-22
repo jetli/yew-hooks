@@ -189,7 +189,7 @@ where
                             st_setter.set(top);
                             if let Some(c) = container.get() {
                                 if let Some(e) = c.dyn_ref::<web_sys::HtmlElement>() {
-                                    e.set_scroll_top(top as i32);
+                                    e.set_scroll_top(top as _);
                                 }
                             }
                         }
@@ -224,12 +224,15 @@ where
             if let Some(c) = container.get() {
                 let c = c.clone();
                 if let Some(e) = c.dyn_ref::<web_sys::HtmlElement>() {
+                    #[allow(clippy::unnecessary_cast)]
                     container_height_clone.set(e.client_height() as f64);
+                    #[allow(clippy::unnecessary_cast)]
                     scroll_position_clone.set(e.scroll_top() as f64);
                     let scroll_top_inner = scroll_position_clone.clone();
                     let c_clone = c.clone();
                     let closure = Closure::wrap(Box::new(move |_: web_sys::Event| {
                         if let Some(e) = c_clone.dyn_ref::<web_sys::HtmlElement>() {
+                            #[allow(clippy::unnecessary_cast)]
                             scroll_top_inner.set(e.scroll_top() as f64);
                         }
                     }) as Box<dyn FnMut(_)>);
