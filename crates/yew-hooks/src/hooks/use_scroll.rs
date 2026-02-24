@@ -36,7 +36,8 @@ pub fn use_scroll(node: NodeRef) -> (i32, i32) {
         let node = node.clone();
         use_event(node, "scroll", move |e: Event| {
             let element: Element = e.target_unchecked_into();
-            state.set((element.scroll_left(), element.scroll_top()));
+            #[allow(clippy::unnecessary_cast)]
+            state.set((element.scroll_left() as i32, element.scroll_top() as i32));
         });
     }
 
@@ -44,7 +45,8 @@ pub fn use_scroll(node: NodeRef) -> (i32, i32) {
         let state = state.clone();
         use_mount(move || {
             if let Some(element) = node.cast::<Element>() {
-                state.set((element.scroll_left(), element.scroll_top()));
+                #[allow(clippy::unnecessary_cast)]
+                state.set((element.scroll_left() as i32, element.scroll_top() as i32));
             }
         });
     }

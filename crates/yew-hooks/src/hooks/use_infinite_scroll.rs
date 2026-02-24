@@ -69,7 +69,10 @@ where
 
     use_event(node, "scroll", move |e: Event| {
         let element: Element = e.target_unchecked_into();
-        if element.scroll_height() - element.scroll_top() <= element.client_height() + 100 {
+        #[allow(clippy::unnecessary_cast)]
+        if (element.scroll_height() as f64) - (element.scroll_top() as f64)
+            <= (element.client_height() as f64) + 100.0
+        {
             load_more.set(true);
             debounce.run();
         }

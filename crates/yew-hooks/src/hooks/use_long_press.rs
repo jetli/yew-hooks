@@ -208,7 +208,10 @@ pub fn use_long_press_with_options(
             long_pressed.set(false);
 
             // Store starting coordinates for move threshold check
-            *start_coords_clone.borrow_mut() = (e.client_x() as f64, e.client_y() as f64);
+            #[allow(clippy::unnecessary_cast)]
+            {
+                *start_coords_clone.borrow_mut() = (e.client_x() as f64, e.client_y() as f64);
+            }
 
             // Call onstart callback
             let onstart_ref = onstart_ref.current();
@@ -230,7 +233,9 @@ pub fn use_long_press_with_options(
                 // Check if movement exceeded threshold
                 if let Some(move_threshold) = move_threshold {
                     let (start_x, start_y) = *start_coords_clone2.borrow();
+                    #[allow(clippy::unnecessary_cast)]
                     let current_x = e_clone.client_x() as f64;
+                    #[allow(clippy::unnecessary_cast)]
                     let current_y = e_clone.client_y() as f64;
                     let distance =
                         ((current_x - start_x).powi(2) + (current_y - start_y).powi(2)).sqrt();
@@ -348,7 +353,9 @@ pub fn use_long_press_with_options(
         use_event_with_window("mousemove", move |e: MouseEvent| {
             if *pressing_clone && move_threshold.is_some() {
                 let (start_x, start_y) = *start_coords_clone5.borrow();
+                #[allow(clippy::unnecessary_cast)]
                 let current_x = e.client_x() as f64;
+                #[allow(clippy::unnecessary_cast)]
                 let current_y = e.client_y() as f64;
                 let distance =
                     ((current_x - start_x).powi(2) + (current_y - start_y).powi(2)).sqrt();
