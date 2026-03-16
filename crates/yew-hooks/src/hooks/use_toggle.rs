@@ -104,7 +104,7 @@ where
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
-        &(*self.inner).value
+        &self.inner.value
     }
 }
 
@@ -155,7 +155,7 @@ impl<T: fmt::Debug + PartialEq> fmt::Debug for UseToggleHandle<T> {
 ///         let toggle = toggle.clone();
 ///         Callback::from(move |_| toggle.toggle())
 ///     };
-///     
+///
 ///     html! {
 ///         <div>
 ///             <button {onclick}>{ "Toggle" }</button>
@@ -189,7 +189,7 @@ pub fn use_bool_toggle(default: bool) -> UseToggleHandle<bool> {
 ///         let toggle = toggle.clone();
 ///         Callback::from(move |_| toggle.toggle())
 ///     };
-///     
+///
 ///     html! {
 ///         <div>
 ///             <button {onclick}>{ "Toggle" }</button>
