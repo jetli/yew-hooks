@@ -95,7 +95,7 @@ impl Deref for UseCounterHandle {
     type Target = i32;
 
     fn deref(&self) -> &Self::Target {
-        &(*self.inner).value
+        &self.inner.value
     }
 }
 
@@ -150,7 +150,7 @@ impl PartialEq for UseCounterHandle {
 ///         let counter = counter.clone();
 ///         Callback::from(move |_| counter.reset())
 ///     };
-///     
+///
 ///     html! {
 ///         <div>
 ///             <button onclick={onincrease}>{ "Increase" }</button>

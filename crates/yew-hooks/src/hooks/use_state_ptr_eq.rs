@@ -39,7 +39,7 @@ impl<T> Deref for UseStatePtrEqHandle<T> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
-        &(*self.inner).value
+        &self.inner.value
     }
 }
 
@@ -80,7 +80,7 @@ where
 ///             state.set("Hello, world!".to_string());
 ///         })
 ///     };
-///     
+///
 ///     html! {
 ///         <>
 ///             <button {onclick}>{ "Hello, world!" }</button>
