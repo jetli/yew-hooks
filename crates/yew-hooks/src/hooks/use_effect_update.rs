@@ -17,8 +17,6 @@ use super::use_is_first_mount;
 /// fn effect_update() -> Html {
 ///     use_effect_update(|| {
 ///         debug!("Running effect only on updates");
-///
-///         || ()
 ///     });
 ///     
 ///     html! {
@@ -31,7 +29,7 @@ use super::use_is_first_mount;
 pub fn use_effect_update<Callback, Destructor>(callback: Callback)
 where
     Callback: FnOnce() -> Destructor + 'static,
-    Destructor: FnOnce() + 'static,
+    Destructor: TearDown,
 {
     let first = use_is_first_mount();
 
@@ -39,7 +37,8 @@ where
         if first {
             Box::new(|| ()) as Box<dyn FnOnce()>
         } else {
-            Box::new(callback())
+            let d = callback();
+            Box::new(move || d.tear_down())
         }
     });
 }
@@ -52,7 +51,7 @@ pub fn use_effect_update_with_deps<Callback, Destructor, Dependents>(
     deps: Dependents,
 ) where
     Callback: FnOnce(&Dependents) -> Destructor + 'static,
-    Destructor: FnOnce() + 'static,
+    Destructor: TearDown,
     Dependents: PartialEq + 'static,
 {
     let first = use_is_first_mount();
@@ -61,7 +60,8 @@ pub fn use_effect_update_with_deps<Callback, Destructor, Dependents>(
         if first {
             Box::new(|| ()) as Box<dyn FnOnce()>
         } else {
-            Box::new(callback(deps))
+            let d = callback(deps);
+            Box::new(move || d.tear_down())
         }
     });
 }

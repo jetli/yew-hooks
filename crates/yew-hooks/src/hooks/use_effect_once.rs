@@ -28,7 +28,7 @@ use yew::prelude::*;
 pub fn use_effect_once<Callback, Destructor>(callback: Callback)
 where
     Callback: FnOnce() -> Destructor + 'static,
-    Destructor: FnOnce() + 'static,
+    Destructor: TearDown,
 {
     use_effect_with((), move |_| callback());
 }

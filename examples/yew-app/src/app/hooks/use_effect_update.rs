@@ -14,7 +14,6 @@ pub fn UseEffectUpdate() -> Html {
         let count_effect = count_effect.clone();
         use_effect_with(count.clone(), move |_| {
             count_effect.set(*count_effect + 1);
-            || ()
         });
     }
 
@@ -25,7 +24,6 @@ pub fn UseEffectUpdate() -> Html {
         use_effect_update_with_deps(
             move |_| {
                 count_effect_update.set(*count_effect_update + 1);
-                || ()
             },
             count,
         );
