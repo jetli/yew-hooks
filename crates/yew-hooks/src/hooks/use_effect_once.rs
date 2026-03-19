@@ -14,10 +14,8 @@ use yew::prelude::*;
 /// fn effect_once() -> Html {
 ///     use_effect_once(|| {
 ///         debug!("Running effect once on mount");
-///         
-///         || debug!("Running clean-up of effect on unmount")
 ///     });
-///     
+///
 ///     html! {
 ///         <>
 ///         </>
@@ -28,7 +26,7 @@ use yew::prelude::*;
 pub fn use_effect_once<Callback, Destructor>(callback: Callback)
 where
     Callback: FnOnce() -> Destructor + 'static,
-    Destructor: FnOnce() + 'static,
+    Destructor: TearDown,
 {
     use_effect_with((), move |_| callback());
 }
