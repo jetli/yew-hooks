@@ -9,8 +9,6 @@ use crate::components::ui::button::Button;
 fn MyComponent() -> Html {
     use_effect_once(|| {
         alert("Running effect once on mount");
-
-        || alert("Running clean-up of effect on unmount")
     });
 
     html! {

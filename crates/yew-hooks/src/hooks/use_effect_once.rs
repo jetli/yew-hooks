@@ -14,10 +14,8 @@ use yew::prelude::*;
 /// fn effect_once() -> Html {
 ///     use_effect_once(|| {
 ///         debug!("Running effect once on mount");
-///         
-///         || debug!("Running clean-up of effect on unmount")
 ///     });
-///     
+///
 ///     html! {
 ///         <>
 ///         </>
