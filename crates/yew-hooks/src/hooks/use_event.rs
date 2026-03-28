@@ -104,5 +104,30 @@ where
     F: Fn(E) + 'static,
     E: From<JsValue>,
 {
-    use_event(NodeRef::default(), event_type, callback);
+    let callback = use_latest(callback);
+
+    use_effect_with(event_type.into(), move |event_type: &Cow<'static, str>| {
+        let event_type = event_type.clone();
+        let window = window();
+
+        let listener = if &*event_type == "touchstart"
+            || &*event_type == "touchmove"
+            || &*event_type == "scroll"
+        {
+            Some(EventListener::new(&window, event_type, move |event| {
+                (*callback.current())(JsValue::from(event).into());
+            }))
+        } else {
+            Some(EventListener::new_with_options(
+                &window,
+                event_type,
+                EventListenerOptions::enable_prevent_default(),
+                move |event| {
+                    (*callback.current())(JsValue::from(event).into());
+                },
+            ))
+        };
+
+        move || drop(listener)
+    });
 }
