@@ -145,6 +145,8 @@ pub enum AppRoute {
     UseCookie,
     #[at("/use_idle")]
     UseIdle,
+    #[at("/use_start_typing")]
+    UseStartTyping,
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -222,6 +224,7 @@ pub fn switch(routes: AppRoute) -> Html {
         AppRoute::UsePermission => html! { <UsePermission /> },
         AppRoute::UseCookie => html! { <UseCookie /> },
         AppRoute::UseIdle => html! { <UseIdle /> },
+        AppRoute::UseStartTyping => html! { <UseStartTyping /> },
         AppRoute::PageNotFound => html! { <Home /> },
     }
 }
