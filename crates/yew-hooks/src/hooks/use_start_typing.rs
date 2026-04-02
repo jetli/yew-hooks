@@ -40,7 +40,7 @@ type KeyFilter = Box<dyn Fn(&str) -> bool>;
 ///         <div>
 ///             <p>{ "Try typing anywhere on the page (without focusing on an input field)." }</p>
 ///             <input type="text" placeholder="Focus here and typing won't trigger the callback" />
-///             <textarea placeholder="Same for textarea"></textarea>
+///             <textarea placeholder="Same for textarea" />
 ///             <div contenteditable="true" style="border: 1px solid #ccc; padding: 8px; margin-top: 8px;">
 ///                 { "This is a contenteditable div. Typing here won't trigger the callback either." }
 ///             </div>
@@ -56,42 +56,6 @@ where
     use_start_typing_with_options(callback, UseStartTypingOptions::default())
 }
 
-/// A hook that triggers a callback when the user starts typing on the page
-/// without an editable element focused, with custom event type.
-///
-/// This is similar to [`use_start_typing`] but allows specifying a custom event type.
-/// The callback only fires when:
-/// - No editable element (`<input>`, `<textarea>`, or `contenteditable`) is focused
-/// - The pressed key matches the provided event type pattern
-/// - No modifier keys (Ctrl, Alt, Meta) are held
-///
-/// # Example
-///
-/// ```rust
-/// # use yew::prelude::*;
-/// # use log::debug;
-/// #
-/// use yew_hooks::prelude::*;
-///
-/// #[function_component(UseStartTypingWithOptions)]
-/// fn start_typing_with_options() -> Html {
-///     use_start_typing_with_options(
-///         move |event: KeyboardEvent| {
-///             debug!("Started typing with key: {}", event.key());
-///         },
-///         UseStartTypingOptions {
-///             event_type: "keypress".into(),
-///             ..Default::default()
-///         },
-///     );
-///
-///     html! {
-///         <div>
-///             <p>{ "Try typing anywhere on the page (without focusing on an input field)." }</p>
-///         </div>
-///     }
-/// }
-/// ```
 pub struct UseStartTypingOptions {
     /// The keyboard event type to listen for. Default: "keydown"
     pub event_type: Cow<'static, str>,
@@ -154,6 +118,42 @@ impl std::fmt::Debug for UseStartTypingOptions {
     }
 }
 
+/// A hook that triggers a callback when the user starts typing on the page
+/// without an editable element focused, with custom event type.
+///
+/// This is similar to [`use_start_typing`] but allows specifying a custom event type.
+/// The callback only fires when:
+/// - No editable element (`<input>`, `<textarea>`, or `contenteditable`) is focused
+/// - The pressed key matches the provided event type pattern
+/// - No modifier keys (Ctrl, Alt, Meta) are held
+///
+/// # Example
+///
+/// ```rust
+/// # use yew::prelude::*;
+/// # use log::debug;
+/// #
+/// use yew_hooks::prelude::*;
+///
+/// #[function_component(UseStartTypingWithOptions)]
+/// fn start_typing_with_options() -> Html {
+///     use_start_typing_with_options(
+///         move |event: KeyboardEvent| {
+///             debug!("Started typing with key: {}", event.key());
+///         },
+///         UseStartTypingOptions {
+///             event_type: "keypress".into(),
+///             ..Default::default()
+///         },
+///     );
+///
+///     html! {
+///         <div>
+///             <p>{ "Try typing anywhere on the page (without focusing on an input field)." }</p>
+///         </div>
+///     }
+/// }
+/// ```
 #[hook]
 pub fn use_start_typing_with_options<F>(callback: F, options: UseStartTypingOptions)
 where
