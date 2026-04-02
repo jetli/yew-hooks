@@ -8,6 +8,9 @@ use yew::prelude::*;
 
 use super::use_latest;
 
+/// Type alias for key filter function to reduce type complexity
+type KeyFilter = Box<dyn Fn(&str) -> bool>;
+
 /// A hook that triggers a callback when the user starts typing on the page
 /// without an editable element focused.
 ///
@@ -98,7 +101,7 @@ pub struct UseStartTypingOptions {
     pub check_modifiers: bool,
     /// Custom function to determine if a key should trigger the callback.
     /// If not provided, defaults to checking if the key is alphanumeric.
-    pub key_filter: Option<Box<dyn Fn(&str) -> bool>>,
+    pub key_filter: Option<KeyFilter>,
 }
 
 impl Default for UseStartTypingOptions {
