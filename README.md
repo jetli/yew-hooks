@@ -141,6 +141,7 @@ fn counter() -> Html {
 - `use_hovered` - checks if an element is hovered.
 - `use_permission` - tracks browser's permission changes using the `Permissions` API.
 - `use_idle` - tracks whether the user is idle (not interacting with the page).
+- `use_start_typing` - triggers when user starts typing without an editable element focused.
 
 ### UI
 
