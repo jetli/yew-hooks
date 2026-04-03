@@ -105,6 +105,8 @@ pub enum AppRoute {
     UseDrop,
     #[at("/use_media")]
     UseMedia,
+    #[at("/use_media_query")]
+    UseMediaQuery,
     #[at("/use_swipe")]
     UseSwipe,
     #[at("/use_renders_count")]
@@ -204,6 +206,7 @@ pub fn switch(routes: AppRoute) -> Html {
         AppRoute::UseDrag => html! { <UseDrag /> },
         AppRoute::UseDrop => html! { <UseDrop /> },
         AppRoute::UseMedia => html! { <UseMedia /> },
+        AppRoute::UseMediaQuery => html! { <UseMediaQuery /> },
         AppRoute::UseSwipe => html! { <UseSwipe /> },
         AppRoute::UseRendersCount => html! { <UseRendersCount /> },
         AppRoute::UseDefault => html! { <UseDefault /> },
