@@ -17,6 +17,8 @@ pub enum AppRoute {
     About,
     #[at("/use_bool_toggle")]
     UseBoolToggle,
+    #[at("/use_breakpoints")]
+    UseBreakpoints,
     #[at("/use_counter")]
     UseCounter,
     #[at("/use_effect_once")]
@@ -162,6 +164,7 @@ pub fn switch(routes: AppRoute) -> Html {
         AppRoute::Home => html! { <Home /> },
         AppRoute::About => html! { <About /> },
         AppRoute::UseBoolToggle => html! { <UseBoolToggle /> },
+        AppRoute::UseBreakpoints => html! { <UseBreakpoints /> },
         AppRoute::UseCounter => html! { <UseCounter /> },
         AppRoute::UseEffectOnce => html! { <UseEffectOnce /> },
         AppRoute::UseInterval => html! { <UseInterval /> },

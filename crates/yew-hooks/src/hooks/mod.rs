@@ -1,5 +1,6 @@
 mod use_async;
 mod use_before_unload;
+mod use_breakpoints;
 mod use_click_away;
 mod use_clipboard;
 mod use_cookie;
@@ -66,6 +67,7 @@ mod use_window_size;
 
 pub use use_async::*;
 pub use use_before_unload::*;
+pub use use_breakpoints::*;
 pub use use_click_away::*;
 pub use use_clipboard::*;
 pub use use_cookie::*;
