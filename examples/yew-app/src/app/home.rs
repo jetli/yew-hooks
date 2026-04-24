@@ -98,7 +98,9 @@ pub fn home() -> Html {
                         <li><Link<AppRoute> to={AppRoute::UseIdle} classes="text-emerald-800 underline" >{ "use_idle" }</Link<AppRoute>> { " - tracks whether the user is idle (not interacting with the page)." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseStartTyping} classes="text-emerald-800 underline" >{ "use_start_typing" }</Link<AppRoute>> { " - triggers when user starts typing without an editable element focused." }</li>
                         <li><Link<AppRoute> to={AppRoute::UseMediaQuery} classes="text-emerald-800 underline" >{ "use_media_query" }</Link<AppRoute>> { " - tracks if a CSS media query matches (e.g., screen size, dark mode)." }</li>
+                        <li><Link<AppRoute> to={AppRoute::UseBreakpoints} classes="text-emerald-800 underline" >{ "use_breakpoints" }</Link<AppRoute>> { " - tracks the current responsive breakpoint based on window width." }</li>
                     </ul>
+
 
                     <h2 class="text-2xl font-bold">{ "UI" }</h2>
 
